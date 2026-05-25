@@ -1,0 +1,57 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Smithery
+providerId: smithery-ai
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: false
+tags:
+  - MCP
+  - Rate Limits
+  - Registry
+description: Rate-limit surface for the Smithery Platform API as documented publicly. Smithery does not publish
+  a tier-by-tier numeric rate-limit table on its docs site; per-endpoint quotas are subject to plan and may
+  be enforced by the managed gateway. Bearer-token authentication is required for all non-public endpoints.
+sources:
+  - https://smithery.ai/docs
+  - https://smithery.ai/docs/openapi.json
+  - https://smithery.ai/docs/usage/token-scoping
+authentication:
+  type: bearer
+  scheme: Bearer
+  header: Authorization
+  description: API key issued via Smithery account or organization. Service tokens can be created via
+    POST /tokens with per-namespace and per-connection scoping (see token-scoping docs).
+scopes:
+  - name: namespace
+    description: Service tokens can be scoped to a specific namespace.
+  - name: connection
+    description: Service tokens can be scoped to a specific connection within a namespace.
+algorithm: gateway-enforced
+limits:
+  - endpoint: /servers
+    description: Public registry listing endpoint. Unauthenticated reads are heavily cached by the managed
+      gateway; authenticated reads benefit from per-key budgets.
+  - endpoint: /tools
+    description: Cross-server tool search. Backed by registry cache.
+  - endpoint: /skills
+    description: Skills registry listing.
+  - endpoint: /connect/{namespace}/{connectionId}/mcp
+    description: MCP JSON-RPC runtime endpoint. Throughput depends on the upstream MCP server and the
+      Smithery hosting plan when the server is hosted on Smithery.
+  - endpoint: /servers/{qualifiedName}/releases
+    description: Publishing releases via multipart form. File size limits apply to MCPB bundles and icons
+      (icon ≤ 1MB per docs).
+  - endpoint: /servers/{qualifiedName}/icon
+    description: Server icon upload, maximum 1 MB.
+quotas:
+  free:
+    description: External-server listings are free with no documented quota; deployments to Smithery-hosted
+      infrastructure require a paid plan as of 2026-03-01.
+notes:
+  - Smithery does not publish numeric req/min or req/hr limits on its public documentation as of 2026-05-25.
+  - Hosting capacity (bandwidth, concurrent connections, request volume) varies by paid tier — see the
+    Pricing page.
+  - The Connect API's effective rate limits are a function of both Smithery's gateway and the upstream
+    MCP server's own limits.

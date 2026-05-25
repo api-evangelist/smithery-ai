@@ -1,0 +1,81 @@
+rules:
+  info-title-required:
+    description: Info title must be present
+    severity: error
+    given: $.info
+    then: {field: title, function: truthy}
+  info-description-required:
+    description: Info description must be present
+    severity: error
+    given: $.info
+    then: {field: description, function: truthy}
+  info-version-required:
+    description: Info version must be present
+    severity: error
+    given: $.info
+    then: {field: version, function: truthy}
+  servers-required:
+    description: A non-empty servers array must be present
+    severity: error
+    given: $.servers
+    then: {function: truthy}
+  servers-must-target-smithery:
+    description: At least one server URL must point at api.smithery.ai
+    severity: warn
+    given: $.servers[*]
+    then: {field: url, function: pattern, functionOptions: {match: "api\\.smithery\\.ai"}}
+  bearer-auth-required:
+    description: A bearerAuth security scheme must be defined for non-public paths
+    severity: error
+    given: $.components.securitySchemes.bearerAuth
+    then: {function: truthy}
+  operation-operationid-required:
+    description: Every operation must have an operationId
+    severity: error
+    given: $.paths[*][get,post,put,patch,delete]
+    then: {field: operationId, function: truthy}
+  operation-summary-required:
+    description: Every operation must have a summary
+    severity: error
+    given: $.paths[*][get,post,put,patch,delete]
+    then: {field: summary, function: truthy}
+  operation-summary-title-case:
+    description: Operation summaries should use Title Case
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].summary
+    then: {function: pattern, functionOptions: {match: "^[A-Z]"}}
+  operation-tags-required:
+    description: Every operation must have at least one tag
+    severity: error
+    given: $.paths[*][get,post,put,patch,delete]
+    then: {field: tags, function: truthy}
+  response-description-required:
+    description: Every response must have a description
+    severity: error
+    given: $.paths[*][get,post,put,patch,delete].responses[*]
+    then: {field: description, function: truthy}
+  no-empty-descriptions:
+    description: Descriptions must not be empty
+    severity: error
+    given: $..description
+    then: {function: truthy}
+  namespace-path-pattern:
+    description: Namespace-scoped paths should follow /connect/{namespace}/... or /namespaces/{name} conventions
+    severity: hint
+    given: $.paths
+    then: {function: truthy}
+  qualified-name-path-pattern:
+    description: Server paths should use {qualifiedName} as the resource segment
+    severity: hint
+    given: $.paths
+    then: {function: truthy}
+  mcp-rpc-endpoint-shape:
+    description: MCP JSON-RPC endpoint must exist at /connect/{namespace}/{connectionId}/mcp
+    severity: warn
+    given: $.paths
+    then: {function: truthy}
+  trigger-path-pattern:
+    description: Trigger paths should use a leading dot segment (e.g. .triggers, .subscriptions) to distinguish from connection IDs
+    severity: hint
+    given: $.paths
+    then: {function: truthy}

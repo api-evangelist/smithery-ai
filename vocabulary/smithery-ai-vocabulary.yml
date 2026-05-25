@@ -1,0 +1,94 @@
+provider: Smithery
+providerId: smithery-ai
+created: '2026-05-25'
+modified: '2026-05-25'
+description: Vocabulary mapping for the Smithery MCP registry and hosting platform. Captures the platform's
+  core concepts (Server, Connection, Tool, Trigger, Skill, Namespace, Release) and their roles in the
+  Model Context Protocol ecosystem.
+sources:
+  - https://smithery.ai/docs
+  - https://smithery.ai/docs/openapi.json
+  - https://modelcontextprotocol.io
+terms:
+  - term: MCP
+    definition: Model Context Protocol — the open specification (stewarded via modelcontextprotocol.io) for
+      connecting AI agents to tools, resources, and prompts via JSON-RPC.
+  - term: MCP Server
+    definition: A software component that exposes tools, resources, prompts, and triggers to MCP clients
+      via the MCP protocol. Smithery hosts Streamable HTTP servers and distributes stdio servers as MCPB bundles.
+  - term: MCP Client
+    definition: An application (Claude Desktop, Cursor, Continue, custom agent) that connects to MCP servers
+      to expand an agent's tool surface. Smithery provides deep-linking for one-click client integration.
+  - term: Qualified Name
+    definition: A server's globally unique identifier in the form `namespace/server`.
+  - term: Namespace
+    definition: A grouping unit that owns servers, connections, and skills. Owned by a user or an organization.
+  - term: Connection
+    definition: A stateless link between an agent and a hosted MCP server. Created under a namespace, used
+      to execute MCP JSON-RPC via /connect/{namespace}/{connectionId}/mcp.
+  - term: Tool
+    definition: A function exposed by an MCP server, described with a JSON Schema for inputs and (optionally)
+      an inferable Zod schema for outputs. Searchable across the entire registry at /tools.
+  - term: Trigger
+    definition: An event type exposed by an MCP server. Agents subscribe to triggers to receive webhook
+      notifications when the event fires.
+  - term: Subscription
+    definition: A standing registration to receive trigger events. Scoped per-namespace or per-connection.
+  - term: Skill
+    definition: A reusable prompt-based capability backed by a GitHub repository. Installed via
+      `npx skills add` from the Smithery Skills Registry.
+  - term: Release
+    definition: A versioned deployment of an MCP server. Created via PUT /servers/{qualifiedName}/releases
+      with a multipart upload (URL or MCPB bundle). Logs stream via SSE.
+  - term: Gateway
+    definition: Smithery's managed runtime that handles MCP protocol compliance, metadata enrichment,
+      caching, OAuth UI, and credential refresh on behalf of the agent.
+  - term: Uplink
+    definition: A Smithery feature that exposes a local MCP server as a hosted connection without
+      deploying the server itself to Smithery infrastructure.
+  - term: Deep Link
+    definition: A Smithery-issued URL that installs a server into a compatible MCP client (Claude Desktop,
+      Cursor, etc.) in one click.
+  - term: MCPB Bundle
+    definition: A packaged stdio-based MCP server artifact uploaded to Smithery and downloadable via
+      GET /servers/{qualifiedName}/download.
+  - term: Streamable HTTP
+    definition: The HTTP transport variant of MCP that Smithery hosts natively. Servers exposing
+      Streamable HTTP can be published via the URL method.
+  - term: Service Token
+    definition: A machine-to-machine bearer token issued by POST /tokens with optional per-namespace
+      and per-connection scoping.
+  - term: Team API Key
+    definition: An organization-scoped admin API key. Create/list/revoke under
+      /organizations/{orgId}/api-keys; admin role required.
+  - term: Insights
+    definition: Smithery's observability tab. Free for both Smithery-hosted servers and external
+      registered servers.
+  - term: External Server
+    definition: A server hosted on customer infrastructure and registered (free) on Smithery's
+      registry rather than deployed to Smithery's hosting plane.
+relationships:
+  - from: Namespace
+    to: Server
+    relation: contains
+  - from: Namespace
+    to: Connection
+    relation: contains
+  - from: Namespace
+    to: Skill
+    relation: contains
+  - from: Server
+    to: Tool
+    relation: exposes
+  - from: Server
+    to: Trigger
+    relation: exposes
+  - from: Server
+    to: Release
+    relation: hasMany
+  - from: Connection
+    to: Server
+    relation: targets
+  - from: Subscription
+    to: Trigger
+    relation: subscribesTo

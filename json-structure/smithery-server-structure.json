@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "SmitheryServer",
+  "type": "object",
+  "properties": {
+    "qualifiedName": { "type": "string" },
+    "displayName": { "type": "['string', 'null']" },
+    "description": { "type": "['string', 'null']" },
+    "namespace": { "type": "string" },
+    "transport": { "type": "string" },
+    "hosted": { "type": "boolean" },
+    "iconUrl": { "type": "['string', 'null']" },
+    "deployment": { "type": "object" },
+    "domains": { "type": "array" },
+    "tools": { "type": "array" },
+    "triggers": { "type": "array" },
+    "tags": { "type": "array" },
+    "stats": { "type": "object" },
+    "createdAt": { "type": "string" },
+    "updatedAt": { "type": "string" }
+  }
+}

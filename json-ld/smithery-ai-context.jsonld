@@ -1,0 +1,92 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "@vocab": "https://schema.org/",
+    "smithery": "https://api.smithery.ai/v1/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+    "mcp": "https://modelcontextprotocol.io/vocab/",
+
+    "Server": {
+      "@id": "smithery:Server",
+      "@context": {
+        "qualifiedName": { "@id": "smithery:Server/qualifiedName", "@type": "xsd:string" },
+        "displayName": { "@id": "schema:name", "@type": "xsd:string" },
+        "description": { "@id": "schema:description", "@type": "xsd:string" },
+        "homepage": { "@id": "schema:url", "@type": "xsd:anyURI" },
+        "iconUrl": { "@id": "schema:image", "@type": "xsd:anyURI" },
+        "namespace": { "@id": "smithery:Server/namespace", "@type": "xsd:string" },
+        "transport": { "@id": "mcp:transport", "@type": "xsd:string" },
+        "hosted": { "@id": "smithery:Server/hosted", "@type": "xsd:boolean" },
+        "tools": { "@id": "smithery:Server/tools", "@container": "@list" },
+        "triggers": { "@id": "smithery:Server/triggers", "@container": "@list" },
+        "createdAt": { "@id": "dcterms:created", "@type": "xsd:dateTime" },
+        "updatedAt": { "@id": "dcterms:modified", "@type": "xsd:dateTime" }
+      }
+    },
+
+    "Tool": {
+      "@id": "smithery:Tool",
+      "@context": {
+        "name": { "@id": "schema:name", "@type": "xsd:string" },
+        "description": { "@id": "schema:description", "@type": "xsd:string" },
+        "inputSchema": { "@id": "smithery:Tool/inputSchema" },
+        "outputSchema": { "@id": "smithery:Tool/outputSchema" },
+        "category": { "@id": "smithery:Tool/category", "@type": "xsd:string" },
+        "hints": { "@id": "smithery:Tool/hints" }
+      }
+    },
+
+    "Trigger": {
+      "@id": "smithery:Trigger",
+      "@context": {
+        "name": { "@id": "schema:name", "@type": "xsd:string" },
+        "description": { "@id": "schema:description", "@type": "xsd:string" },
+        "schema": { "@id": "smithery:Trigger/schema" }
+      }
+    },
+
+    "Connection": {
+      "@id": "smithery:Connection",
+      "@context": {
+        "connectionId": { "@id": "smithery:Connection/connectionId", "@type": "xsd:string" },
+        "namespace": { "@id": "smithery:Connection/namespace", "@type": "xsd:string" },
+        "server": { "@id": "smithery:Connection/server", "@type": "xsd:string" },
+        "auth": { "@id": "smithery:Connection/auth" },
+        "createdAt": { "@id": "dcterms:created", "@type": "xsd:dateTime" },
+        "lastUsedAt": { "@id": "smithery:Connection/lastUsedAt", "@type": "xsd:dateTime" }
+      }
+    },
+
+    "Skill": {
+      "@id": "smithery:Skill",
+      "@context": {
+        "namespace": { "@id": "smithery:Skill/namespace", "@type": "xsd:string" },
+        "slug": { "@id": "smithery:Skill/slug", "@type": "xsd:string" },
+        "name": { "@id": "schema:name", "@type": "xsd:string" },
+        "description": { "@id": "schema:description", "@type": "xsd:string" },
+        "githubUrl": { "@id": "smithery:Skill/githubUrl", "@type": "xsd:anyURI" }
+      }
+    },
+
+    "Namespace": {
+      "@id": "smithery:Namespace",
+      "@context": {
+        "name": { "@id": "schema:name", "@type": "xsd:string" },
+        "owner": { "@id": "smithery:Namespace/owner" },
+        "type": { "@id": "smithery:Namespace/type", "@type": "xsd:string" }
+      }
+    },
+
+    "Release": {
+      "@id": "smithery:Release",
+      "@context": {
+        "id": { "@id": "smithery:Release/id", "@type": "xsd:string" },
+        "server": { "@id": "smithery:Release/server", "@type": "xsd:string" },
+        "status": { "@id": "smithery:Release/status", "@type": "xsd:string" },
+        "createdAt": { "@id": "dcterms:created", "@type": "xsd:dateTime" }
+      }
+    }
+  }
+}

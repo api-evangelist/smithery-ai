@@ -1,0 +1,32 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.smithery.ai/connect/acme-corp",
+    "headers": {
+      "Authorization": "Bearer sk_smithery_xxx",
+      "content-type": "application/json"
+    },
+    "body": {
+      "server": "smithery-ai/github",
+      "config": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "ghp_xxxxxxxxxxxxxxxxxxxx"
+      }
+    }
+  },
+  "response": {
+    "status": 201,
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "connectionId": "conn_01HQ4Z9G3M7TK8YBA2F0",
+      "namespace": "acme-corp",
+      "server": "smithery-ai/github",
+      "auth": {
+        "type": "apikey",
+        "status": "active"
+      },
+      "createdAt": "2026-05-25T18:42:11Z"
+    }
+  }
+}

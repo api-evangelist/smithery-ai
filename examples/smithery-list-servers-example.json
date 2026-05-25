@@ -1,0 +1,39 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://api.smithery.ai/servers?q=github&page=1&pageSize=10",
+    "headers": {
+      "Authorization": "Bearer sk_smithery_xxx"
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "servers": [
+        {
+          "qualifiedName": "smithery-ai/github",
+          "displayName": "GitHub",
+          "description": "GitHub MCP server — list repos, manage issues, read code, open PRs.",
+          "namespace": "smithery-ai",
+          "transport": "streamable-http",
+          "hosted": true,
+          "iconUrl": "https://api.smithery.ai/servers/smithery-ai/github/icon",
+          "tools": [
+            { "name": "list_repos", "description": "List repositories accessible to the authenticated user." },
+            { "name": "get_issue", "description": "Get a single issue by repo and issue number." },
+            { "name": "create_pull_request", "description": "Open a new pull request." }
+          ],
+          "stats": { "installs": 12483, "calls30d": 91204 },
+          "createdAt": "2025-09-01T00:00:00Z",
+          "updatedAt": "2026-05-24T14:11:00Z"
+        }
+      ],
+      "page": 1,
+      "pageSize": 10,
+      "totalResults": 1
+    }
+  }
+}

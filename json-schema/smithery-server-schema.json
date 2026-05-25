@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/schemas/smithery/smithery-server-schema.json",
+  "title": "Smithery MCP Server",
+  "description": "Schema for the MCP server resource in the Smithery Platform API. A server is identified by its qualifiedName (namespace/server) and exposes one or more tools via the Model Context Protocol. Returned by GET /servers and GET /servers/{qualifiedName}.",
+  "type": "object",
+  "required": ["qualifiedName"],
+  "properties": {
+    "qualifiedName": {
+      "type": "string",
+      "description": "Fully qualified server name in the form `namespace/server`.",
+      "pattern": "^[a-z0-9_-]+/[a-z0-9_-]+$"
+    },
+    "displayName": {
+      "type": "string",
+      "description": "Human-readable display name for the server."
+    },
+    "description": {
+      "type": "string",
+      "description": "Short description of what the server does."
+    },
+    "homepage": {
+      "type": "string",
+      "format": "uri",
+      "description": "Optional homepage URL for the server."
+    },
+    "iconUrl": {
+      "type": "string",
+      "format": "uri",
+      "description": "URL of the server icon (uploaded via PUT /servers/{qualifiedName}/icon, max 1 MB)."
+    },
+    "namespace": {
+      "type": "string",
+      "description": "The namespace under which the server is published."
+    },
+    "owner": {
+      "type": "object",
+      "description": "The user or organization that owns the namespace.",
+      "properties": {
+        "type": { "type": "string", "enum": ["user", "organization"] },
+        "id": { "type": "string" },
+        "name": { "type": "string" }
+      }
+    },
+    "transport": {
+      "type": "string",
+      "enum": ["streamable-http", "stdio", "sse"],
+      "description": "The MCP transport this server uses. Smithery hosts Streamable HTTP servers and distributes stdio servers via MCPB bundles."
+    },
+    "hosted": {
+      "type": "boolean",
+      "description": "Whether the server is hosted on Smithery infrastructure (true) or registered as an external server (false)."
+    },
+    "deployment": {
+      "type": "object",
+      "description": "Latest deployment metadata for the server.",
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "description": "Streamable HTTP endpoint for the server."
+        },
+        "bundleUrl": {
+          "type": "string",
+          "format": "uri",
+          "description": "URL to the MCPB bundle for stdio servers (download via GET /servers/{qualifiedName}/download)."
+        },
+        "version": { "type": "string" },
+        "releaseId": { "type": "string" }
+      }
+    },
+    "domains": {
+      "type": "array",
+      "description": "Custom domains associated with this server.",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "domain": { "type": "string" },
+          "managed": { "type": "boolean" }
+        }
+      }
+    },
+    "tools": {
+      "type": "array",
+      "description": "Tools exposed by the server.",
+      "items": { "$ref": "#/$defs/Tool" }
+    },
+    "triggers": {
+      "type": "array",
+      "description": "Trigger types exposed by the server.",
+      "items": { "$ref": "#/$defs/Trigger" }
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "license": { "type": "string" },
+    "sourceUrl": { "type": "string", "format": "uri" },
+    "stats": {
+      "type": "object",
+      "properties": {
+        "installs": { "type": "integer", "minimum": 0 },
+        "calls30d": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" }
+  },
+  "$defs": {
+    "Tool": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "inputSchema": { "type": "object", "description": "JSON Schema for the tool's input arguments." },
+        "outputSchema": { "type": "object", "description": "Optional Zod-inferable JSON Schema for the tool's output." },
+        "category": { "type": "string" },
+        "hints": {
+          "type": "object",
+          "properties": {
+            "readOnly": { "type": "boolean" },
+            "destructive": { "type": "boolean" },
+            "idempotent": { "type": "boolean" }
+          }
+        }
+      }
+    },
+    "Trigger": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "schema": { "type": "object" }
+      }
+    }
+  }
+}

@@ -1,0 +1,106 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Smithery
+providerId: smithery-ai
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: false
+tags:
+  - MCP
+  - Registry
+  - Hosting
+  - AI Agents
+description: Smithery commercial plan surface as observed publicly. Smithery operates a public registry where
+  external MCP servers can be listed for free, while servers hosted on Smithery infrastructure require a paid
+  plan as of 2026-03-01. Observability insights remain free across both hosted and external servers. Exact
+  per-tier dollar amounts are JS-rendered on smithery.ai/pricing and are not reproduced here verbatim — confirm
+  on the live pricing page.
+sources:
+  - https://smithery.ai/pricing
+  - https://smithery.ai/blog/updates-to-our-hosting-plan
+plans:
+  - id: smithery-external-server
+    name: External Server (Free)
+    type: free
+    description: List a server hosted on your own infrastructure on the Smithery registry. No charge for
+      registration or for keeping the listing live. Observability insights are included for external servers.
+    entries:
+      - label: External MCP server listing
+        name: external-listing
+        type: included
+        metric: server
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+        description: Free registry listing for servers you host yourself.
+      - label: Observability insights
+        name: insights
+        type: included
+        metric: report
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+        description: Insights tab remains free for both hosted and external servers.
+  - id: smithery-hobby
+    name: Hobby
+    type: subscription
+    description: Entry-level paid plan for hosting MCP servers on Smithery infrastructure. Suitable for
+      individual developers and personal projects. See smithery.ai/pricing for current monthly price.
+    entries:
+      - label: Hosted MCP server
+        name: hobby-hosted
+        type: subscription
+        metric: server
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: 'See pricing page'
+        userMultiplied: false
+        description: Monthly subscription for hosting MCP servers on Smithery.
+  - id: smithery-pro
+    name: Pro
+    type: subscription
+    description: Production-grade hosting plan for teams shipping MCP servers to users. See smithery.ai/pricing
+      for the current monthly price.
+    entries:
+      - label: Hosted MCP server (Pro)
+        name: pro-hosted
+        type: subscription
+        metric: server
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: 1
+        price: 'See pricing page'
+        userMultiplied: false
+        description: Higher-quota hosting tier with team features.
+  - id: smithery-custom
+    name: Custom
+    type: enterprise
+    description: Enterprise tier with custom limits, custom domains, organization-scoped API keys, and
+      direct support. Contact Smithery for pricing.
+    entries:
+      - label: Custom / enterprise
+        name: custom
+        type: contract
+        metric: contract
+        limit: -1
+        timeFrame: year
+        geo: global
+        unit: 1
+        price: 'Contact sales'
+        userMultiplied: false
+        description: Enterprise hosting and registry surface with negotiated terms.
+notes:
+  - Free hosted plans were sunsetted on 2026-03-01 per the Smithery blog. New deployments require a paid plan
+    to host on Smithery infrastructure.
+  - External server listings remain free indefinitely.
+  - Smithery is rebuilding hosting infrastructure as of 2026; pricing may change.

@@ -1,0 +1,289 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Smithery Discover and Connect
+  description: 'Discover MCP servers in the Smithery registry and connect agents to them via the managed
+    gateway. Workflow capability covering registry search, tool discovery, connection creation, and MCP
+    JSON-RPC execution against a Smithery-hosted connection.'
+  tags:
+  - Smithery
+  - MCP
+  - Registry
+  - Connections
+  - Agents
+  created: '2026-05-25'
+  modified: '2026-05-25'
+binds:
+- namespace: env
+  keys:
+    SMITHERY_API_KEY: SMITHERY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: smithery-platform
+    baseUri: https://api.smithery.ai
+    description: Smithery Platform API — registry discovery and stateless MCP connection runtime.
+    resources:
+    - name: servers
+      path: /servers
+      operations:
+      - name: listservers
+        method: GET
+        description: Smithery List Or Search MCP Servers
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: q
+          in: query
+          type: string
+          description: Search query
+          required: false
+        - name: page
+          in: query
+          type: integer
+          required: false
+        - name: pageSize
+          in: query
+          type: integer
+          required: false
+    - name: server-by-qualified-name
+      path: /servers/{qualifiedName}
+      operations:
+      - name: getserver
+        method: GET
+        description: Smithery Get A Server
+        outputRawFormat: json
+        inputParameters:
+        - name: qualifiedName
+          in: path
+          type: string
+          required: true
+    - name: tools
+      path: /tools
+      operations:
+      - name: searchtools
+        method: GET
+        description: Smithery Search Tools Across The Registry
+        outputRawFormat: json
+        inputParameters:
+        - name: q
+          in: query
+          type: string
+          required: false
+    - name: skills
+      path: /skills
+      operations:
+      - name: listskills
+        method: GET
+        description: Smithery List Or Search Skills
+        outputRawFormat: json
+        inputParameters:
+        - name: q
+          in: query
+          type: string
+          required: false
+    - name: connections
+      path: /connect/{namespace}
+      operations:
+      - name: createconnection
+        method: POST
+        description: Smithery Create Connection With Generated ID
+        outputRawFormat: json
+        inputParameters:
+        - name: namespace
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          required: true
+      - name: listconnections
+        method: GET
+        description: Smithery List Connections In A Namespace
+        outputRawFormat: json
+        inputParameters:
+        - name: namespace
+          in: path
+          type: string
+          required: true
+    - name: connection
+      path: /connect/{namespace}/{connectionId}
+      operations:
+      - name: upsertconnection
+        method: PUT
+        description: Smithery Create Or Update Connection
+        outputRawFormat: json
+        inputParameters:
+        - name: namespace
+          in: path
+          type: string
+          required: true
+        - name: connectionId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          required: true
+      - name: getconnection
+        method: GET
+        description: Smithery Get Connection
+        outputRawFormat: json
+        inputParameters:
+        - name: namespace
+          in: path
+          type: string
+          required: true
+        - name: connectionId
+          in: path
+          type: string
+          required: true
+      - name: deleteconnection
+        method: DELETE
+        description: Smithery Delete Connection
+        outputRawFormat: json
+        inputParameters:
+        - name: namespace
+          in: path
+          type: string
+          required: true
+        - name: connectionId
+          in: path
+          type: string
+          required: true
+    - name: connection-mcp-rpc
+      path: /connect/{namespace}/{connectionId}/mcp
+      operations:
+      - name: invokemcp
+        method: POST
+        description: Smithery MCP JSON-RPC Endpoint
+        outputRawFormat: json
+        inputParameters:
+        - name: namespace
+          in: path
+          type: string
+          required: true
+        - name: connectionId
+          in: path
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: JSON-RPC envelope (method, params, id).
+          required: true
+    authentication:
+      type: bearer
+      key: Authorization
+      value: 'Bearer {{env.SMITHERY_API_KEY}}'
+      placement: header
+  exposes:
+  - type: mcp
+    namespace: smithery-discover-connect-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for the Smithery discover-and-connect workflow.
+    tools:
+    - name: smithery-list-servers
+      description: Smithery List Or Search MCP Servers
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: smithery-platform.listservers
+      with:
+        q: tools.q
+        page: tools.page
+        pageSize: tools.pageSize
+    - name: smithery-get-server
+      description: Smithery Get A Server
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: smithery-platform.getserver
+      with:
+        qualifiedName: tools.qualifiedName
+    - name: smithery-search-tools
+      description: Smithery Search Tools Across The Registry
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: smithery-platform.searchtools
+      with:
+        q: tools.q
+    - name: smithery-list-skills
+      description: Smithery List Or Search Skills
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: smithery-platform.listskills
+      with:
+        q: tools.q
+    - name: smithery-create-connection
+      description: Smithery Create Connection With Generated ID
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: smithery-platform.createconnection
+      with:
+        namespace: tools.namespace
+        body: tools.body
+    - name: smithery-list-connections
+      description: Smithery List Connections In A Namespace
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: smithery-platform.listconnections
+      with:
+        namespace: tools.namespace
+    - name: smithery-upsert-connection
+      description: Smithery Create Or Update Connection
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: smithery-platform.upsertconnection
+      with:
+        namespace: tools.namespace
+        connectionId: tools.connectionId
+        body: tools.body
+    - name: smithery-get-connection
+      description: Smithery Get Connection
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: smithery-platform.getconnection
+      with:
+        namespace: tools.namespace
+        connectionId: tools.connectionId
+    - name: smithery-delete-connection
+      description: Smithery Delete Connection
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: smithery-platform.deleteconnection
+      with:
+        namespace: tools.namespace
+        connectionId: tools.connectionId
+    - name: smithery-mcp-invoke
+      description: Smithery MCP JSON-RPC Endpoint
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: smithery-platform.invokemcp
+      with:
+        namespace: tools.namespace
+        connectionId: tools.connectionId
+        body: tools.body

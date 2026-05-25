@@ -1,0 +1,38 @@
+{
+  "request": {
+    "method": "POST",
+    "url": "https://api.smithery.ai/connect/acme-corp/conn_01HQ4Z9G3M7TK8YBA2F0/mcp",
+    "headers": {
+      "Authorization": "Bearer sk_smithery_xxx",
+      "content-type": "application/json"
+    },
+    "body": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "method": "tools/call",
+      "params": {
+        "name": "list_repos",
+        "arguments": { "owner": "smithery-ai" }
+      }
+    }
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "jsonrpc": "2.0",
+      "id": 1,
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "[{\"name\":\"cli\",\"stars\":730},{\"name\":\"agent.pw\",\"stars\":30}]"
+          }
+        ],
+        "isError": false
+      }
+    }
+  }
+}

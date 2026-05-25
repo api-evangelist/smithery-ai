@@ -1,0 +1,81 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Smithery
+providerId: smithery-ai
+created: '2026-05-25'
+modified: '2026-05-25'
+reconciled: false
+tags:
+  - FinOps
+  - Cost Management
+  - FOCUS
+  - MCP
+  - Hosting
+description: FOCUS-aligned FinOps definition for the Smithery MCP server registry and hosting platform.
+  Smithery bills on a subscription basis for hosted MCP servers; external server registry listings and
+  observability insights are free. Exact per-tier dollar amounts are JS-rendered on the public pricing page.
+sources:
+  - https://smithery.ai/pricing
+  - https://smithery.ai/blog/updates-to-our-hosting-plan
+  - https://smithery.ai/docs
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Smithery
+serviceCategory: Developer Platform
+billingModel:
+  pricingCategory: Subscription
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+    - Usage
+    - Purchase
+    - Tax
+    - Credit
+    - Adjustment
+  primaryUnit: server-month
+  secondaryUnits:
+    - connection
+    - request
+focusColumns:
+  ServiceName: Smithery Platform
+  ServiceCategory: Developer Tools
+  ProviderName: Smithery
+  PublisherName: Smithery
+  InvoiceIssuerName: Smithery
+  PricingCategory: Subscription
+  ChargeCategory: Usage
+  ChargeClass: Standard
+  CommitmentDiscountCategory: None
+  PricingUnit: server-month
+  ConsumedUnit: server-month
+  ConsumedQuantity: count
+  ListUnitPrice: tier-dependent
+  BilledCost: USD
+  EffectiveCost: USD
+  Region: global
+costDimensions:
+  - name: hosted-mcp-server
+    description: Per-server subscription on Hobby, Pro, or Custom hosting plans.
+  - name: external-registry-listing
+    description: Free — external servers listed on Smithery's public registry have no associated cost.
+  - name: observability-insights
+    description: Free for both hosted and external servers.
+  - name: bandwidth
+    description: Bandwidth usage may apply to high-traffic hosted servers on Pro/Custom plans.
+discounts:
+  - name: free-external-listing
+    description: Servers hosted on customer-owned infrastructure can be listed on Smithery's public
+      registry for free, with free observability insights.
+chargebackKeys:
+  - namespace
+  - organization
+  - server
+notes:
+  - As of 2026-03-01 Smithery sunsetted its free hosted plan. New hosted deployments require a paid plan.
+  - Observability insights remain free across all hosting modes.
+  - Custom/enterprise contracts may layer in negotiated billing terms not captured here.

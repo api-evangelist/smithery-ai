@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "SmitheryConnection",
+  "type": "object",
+  "properties": {
+    "connectionId": { "type": "string" },
+    "namespace": { "type": "string" },
+    "server": { "type": "string" },
+    "config": { "type": "object" },
+    "auth": { "type": "object" },
+    "createdAt": { "type": "string" },
+    "updatedAt": { "type": "string" },
+    "lastUsedAt": { "type": "['string', 'null']" }
+  }
+}

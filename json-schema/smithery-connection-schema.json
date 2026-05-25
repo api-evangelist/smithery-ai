@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/schemas/smithery/smithery-connection-schema.json",
+  "title": "Smithery Connection",
+  "description": "Schema for a Smithery connection — a stateless, namespace-scoped link between an agent and a hosted MCP server. Created and managed via /connect/{namespace}. Used as the target for MCP JSON-RPC at /connect/{namespace}/{connectionId}/mcp.",
+  "type": "object",
+  "required": ["connectionId", "namespace", "server"],
+  "properties": {
+    "connectionId": {
+      "type": "string",
+      "description": "Unique identifier for the connection within the namespace. Auto-generated on POST or specified on PUT."
+    },
+    "namespace": {
+      "type": "string",
+      "description": "Namespace that owns this connection."
+    },
+    "server": {
+      "type": "string",
+      "description": "Qualified name of the MCP server this connection targets."
+    },
+    "config": {
+      "type": "object",
+      "description": "Per-connection configuration values (API keys, parameters) prompted via Smithery's OAuth UI modals. Credentials are encrypted at rest."
+    },
+    "auth": {
+      "type": "object",
+      "description": "Auth state for the connection. Smithery handles OAuth refresh automatically.",
+      "properties": {
+        "type": { "type": "string", "enum": ["none", "apikey", "oauth2"] },
+        "status": { "type": "string", "enum": ["pending", "active", "expired"] },
+        "expiresAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "lastUsedAt": { "type": "string", "format": "date-time" }
+  }
+}
