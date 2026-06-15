@@ -1,289 +1,286 @@
 aid: smithery-ai
 url: https://raw.githubusercontent.com/api-evangelist/smithery-ai/refs/heads/main/apis.yml
 apis:
-- aid: smithery-ai:smithery-registry-api
-  name: Smithery Registry API
-  tags:
-  - MCP
-  - Registry
-  - Servers
-  - Skills
-  - Tools
-  - AI
-  - Agents
-  humanURL: https://smithery.ai/docs
-  baseURL: https://api.smithery.ai
-  properties:
-  - url: https://smithery.ai/docs
-    type: Documentation
-  - url: https://smithery.ai/docs/openapi.json
-    type: OpenAPI
-  - url: openapi/smithery-registry-api-openapi.yml
-    type: OpenAPI
-  - url: json-schema/smithery-server-schema.json
-    type: JSONSchema
-  - url: json-structure/smithery-server-structure.json
-    type: JSONStructure
-  - url: json-ld/smithery-ai-context.jsonld
-    type: JSONLD
-  - url: vocabulary/smithery-ai-vocabulary.yml
-    type: Vocabulary
-  - url: rules/smithery-ai-rules.yml
-    type: Spectral
-  description: Discover, publish, and manage MCP (Model Context Protocol) servers and Agent Skills on Smithery.
-    Browse the public registry of thousands of MCP servers, search tools across servers, publish your own
-    server releases (URL or MCPB bundle), manage release logs and runtime logs, set server secrets, manage
-    custom domains, create namespaces, manage organization API keys, and mint scoped service tokens for
-    machine-to-machine access.
-- aid: smithery-ai:smithery-connect-api
-  name: Smithery Connect API
-  tags:
-  - MCP
-  - Connections
-  - Triggers
-  - Webhooks
-  - AI
-  - Agents
-  humanURL: https://smithery.ai/docs/usage/connect
-  baseURL: https://api.smithery.ai
-  properties:
-  - url: https://smithery.ai/docs/usage/connect
-    type: Documentation
-  - url: openapi/smithery-connect-api-openapi.yml
-    type: OpenAPI
-  - url: json-schema/smithery-connection-schema.json
-    type: JSONSchema
-  - url: json-structure/smithery-connection-structure.json
-    type: JSONStructure
-  - type: NaftikoCapability
-    url: capabilities/discover-and-connect.yaml
-  description: Connect AI agents to any MCP server hosted on Smithery without managing OAuth flows, credential
-    storage, or session state. Create stateless connections under a namespace, execute MCP JSON-RPC against
-    a Smithery-managed gateway, list and call tools, manage trigger definitions exposed by a server, and
-    subscribe (or unsubscribe) to trigger events that fire as webhooks. The Connect API is the runtime
-    counterpart to the Registry — it is how agents actually talk to the servers they discover.
+  - aid: smithery-ai:smithery-registry-api
+    name: Smithery Registry API
+    tags:
+      - MCP
+      - Registry
+      - Servers
+      - Skills
+      - Tools
+      - AI
+      - Agents
+    humanURL: https://smithery.ai/docs
+    baseURL: https://api.smithery.ai
+    properties:
+      - url: https://smithery.ai/docs
+        type: Documentation
+      - url: https://smithery.ai/docs/openapi.json
+        type: OpenAPI
+      - url: openapi/smithery-registry-api-openapi.yml
+        type: OpenAPI
+      - url: json-schema/smithery-server-schema.json
+        type: JSONSchema
+      - url: json-structure/smithery-server-structure.json
+        type: JSONStructure
+      - url: json-ld/smithery-ai-context.jsonld
+        type: JSONLD
+      - url: vocabulary/smithery-ai-vocabulary.yml
+        type: Vocabulary
+      - url: rules/smithery-ai-rules.yml
+        type: Spectral
+    description: >-
+      Discover, publish, and manage MCP (Model Context Protocol) servers and Agent Skills on Smithery. Browse the public
+      registry of thousands of MCP servers, search tools across servers, publish your own server releases (URL or MCPB
+      bundle), manage release logs and runtime logs, set server secrets, manage custom domains, create namespaces,
+      manage organization API keys, and mint scoped service tokens for machine-to-machine access.
+  - aid: smithery-ai:smithery-connect-api
+    name: Smithery Connect API
+    tags:
+      - MCP
+      - Connections
+      - Triggers
+      - Webhooks
+      - AI
+      - Agents
+    humanURL: https://smithery.ai/docs/usage/connect
+    baseURL: https://api.smithery.ai
+    properties:
+      - url: https://smithery.ai/docs/usage/connect
+        type: Documentation
+      - url: openapi/smithery-connect-api-openapi.yml
+        type: OpenAPI
+      - url: json-schema/smithery-connection-schema.json
+        type: JSONSchema
+      - url: json-structure/smithery-connection-structure.json
+        type: JSONStructure
+    description: >-
+      Connect AI agents to any MCP server hosted on Smithery without managing OAuth flows, credential storage, or
+      session state. Create stateless connections under a namespace, execute MCP JSON-RPC against a Smithery-managed
+      gateway, list and call tools, manage trigger definitions exposed by a server, and subscribe (or unsubscribe) to
+      trigger events that fire as webhooks. The Connect API is the runtime counterpart to the Registry — it is how
+      agents actually talk to the servers they discover.
 name: Smithery
 tags:
-- AI
-- Agents
-- MCP
-- Model Context Protocol
-- Registry
-- Hosting
-- Tools
-- Skills
-- Marketplace
-- Developer Platform
+  - AI
+  - Agents
+  - MCP
+  - Model Context Protocol
+  - Registry
+  - Hosting
+  - Tools
+  - Skills
+  - Marketplace
+  - Developer Platform
 kind: contract
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 common:
-- url: https://smithery.ai
-  type: Portal
-- url: https://smithery.ai/docs
-  name: Smithery Documentation
-  type: Documentation
-- url: https://smithery.ai/docs/main
-  name: Introduction
-  type: GettingStarted
-- url: https://smithery.ai/docs/openapi.json
-  name: Smithery Platform OpenAPI
-  type: OpenAPI
-- url: https://smithery.ai/docs/llms.txt
-  name: Docs index (llms.txt)
-  type: Documentation
-- url: https://smithery.ai/docs/mcp
-  name: Docs MCP Server
-  type: Documentation
-- url: https://smithery.ai/docs/concepts/what_is_mcp
-  name: What is MCP
-  type: Documentation
-- url: https://smithery.ai/docs/concepts/namespaces
-  name: Namespaces
-  type: Documentation
-- url: https://smithery.ai/docs/concepts/cli
-  name: Smithery CLI
-  type: Documentation
-- url: https://smithery.ai/docs/build
-  name: Publish MCP Servers
-  type: Documentation
-- url: https://smithery.ai/docs/build/publish
-  name: Publishing Guide
-  type: Documentation
-- url: https://smithery.ai/docs/build/triggers
-  name: Triggers
-  type: Documentation
-- url: https://smithery.ai/docs/usage/connect
-  name: Connect API Usage
-  type: Documentation
-- url: https://smithery.ai/docs/usage/deep-linking
-  name: Deep Linking
-  type: Documentation
-- url: https://smithery.ai/docs/usage/uplink
-  name: Uplink (Local Server Exposure)
-  type: Documentation
-- url: https://smithery.ai/docs/usage/token-scoping
-  name: Token Scoping
-  type: Documentation
-- url: https://smithery.ai/docs/usage/listing_your_client
-  name: Listing Your Client
-  type: Documentation
-- url: https://smithery.ai/docs/integrations/vercel_ai_sdk
-  name: Vercel AI SDK Integration
-  type: Documentation
-- url: https://smithery.ai/docs/cookbooks/typescript_oauth_client
-  name: TypeScript OAuth Client Cookbook
-  type: CodeExamples
-- url: https://github.com/smithery-ai
-  name: Smithery on GitHub
-  type: GitHubOrganization
-- url: https://github.com/smithery-ai/cli
-  name: Smithery CLI
-  type: CLI
-- url: https://github.com/smithery-ai/runner
-  name: smithery runner (local MCP launcher)
-  type: Tool
-- url: https://github.com/smithery-ai/typescript-api
-  name: TypeScript API client
-  type: SDK
-- url: https://github.com/smithery-ai/registry
-  name: Smithery Registry (public)
-  type: Tool
-- url: https://github.com/smithery-ai/smithery-cli-mcp
-  name: Official MCP server for Smithery CLI
-  type: Tool
-- url: https://github.com/smithery-ai/smithery-cookbook
-  name: Smithery Cookbook
-  type: CodeExamples
-- url: https://github.com/smithery-ai/mcp-chat
-  name: mcp-chat (reference chat client)
-  type: Tool
-- url: https://github.com/smithery-ai/agent.pw
-  name: agent.pw (share APIs with agents without sharing secrets)
-  type: Tool
-- url: https://github.com/smithery-ai/mouseless
-  name: mouseless (Rust MCP server for macOS desktop control)
-  type: Tool
-- url: https://github.com/smithery-ai/render-markdown
-  name: render-markdown
-  type: Tool
-- url: https://github.com/smithery-ai/mcp-to-cli
-  name: mcp-to-cli (expose MCP servers as CLIs)
-  type: Tool
-- url: https://github.com/smithery-ai/migration-guide-mcp
-  name: STDIO to Streamable HTTP migration MCP
-  type: Tool
-- url: https://github.com/smithery-ai/agent-hook
-  name: agent-hook (install Claude Code hooks from GitHub)
-  type: Tool
-- url: https://github.com/smithery-ai/homebrew-smithery
-  name: Homebrew tap
-  type: Documentation
-- url: https://github.com/smithery-ai/scoop-smithery
-  name: Scoop bucket
-  type: Documentation
-- url: https://github.com/smithery-ai/skills
-  name: Smithery skills
-  type: Tool
-- url: https://github.com/smithery-ai/hylo
-  name: hylo (workflow engine)
-  type: Tool
-- url: https://github.com/smithery-ai/hylo-plugins
-  name: hylo plugins (managed-agent, cloud-claude)
-  type: Plugins
-- url: https://github.com/smithery-ai/mouseless
-  name: mouseless
-  type: Tool
-- url: https://github.com/smithery-ai/familysearch-mcp
-  name: FamilySearch MCP server
-  type: Tool
-- url: https://github.com/smithery-ai/mcp-server-7
-  name: DevRev MCP server
-  type: Tool
-- url: https://github.com/smithery-ai/mcp-multilspy
-  name: mcp-multilspy
-  type: Tool
-- url: https://github.com/smithery-ai/mcp-oauth-debug
-  name: mcp-oauth-debug
-  type: Tool
-- url: https://github.com/smithery-ai/openchat
-  name: openchat
-  type: Tool
-- url: https://github.com/smithery-ai/okay-error
-  name: okay-error
-  type: Tool
-- url: https://github.com/smithery-ai/workers-biscuit
-  name: Biscuit tokens for Cloudflare Workers
-  type: Tool
-- url: https://github.com/smithery-ai/rfm
-  name: Request For MCPs
-  type: Documentation
-- url: https://github.com/modelcontextprotocol
-  name: Model Context Protocol
-  type: Documentation
-- url: https://modelcontextprotocol.io
-  name: MCP specification
-  type: Documentation
-- url: https://smithery.ai/pricing
-  name: Pricing
-  type: Pricing
-- url: https://plans/smithery-ai-plans-pricing.yml
-  type: Plans
-- url: https://rate-limits/smithery-ai-rate-limits.yml
-  type: RateLimits
-- url: https://finops/smithery-ai-finops.yml
-  type: FinOps
-- type: NaftikoCapability
-  url: capabilities/discover-and-connect.yaml
-- type: Features
-  data:
-  - Public MCP server registry with thousands of community-published MCP servers
-  - Server publishing via URL (Streamable HTTP) or MCPB bundle for stdio-based servers
-  - Managed gateway handling MCP protocol compliance, metadata enrichment, and caching
-  - Auto-generated OAuth UI modals for servers requiring API keys or user configuration
-  - Stateless Connect API — agents talk to MCP servers without holding session state client-side
-  - Zero OAuth setup with encrypted credential storage and automatic credential refresh
-  - Skills Registry — reusable prompt-based skills installable via `npx skills add`
-  - Namespaces for grouping servers, connections, and skills under a user or organization
-  - Triggers — expose MCP server events as webhooks; manage subscriptions per-connection or per-namespace
-  - Uplink — expose a local MCP server as a hosted connection without deploying it
-  - Deep linking for one-click client integration (Claude Desktop, Cursor, Continue, etc.)
-  - Scoped service tokens for machine-to-machine access with per-namespace and per-connection scoping
-  - Team API keys with admin-only create/list/revoke flow under organization namespaces
-  - Custom domains for hosted MCP servers, managed at the registry level
-  - Per-server secrets management for storing API keys and credentials used at runtime
-  - Release management with logs, streaming SSE log feed, and resume-on-paused-release support
-  - Runtime log retrieval for hosted MCP servers
-  - MCP JSON-RPC endpoint exposed per connection at /connect/{namespace}/{connectionId}/mcp
-  - Cross-server tool search at /tools — find any tool across the entire registry
-  - Smithery CLI (`smithery`) installable via npm, Homebrew, or Scoop for managing MCP servers and skills
-  - smithery runner — local MCP launcher for stdio servers
-  - smithery-cli-mcp — official MCP server for the Smithery CLI itself
-  - TypeScript API client (Apache-2.0)
-  - Integration with Vercel AI SDK, Claude Desktop, Cursor, Continue, and any MCP-compatible client
-  - agent.pw — share APIs with agents without sharing secrets
-  - mouseless — Rust MCP server for macOS desktop control
-  - hylo workflow engine with hylo-plugins for managed-agent and cloud-claude
-  sources:
-  - https://smithery.ai/docs
-  - https://smithery.ai/docs/openapi.json
-  - https://smithery.ai/docs/llms.txt
-  - https://github.com/smithery-ai
-  - https://github.com/smithery-ai/cli
-  updated: '2026-05-25'
+  - url: https://smithery.ai
+    type: Portal
+  - url: https://smithery.ai/docs
+    name: Smithery Documentation
+    type: Documentation
+  - url: https://smithery.ai/docs/main
+    name: Introduction
+    type: GettingStarted
+  - url: https://smithery.ai/docs/openapi.json
+    name: Smithery Platform OpenAPI
+    type: OpenAPI
+  - url: https://smithery.ai/docs/llms.txt
+    name: Docs index (llms.txt)
+    type: Documentation
+  - url: https://smithery.ai/docs/mcp
+    name: Docs MCP Server
+    type: Documentation
+  - url: https://smithery.ai/docs/concepts/what_is_mcp
+    name: What is MCP
+    type: Documentation
+  - url: https://smithery.ai/docs/concepts/namespaces
+    name: Namespaces
+    type: Documentation
+  - url: https://smithery.ai/docs/concepts/cli
+    name: Smithery CLI
+    type: Documentation
+  - url: https://smithery.ai/docs/build
+    name: Publish MCP Servers
+    type: Documentation
+  - url: https://smithery.ai/docs/build/publish
+    name: Publishing Guide
+    type: Documentation
+  - url: https://smithery.ai/docs/build/triggers
+    name: Triggers
+    type: Documentation
+  - url: https://smithery.ai/docs/usage/connect
+    name: Connect API Usage
+    type: Documentation
+  - url: https://smithery.ai/docs/usage/deep-linking
+    name: Deep Linking
+    type: Documentation
+  - url: https://smithery.ai/docs/usage/uplink
+    name: Uplink (Local Server Exposure)
+    type: Documentation
+  - url: https://smithery.ai/docs/usage/token-scoping
+    name: Token Scoping
+    type: Documentation
+  - url: https://smithery.ai/docs/usage/listing_your_client
+    name: Listing Your Client
+    type: Documentation
+  - url: https://smithery.ai/docs/integrations/vercel_ai_sdk
+    name: Vercel AI SDK Integration
+    type: Documentation
+  - url: https://smithery.ai/docs/cookbooks/typescript_oauth_client
+    name: TypeScript OAuth Client Cookbook
+    type: CodeExamples
+  - url: https://github.com/smithery-ai
+    name: Smithery on GitHub
+    type: GitHubOrganization
+  - url: https://github.com/smithery-ai/cli
+    name: Smithery CLI
+    type: CLI
+  - url: https://github.com/smithery-ai/runner
+    name: smithery runner (local MCP launcher)
+    type: Tool
+  - url: https://github.com/smithery-ai/typescript-api
+    name: TypeScript API client
+    type: SDK
+  - url: https://github.com/smithery-ai/registry
+    name: Smithery Registry (public)
+    type: Tool
+  - url: https://github.com/smithery-ai/smithery-cli-mcp
+    name: Official MCP server for Smithery CLI
+    type: Tool
+  - url: https://github.com/smithery-ai/smithery-cookbook
+    name: Smithery Cookbook
+    type: CodeExamples
+  - url: https://github.com/smithery-ai/mcp-chat
+    name: mcp-chat (reference chat client)
+    type: Tool
+  - url: https://github.com/smithery-ai/agent.pw
+    name: agent.pw (share APIs with agents without sharing secrets)
+    type: Tool
+  - url: https://github.com/smithery-ai/mouseless
+    name: mouseless (Rust MCP server for macOS desktop control)
+    type: Tool
+  - url: https://github.com/smithery-ai/render-markdown
+    name: render-markdown
+    type: Tool
+  - url: https://github.com/smithery-ai/mcp-to-cli
+    name: mcp-to-cli (expose MCP servers as CLIs)
+    type: Tool
+  - url: https://github.com/smithery-ai/migration-guide-mcp
+    name: STDIO to Streamable HTTP migration MCP
+    type: Tool
+  - url: https://github.com/smithery-ai/agent-hook
+    name: agent-hook (install Claude Code hooks from GitHub)
+    type: Tool
+  - url: https://github.com/smithery-ai/homebrew-smithery
+    name: Homebrew tap
+    type: Documentation
+  - url: https://github.com/smithery-ai/scoop-smithery
+    name: Scoop bucket
+    type: Documentation
+  - url: https://github.com/smithery-ai/skills
+    name: Smithery skills
+    type: Tool
+  - url: https://github.com/smithery-ai/hylo
+    name: hylo (workflow engine)
+    type: Tool
+  - url: https://github.com/smithery-ai/hylo-plugins
+    name: hylo plugins (managed-agent, cloud-claude)
+    type: Plugins
+  - url: https://github.com/smithery-ai/mouseless
+    name: mouseless
+    type: Tool
+  - url: https://github.com/smithery-ai/familysearch-mcp
+    name: FamilySearch MCP server
+    type: Tool
+  - url: https://github.com/smithery-ai/mcp-server-7
+    name: DevRev MCP server
+    type: Tool
+  - url: https://github.com/smithery-ai/mcp-multilspy
+    name: mcp-multilspy
+    type: Tool
+  - url: https://github.com/smithery-ai/mcp-oauth-debug
+    name: mcp-oauth-debug
+    type: Tool
+  - url: https://github.com/smithery-ai/openchat
+    name: openchat
+    type: Tool
+  - url: https://github.com/smithery-ai/okay-error
+    name: okay-error
+    type: Tool
+  - url: https://github.com/smithery-ai/workers-biscuit
+    name: Biscuit tokens for Cloudflare Workers
+    type: Tool
+  - url: https://github.com/smithery-ai/rfm
+    name: Request For MCPs
+    type: Documentation
+  - url: https://github.com/modelcontextprotocol
+    name: Model Context Protocol
+    type: Documentation
+  - url: https://modelcontextprotocol.io
+    name: MCP specification
+    type: Documentation
+  - url: https://smithery.ai/pricing
+    name: Pricing
+    type: Pricing
+  - url: https://plans/smithery-ai-plans-pricing.yml
+    type: Plans
+  - url: https://rate-limits/smithery-ai-rate-limits.yml
+    type: RateLimits
+  - url: https://finops/smithery-ai-finops.yml
+    type: FinOps
+  - type: Features
+    data:
+      - Public MCP server registry with thousands of community-published MCP servers
+      - Server publishing via URL (Streamable HTTP) or MCPB bundle for stdio-based servers
+      - Managed gateway handling MCP protocol compliance, metadata enrichment, and caching
+      - Auto-generated OAuth UI modals for servers requiring API keys or user configuration
+      - Stateless Connect API — agents talk to MCP servers without holding session state client-side
+      - Zero OAuth setup with encrypted credential storage and automatic credential refresh
+      - Skills Registry — reusable prompt-based skills installable via `npx skills add`
+      - Namespaces for grouping servers, connections, and skills under a user or organization
+      - Triggers — expose MCP server events as webhooks; manage subscriptions per-connection or per-namespace
+      - Uplink — expose a local MCP server as a hosted connection without deploying it
+      - Deep linking for one-click client integration (Claude Desktop, Cursor, Continue, etc.)
+      - Scoped service tokens for machine-to-machine access with per-namespace and per-connection scoping
+      - Team API keys with admin-only create/list/revoke flow under organization namespaces
+      - Custom domains for hosted MCP servers, managed at the registry level
+      - Per-server secrets management for storing API keys and credentials used at runtime
+      - Release management with logs, streaming SSE log feed, and resume-on-paused-release support
+      - Runtime log retrieval for hosted MCP servers
+      - MCP JSON-RPC endpoint exposed per connection at /connect/{namespace}/{connectionId}/mcp
+      - Cross-server tool search at /tools — find any tool across the entire registry
+      - Smithery CLI (`smithery`) installable via npm, Homebrew, or Scoop for managing MCP servers and skills
+      - smithery runner — local MCP launcher for stdio servers
+      - smithery-cli-mcp — official MCP server for the Smithery CLI itself
+      - TypeScript API client (Apache-2.0)
+      - Integration with Vercel AI SDK, Claude Desktop, Cursor, Continue, and any MCP-compatible client
+      - agent.pw — share APIs with agents without sharing secrets
+      - mouseless — Rust MCP server for macOS desktop control
+      - hylo workflow engine with hylo-plugins for managed-agent and cloud-claude
+    sources:
+      - https://smithery.ai/docs
+      - https://smithery.ai/docs/openapi.json
+      - https://smithery.ai/docs/llms.txt
+      - https://github.com/smithery-ai
+      - https://github.com/smithery-ai/cli
+    updated: '2026-05-25'
 created: '2026-05-25'
 modified: '2026-05-25'
 position: Producing
-description: Smithery is an MCP server registry and hosting platform that lets developers discover, publish,
-  and connect to Model Context Protocol servers from any AI agent. The platform combines a public registry of
-  thousands of community MCP servers with a managed gateway that handles OAuth, credential storage, session
-  state, protocol compliance, and webhook triggers — so agents can call tools across servers via a single
-  stateless Connect API. Smithery also distributes a CLI, a TypeScript API client, a local runner, a Skills
-  Registry, deep-linking integrations for popular MCP clients (Claude Desktop, Cursor, Continue), and uplink
-  support for exposing local servers as hosted connections.
+description: >-
+  Smithery is an MCP server registry and hosting platform that lets developers discover, publish, and connect to Model
+  Context Protocol servers from any AI agent. The platform combines a public registry of thousands of community MCP
+  servers with a managed gateway that handles OAuth, credential storage, session state, protocol compliance, and webhook
+  triggers — so agents can call tools across servers via a single stateless Connect API. Smithery also distributes a
+  CLI, a TypeScript API client, a local runner, a Skills Registry, deep-linking integrations for popular MCP clients
+  (Claude Desktop, Cursor, Continue), and uplink support for exposing local servers as hosted connections.
 maintainers:
-- FN: Kin Lane
-  email: info@apievangelist.com
-  X: apievangelist
-  url: https://apievangelist.com
+  - FN: Kin Lane
+    email: info@apievangelist.com
+    X: apievangelist
+    url: https://apievangelist.com
 specificationVersion: '0.16'
