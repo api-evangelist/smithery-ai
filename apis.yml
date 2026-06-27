@@ -141,40 +141,40 @@ common:
     type: CLI
   - url: https://github.com/smithery-ai/runner
     name: smithery runner (local MCP launcher)
-    type: Tool
+    type: Tools
   - url: https://github.com/smithery-ai/typescript-api
     name: TypeScript API client
-    type: SDK
+    type: SDKs
   - url: https://github.com/smithery-ai/registry
     name: Smithery Registry (public)
-    type: Tool
+    type: Tools
   - url: https://github.com/smithery-ai/smithery-cli-mcp
     name: Official MCP server for Smithery CLI
-    type: Tool
+    type: Tools
   - url: https://github.com/smithery-ai/smithery-cookbook
     name: Smithery Cookbook
     type: CodeExamples
   - url: https://github.com/smithery-ai/mcp-chat
     name: mcp-chat (reference chat client)
-    type: Tool
+    type: Tools
   - url: https://github.com/smithery-ai/agent.pw
     name: agent.pw (share APIs with agents without sharing secrets)
-    type: Tool
+    type: Tools
   - url: https://github.com/smithery-ai/mouseless
     name: mouseless (Rust MCP server for macOS desktop control)
-    type: Tool
+    type: Tools
   - url: https://github.com/smithery-ai/render-markdown
     name: render-markdown
-    type: Tool
+    type: Tools
   - url: https://github.com/smithery-ai/mcp-to-cli
     name: mcp-to-cli (expose MCP servers as CLIs)
-    type: Tool
+    type: Tools
   - url: https://github.com/smithery-ai/migration-guide-mcp
     name: STDIO to Streamable HTTP migration MCP
-    type: Tool
+    type: Tools
   - url: https://github.com/smithery-ai/agent-hook
     name: agent-hook (install Claude Code hooks from GitHub)
-    type: Tool
+    type: Tools
   - url: https://github.com/smithery-ai/homebrew-smithery
     name: Homebrew tap
     type: Documentation
@@ -183,37 +183,37 @@ common:
     type: Documentation
   - url: https://github.com/smithery-ai/skills
     name: Smithery skills
-    type: Tool
+    type: Tools
   - url: https://github.com/smithery-ai/hylo
     name: hylo (workflow engine)
-    type: Tool
+    type: Tools
   - url: https://github.com/smithery-ai/hylo-plugins
     name: hylo plugins (managed-agent, cloud-claude)
     type: Plugins
   - url: https://github.com/smithery-ai/mouseless
     name: mouseless
-    type: Tool
+    type: Tools
   - url: https://github.com/smithery-ai/familysearch-mcp
     name: FamilySearch MCP server
-    type: Tool
+    type: Tools
   - url: https://github.com/smithery-ai/mcp-server-7
     name: DevRev MCP server
-    type: Tool
+    type: Tools
   - url: https://github.com/smithery-ai/mcp-multilspy
     name: mcp-multilspy
-    type: Tool
+    type: Tools
   - url: https://github.com/smithery-ai/mcp-oauth-debug
     name: mcp-oauth-debug
-    type: Tool
+    type: Tools
   - url: https://github.com/smithery-ai/openchat
     name: openchat
-    type: Tool
+    type: Tools
   - url: https://github.com/smithery-ai/okay-error
     name: okay-error
-    type: Tool
+    type: Tools
   - url: https://github.com/smithery-ai/workers-biscuit
     name: Biscuit tokens for Cloudflare Workers
-    type: Tool
+    type: Tools
   - url: https://github.com/smithery-ai/rfm
     name: Request For MCPs
     type: Documentation
