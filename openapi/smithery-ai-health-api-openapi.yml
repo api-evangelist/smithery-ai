@@ -1,0 +1,57 @@
+openapi: 3.1.0
+info:
+  title: Smithery connect Health API
+  version: 1.0.0
+  description: Connect to MCP servers hosted on Smithery without managing OAuth, credentials, or sessions. Create stateless connections to any MCP server, execute MCP JSON-RPC, list/call tools and triggers, and manage subscriptions for trigger events.
+servers:
+- url: https://api.smithery.ai
+tags:
+- name: Health
+paths:
+  /health:
+    get:
+      operationId: getHealth
+      summary: Health check
+      description: Check if the service is running
+      responses:
+        '200':
+          description: Service is healthy
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Health'
+        '500':
+          description: Service unhealthy
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthError'
+      tags:
+      - Health
+components:
+  schemas:
+    Health:
+      type: object
+      properties:
+        status:
+          type: string
+        timestamp:
+          type: string
+      required:
+      - status
+      - timestamp
+      additionalProperties: false
+    HealthError:
+      type: object
+      properties:
+        error:
+          type: string
+          example: Service unhealthy
+      required:
+      - error
+      additionalProperties: false
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Smithery API key as Bearer token

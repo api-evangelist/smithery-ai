@@ -1,0 +1,233 @@
+openapi: 3.1.0
+info:
+  title: Smithery connect organizations API
+  version: 1.0.0
+  description: Connect to MCP servers hosted on Smithery without managing OAuth, credentials, or sessions. Create stateless connections to any MCP server, execute MCP JSON-RPC, list/call tools and triggers, and manage subscriptions for trigger events.
+servers:
+- url: https://api.smithery.ai
+tags:
+- name: organizations
+paths:
+  /organizations/{orgId}/api-keys:
+    post:
+      operationId: postOrganizations:orgIdApi-keys
+      tags:
+      - organizations
+      summary: Create a team API key
+      description: Creates an API key owned by the organization. Requires admin role.
+      responses:
+        '201':
+          description: API key created (key value only shown on creation)
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  name:
+                    type: string
+                  key:
+                    type: string
+                  createdAt:
+                    type: string
+                required:
+                - id
+                - name
+                - key
+                - createdAt
+                id: TeamApiKeyCreated
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                required:
+                - error
+                id: OrganizationError
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                required:
+                - error
+                id: OrganizationError
+        '403':
+          description: Forbidden — user is not an admin
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                required:
+                - error
+                id: OrganizationError
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  minLength: 1
+                  maxLength: 256
+                  description: Name for the team API key
+              required:
+              - name
+              id: CreateTeamApiKeyBody
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: orgId
+        required: true
+    get:
+      operationId: getOrganizations:orgIdApi-keys
+      tags:
+      - organizations
+      summary: List team API keys
+      description: Returns all API keys belonging to the organization. Requires admin role. Key values are not included in the response.
+      responses:
+        '200':
+          description: List of team API keys
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  apiKeys:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/TeamApiKey'
+                required:
+                - apiKeys
+                $defs:
+                  TeamApiKey:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      name:
+                        type: string
+                      createdAt:
+                        type: string
+                    required:
+                    - id
+                    - name
+                    - createdAt
+                    id: TeamApiKey
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                required:
+                - error
+                id: OrganizationError
+        '403':
+          description: Forbidden — user is not an admin
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                required:
+                - error
+                id: OrganizationError
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: orgId
+        required: true
+  /organizations/{orgId}/api-keys/{keyId}:
+    delete:
+      operationId: deleteOrganizations:orgIdApi-keys:keyId
+      tags:
+      - organizations
+      summary: Revoke a team API key
+      description: Deletes an API key belonging to the organization. Requires admin role.
+      responses:
+        '200':
+          description: API key revoked
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                required:
+                - success
+                id: RevokeTeamApiKeyResponse
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                required:
+                - error
+                id: OrganizationError
+        '403':
+          description: Forbidden — user is not an admin
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                required:
+                - error
+                id: OrganizationError
+        '404':
+          description: API key not found in this organization
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                required:
+                - error
+                id: OrganizationError
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: orgId
+        required: true
+      - schema:
+          type: string
+        in: path
+        name: keyId
+        required: true
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Smithery API key as Bearer token

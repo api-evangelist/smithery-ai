@@ -1,0 +1,148 @@
+openapi: 3.1.0
+info:
+  title: Smithery connect domains API
+  version: 1.0.0
+  description: Connect to MCP servers hosted on Smithery without managing OAuth, credentials, or sessions. Create stateless connections to any MCP server, execute MCP JSON-RPC, list/call tools and triggers, and manage subscriptions for trigger events.
+servers:
+- url: https://api.smithery.ai
+tags:
+- name: domains
+paths:
+  /servers/{qualifiedName}/domains:
+    get:
+      operationId: getServers:namespaceDomains
+      tags:
+      - domains
+      summary: List domains
+      description: List the domains for a server.
+      responses:
+        '200':
+          description: Domain list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomainListResponse'
+        '404':
+          description: Server not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomainsError'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: qualifiedName
+        required: true
+        description: The server's qualified name (e.g. 'namespace/server' or 'namespace' for namespace-only servers). Use %2F to encode the slash.
+      x-hidden: true
+  /servers/{qualifiedName}/domains/{domainId}:
+    patch:
+      operationId: patchServers:namespaceDomains:domainId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateDomainRequest'
+      tags:
+      - domains
+      summary: Update managed domain
+      description: Update the managed run.tools slug for a server.
+      responses:
+        '200':
+          description: Managed domain updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomainResource'
+        '404':
+          description: Domain not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomainsError'
+        '409':
+          description: Conflict — managed run.tools slug already taken
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DomainsError'
+      parameters:
+      - schema:
+          type: string
+        in: path
+        name: qualifiedName
+        required: true
+        description: The server's qualified name (e.g. 'namespace/server' or 'namespace' for namespace-only servers). Use %2F to encode the slash.
+      - schema:
+          type: string
+        in: path
+        name: domainId
+        required: true
+      x-hidden: true
+components:
+  schemas:
+    DomainResource:
+      type: object
+      properties:
+        id:
+          type: string
+          const: managed
+          example: managed
+        type:
+          type: string
+          const: managed
+          example: managed
+        hostname:
+          type: string
+          example: my-server.run.tools
+        subdomain:
+          type: string
+          example: my-server
+        createdAt:
+          type: string
+          example: '2024-01-01T00:00:00.000Z'
+        updatedAt:
+          type: string
+          example: '2024-01-01T00:00:00.000Z'
+      required:
+      - id
+      - type
+      - hostname
+      - subdomain
+      - createdAt
+      - updatedAt
+      additionalProperties: false
+    UpdateDomainRequest:
+      type: object
+      properties:
+        subdomain:
+          type: string
+          pattern: ^[a-z][a-z0-9-]{0,61}[a-z0-9]$
+      required:
+      - subdomain
+      additionalProperties: false
+    DomainsError:
+      type: object
+      properties:
+        error:
+          type: string
+          example: Server not found
+      required:
+      - error
+      additionalProperties: false
+    DomainListResponse:
+      type: object
+      properties:
+        domains:
+          type: array
+          items:
+            $ref: '#/components/schemas/DomainResource'
+      required:
+      - domains
+      additionalProperties: false
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: Smithery API key as Bearer token
