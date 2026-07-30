@@ -1,66 +1,258 @@
 aid: smithery-ai
 url: https://raw.githubusercontent.com/api-evangelist/smithery-ai/refs/heads/main/apis.yml
 apis:
-  - aid: smithery-ai:smithery-registry-api
-    name: Smithery Registry API
-    tags:
-      - MCP
-      - Registry
-      - Servers
-      - Skills
-      - Tools
-      - AI
-      - Agents
-    humanURL: https://smithery.ai/docs
-    baseURL: https://api.smithery.ai
-    properties:
-      - url: https://smithery.ai/docs
-        type: Documentation
-      - url: https://smithery.ai/docs/openapi.json
-        type: OpenAPI
-      - url: openapi/smithery-registry-api-openapi.yml
-        type: OpenAPI
-      - url: json-schema/smithery-server-schema.json
-        type: JSONSchema
-      - url: json-structure/smithery-server-structure.json
-        type: JSONStructure
-      - url: json-ld/smithery-ai-context.jsonld
-        type: JSONLD
-      - url: vocabulary/smithery-ai-vocabulary.yml
-        type: Vocabulary
-      - url: rules/smithery-ai-rules.yml
-        type: Spectral
-    description: >-
-      Discover, publish, and manage MCP (Model Context Protocol) servers and Agent Skills on Smithery. Browse the public
-      registry of thousands of MCP servers, search tools across servers, publish your own server releases (URL or MCPB
-      bundle), manage release logs and runtime logs, set server secrets, manage custom domains, create namespaces,
-      manage organization API keys, and mint scoped service tokens for machine-to-machine access.
-  - aid: smithery-ai:smithery-connect-api
-    name: Smithery Connect API
-    tags:
-      - MCP
-      - Connections
-      - Triggers
-      - Webhooks
-      - AI
-      - Agents
-    humanURL: https://smithery.ai/docs/usage/connect
-    baseURL: https://api.smithery.ai
-    properties:
-      - url: https://smithery.ai/docs/usage/connect
-        type: Documentation
-      - url: openapi/smithery-connect-api-openapi.yml
-        type: OpenAPI
-      - url: json-schema/smithery-connection-schema.json
-        type: JSONSchema
-      - url: json-structure/smithery-connection-structure.json
-        type: JSONStructure
-    description: >-
-      Connect AI agents to any MCP server hosted on Smithery without managing OAuth flows, credential storage, or
-      session state. Create stateless connections under a namespace, execute MCP JSON-RPC against a Smithery-managed
-      gateway, list and call tools, manage trigger definitions exposed by a server, and subscribe (or unsubscribe) to
-      trigger events that fire as webhooks. The Connect API is the runtime counterpart to the Registry — it is how
-      agents actually talk to the servers they discover.
+- aid: smithery-ai:smithery-ai-connect-api
+  name: Smithery connect API
+  description: The connect API from Smithery — 9 operation(s) for connect.
+  humanURL: https://smithery.ai/docs
+  baseURL: https://api.smithery.ai
+  tags:
+  - connect
+  properties:
+  - type: OpenAPI
+    url: openapi/smithery-ai-connect-api-openapi.yml
+  - type: Documentation
+    url: https://smithery.ai/docs
+  - type: JSONSchema
+    url: json-schema/smithery-server-schema.json
+  - type: JSONStructure
+    url: json-structure/smithery-server-structure.json
+  - type: JSONLD
+    url: json-ld/smithery-ai-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/smithery-ai-vocabulary.yml
+  - type: Spectral
+    url: rules/smithery-ai-rules.yml
+  - type: Documentation
+    url: https://smithery.ai/docs/usage/connect
+  - type: JSONSchema
+    url: json-schema/smithery-connection-schema.json
+  - type: JSONStructure
+    url: json-structure/smithery-connection-structure.json
+- aid: smithery-ai:smithery-ai-connect-mcp-api
+  name: Smithery connect.mcp API
+  description: The connect.mcp API from Smithery — 1 operation(s) for connect.mcp.
+  humanURL: https://smithery.ai/docs
+  baseURL: https://api.smithery.ai
+  tags:
+  - connect.mcp
+  properties:
+  - type: OpenAPI
+    url: openapi/smithery-ai-connect-mcp-api-openapi.yml
+  - type: Documentation
+    url: https://smithery.ai/docs
+  - type: JSONSchema
+    url: json-schema/smithery-server-schema.json
+  - type: JSONStructure
+    url: json-structure/smithery-server-structure.json
+  - type: JSONLD
+    url: json-ld/smithery-ai-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/smithery-ai-vocabulary.yml
+  - type: Spectral
+    url: rules/smithery-ai-rules.yml
+  - type: Documentation
+    url: https://smithery.ai/docs/usage/connect
+  - type: JSONSchema
+    url: json-schema/smithery-connection-schema.json
+  - type: JSONStructure
+    url: json-structure/smithery-connection-structure.json
+- aid: smithery-ai:smithery-ai-domains-api
+  name: Smithery domains API
+  description: The domains API from Smithery — 2 operation(s) for domains.
+  humanURL: https://smithery.ai/docs
+  baseURL: https://api.smithery.ai
+  tags:
+  - domains
+  properties:
+  - type: OpenAPI
+    url: openapi/smithery-ai-domains-api-openapi.yml
+  - type: Documentation
+    url: https://smithery.ai/docs
+  - type: JSONSchema
+    url: json-schema/smithery-server-schema.json
+  - type: JSONStructure
+    url: json-structure/smithery-server-structure.json
+  - type: JSONLD
+    url: json-ld/smithery-ai-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/smithery-ai-vocabulary.yml
+  - type: Spectral
+    url: rules/smithery-ai-rules.yml
+  - type: Documentation
+    url: https://smithery.ai/docs/usage/connect
+  - type: JSONSchema
+    url: json-schema/smithery-connection-schema.json
+  - type: JSONStructure
+    url: json-structure/smithery-connection-structure.json
+- aid: smithery-ai:smithery-ai-health-api
+  name: Smithery Health API
+  description: The Health API from Smithery — 1 operation(s) for health.
+  humanURL: https://smithery.ai/docs
+  baseURL: https://api.smithery.ai
+  tags:
+  - Health
+  properties:
+  - type: OpenAPI
+    url: openapi/smithery-ai-health-api-openapi.yml
+  - type: Documentation
+    url: https://smithery.ai/docs
+  - type: JSONSchema
+    url: json-schema/smithery-server-schema.json
+  - type: JSONStructure
+    url: json-structure/smithery-server-structure.json
+  - type: JSONLD
+    url: json-ld/smithery-ai-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/smithery-ai-vocabulary.yml
+  - type: Spectral
+    url: rules/smithery-ai-rules.yml
+  - type: Documentation
+    url: https://smithery.ai/docs/usage/connect
+  - type: JSONSchema
+    url: json-schema/smithery-connection-schema.json
+  - type: JSONStructure
+    url: json-structure/smithery-connection-structure.json
+- aid: smithery-ai:smithery-ai-namespaces-api
+  name: Smithery namespaces API
+  description: The namespaces API from Smithery — 3 operation(s) for namespaces.
+  humanURL: https://smithery.ai/docs
+  baseURL: https://api.smithery.ai
+  tags:
+  - namespaces
+  properties:
+  - type: OpenAPI
+    url: openapi/smithery-ai-namespaces-api-openapi.yml
+  - type: Documentation
+    url: https://smithery.ai/docs
+  - type: JSONSchema
+    url: json-schema/smithery-server-schema.json
+  - type: JSONStructure
+    url: json-structure/smithery-server-structure.json
+  - type: JSONLD
+    url: json-ld/smithery-ai-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/smithery-ai-vocabulary.yml
+  - type: Spectral
+    url: rules/smithery-ai-rules.yml
+  - type: Documentation
+    url: https://smithery.ai/docs/usage/connect
+  - type: JSONSchema
+    url: json-schema/smithery-connection-schema.json
+  - type: JSONStructure
+    url: json-structure/smithery-connection-structure.json
+- aid: smithery-ai:smithery-ai-organizations-api
+  name: Smithery organizations API
+  description: The organizations API from Smithery — 2 operation(s) for organizations.
+  humanURL: https://smithery.ai/docs
+  baseURL: https://api.smithery.ai
+  tags:
+  - organizations
+  properties:
+  - type: OpenAPI
+    url: openapi/smithery-ai-organizations-api-openapi.yml
+  - type: Documentation
+    url: https://smithery.ai/docs
+  - type: JSONSchema
+    url: json-schema/smithery-server-schema.json
+  - type: JSONStructure
+    url: json-structure/smithery-server-structure.json
+  - type: JSONLD
+    url: json-ld/smithery-ai-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/smithery-ai-vocabulary.yml
+  - type: Spectral
+    url: rules/smithery-ai-rules.yml
+  - type: Documentation
+    url: https://smithery.ai/docs/usage/connect
+  - type: JSONSchema
+    url: json-schema/smithery-connection-schema.json
+  - type: JSONStructure
+    url: json-structure/smithery-connection-structure.json
+- aid: smithery-ai:smithery-ai-servers-api
+  name: Smithery servers API
+  description: The servers API from Smithery — 11 operation(s) for servers.
+  humanURL: https://smithery.ai/docs
+  baseURL: https://api.smithery.ai
+  tags:
+  - servers
+  properties:
+  - type: OpenAPI
+    url: openapi/smithery-ai-servers-api-openapi.yml
+  - type: Documentation
+    url: https://smithery.ai/docs
+  - type: JSONSchema
+    url: json-schema/smithery-server-schema.json
+  - type: JSONStructure
+    url: json-structure/smithery-server-structure.json
+  - type: JSONLD
+    url: json-ld/smithery-ai-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/smithery-ai-vocabulary.yml
+  - type: Spectral
+    url: rules/smithery-ai-rules.yml
+  - type: Documentation
+    url: https://smithery.ai/docs/usage/connect
+  - type: JSONSchema
+    url: json-schema/smithery-connection-schema.json
+  - type: JSONStructure
+    url: json-structure/smithery-connection-structure.json
+- aid: smithery-ai:smithery-ai-skills-api
+  name: Smithery skills API
+  description: The skills API from Smithery — 5 operation(s) for skills.
+  humanURL: https://smithery.ai/docs
+  baseURL: https://api.smithery.ai
+  tags:
+  - skills
+  properties:
+  - type: OpenAPI
+    url: openapi/smithery-ai-skills-api-openapi.yml
+  - type: Documentation
+    url: https://smithery.ai/docs
+  - type: JSONSchema
+    url: json-schema/smithery-server-schema.json
+  - type: JSONStructure
+    url: json-structure/smithery-server-structure.json
+  - type: JSONLD
+    url: json-ld/smithery-ai-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/smithery-ai-vocabulary.yml
+  - type: Spectral
+    url: rules/smithery-ai-rules.yml
+  - type: Documentation
+    url: https://smithery.ai/docs/usage/connect
+  - type: JSONSchema
+    url: json-schema/smithery-connection-schema.json
+  - type: JSONStructure
+    url: json-structure/smithery-connection-structure.json
+- aid: smithery-ai:smithery-ai-tokens-api
+  name: Smithery tokens API
+  description: The tokens API from Smithery — 1 operation(s) for tokens.
+  humanURL: https://smithery.ai/docs
+  baseURL: https://api.smithery.ai
+  tags:
+  - tokens
+  properties:
+  - type: OpenAPI
+    url: openapi/smithery-ai-tokens-api-openapi.yml
+  - type: Documentation
+    url: https://smithery.ai/docs
+  - type: JSONSchema
+    url: json-schema/smithery-server-schema.json
+  - type: JSONStructure
+    url: json-structure/smithery-server-structure.json
+  - type: JSONLD
+    url: json-ld/smithery-ai-context.jsonld
+  - type: Vocabulary
+    url: vocabulary/smithery-ai-vocabulary.yml
+  - type: Spectral
+    url: rules/smithery-ai-rules.yml
+  - type: Documentation
+    url: https://smithery.ai/docs/usage/connect
+  - type: JSONSchema
+    url: json-schema/smithery-connection-schema.json
+  - type: JSONStructure
+    url: json-structure/smithery-connection-structure.json
 name: Smithery
 tags:
   - AI
@@ -74,9 +266,24 @@ tags:
   - Marketplace
   - Developer Platform
 kind: contract
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/smithery-ai.png
 access: 3rd-Party
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/smithery/overview
   - type: AgenticAccess
     url: agentic-access/smithery-ai-agentic-access.yml
   - type: DomainSecurity
