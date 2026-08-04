@@ -1,0 +1,433 @@
+{
+  "info": {
+    "_postman_id": "c3e2cfc7-7949-4874-9831-f506b3690e00",
+    "name": "Smithery connect domains API",
+    "description": "Connect to MCP servers hosted on Smithery without managing OAuth, credentials, or sessions. Create stateless connections to any MCP server, execute MCP JSON-RPC, list/call tools and triggers, and manage subscriptions for trigger events.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:56:55.000Z",
+    "updatedAt": "2026-07-28T02:56:55.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-c3e2cfc7-7949-4874-9831-f506b3690e00"
+  },
+  "item": [
+    {
+      "name": "servers",
+      "item": [
+        {
+          "name": "{qualifiedName}",
+          "item": [
+            {
+              "name": "domains",
+              "item": [
+                {
+                  "name": "{domainId}",
+                  "item": [
+                    {
+                      "name": "Update managed domain",
+                      "id": "8b9e0871-c149-4391-82f5-06e64c7d538d",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"subdomain\": \"r4kuil\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/servers/:qualifiedName/domains/:domainId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "servers",
+                            ":qualifiedName",
+                            "domains",
+                            ":domainId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "a168e23f-0a29-4894-988e-bb150cfbc8ec",
+                              "key": "qualifiedName",
+                              "value": "<string>",
+                              "description": "(Required) The server's qualified name (e.g. 'namespace/server' or 'namespace' for namespace-only servers). Use %2F to encode the slash."
+                            },
+                            {
+                              "id": "7ff9b8f7-3503-466f-8248-2066471a7909",
+                              "key": "domainId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Update the managed run.tools slug for a server."
+                      },
+                      "response": [
+                        {
+                          "id": "f7e1f7d2-797a-493d-a2bb-fc48a2008a21",
+                          "name": "Managed domain updated",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"subdomain\": \"r4kuil\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/servers/:qualifiedName/domains/:domainId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "servers",
+                                ":qualifiedName",
+                                "domains",
+                                ":domainId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "qualifiedName"
+                                },
+                                {
+                                  "key": "domainId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"type\": \"<string>\",\n  \"hostname\": \"<string>\",\n  \"subdomain\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"updatedAt\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:56:55.000Z",
+                          "updatedAt": "2026-07-28T02:56:55.000Z",
+                          "uid": "35240-f7e1f7d2-797a-493d-a2bb-fc48a2008a21"
+                        },
+                        {
+                          "id": "bb8d6989-92b8-4c7c-9c8e-05224e4bdac2",
+                          "name": "Domain not found",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"subdomain\": \"r4kuil\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/servers/:qualifiedName/domains/:domainId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "servers",
+                                ":qualifiedName",
+                                "domains",
+                                ":domainId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "qualifiedName"
+                                },
+                                {
+                                  "key": "domainId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:56:55.000Z",
+                          "updatedAt": "2026-07-28T02:56:55.000Z",
+                          "uid": "35240-bb8d6989-92b8-4c7c-9c8e-05224e4bdac2"
+                        },
+                        {
+                          "id": "fd89eb6f-62f4-4788-8e01-0cdd2e25c1f5",
+                          "name": "Conflict \u2014 managed run.tools slug already taken",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"subdomain\": \"r4kuil\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/servers/:qualifiedName/domains/:domainId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "servers",
+                                ":qualifiedName",
+                                "domains",
+                                ":domainId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "qualifiedName"
+                                },
+                                {
+                                  "key": "domainId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Conflict",
+                          "code": 409,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:56:55.000Z",
+                          "updatedAt": "2026-07-28T02:56:55.000Z",
+                          "uid": "35240-fd89eb6f-62f4-4788-8e01-0cdd2e25c1f5"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:56:55.000Z",
+                      "updatedAt": "2026-07-28T02:56:55.000Z",
+                      "uid": "35240-8b9e0871-c149-4391-82f5-06e64c7d538d"
+                    }
+                  ],
+                  "id": "c1da788a-d005-44a4-8536-c067a88cf30d",
+                  "createdAt": "2026-07-28T02:56:55.000Z",
+                  "updatedAt": "2026-07-28T02:56:55.000Z",
+                  "uid": "35240-c1da788a-d005-44a4-8536-c067a88cf30d"
+                },
+                {
+                  "name": "List domains",
+                  "id": "f4d37cf8-9533-4583-b38b-a324cb4f1ee7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/servers/:qualifiedName/domains",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "servers",
+                        ":qualifiedName",
+                        "domains"
+                      ],
+                      "variable": [
+                        {
+                          "id": "428e0b59-0c20-4dd2-a3c0-67a15d4f17bc",
+                          "key": "qualifiedName",
+                          "value": "<string>",
+                          "description": "(Required) The server's qualified name (e.g. 'namespace/server' or 'namespace' for namespace-only servers). Use %2F to encode the slash."
+                        }
+                      ]
+                    },
+                    "description": "List the domains for a server."
+                  },
+                  "response": [
+                    {
+                      "id": "0f85094e-416c-4f62-845f-46b6931b31f9",
+                      "name": "Domain list",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/servers/:qualifiedName/domains",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "servers",
+                            ":qualifiedName",
+                            "domains"
+                          ],
+                          "variable": [
+                            {
+                              "key": "qualifiedName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"domains\": [\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"hostname\": \"<string>\",\n      \"subdomain\": \"<string>\",\n      \"createdAt\": \"<string>\",\n      \"updatedAt\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"type\": \"<string>\",\n      \"hostname\": \"<string>\",\n      \"subdomain\": \"<string>\",\n      \"createdAt\": \"<string>\",\n      \"updatedAt\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:56:55.000Z",
+                      "updatedAt": "2026-07-28T02:56:55.000Z",
+                      "uid": "35240-0f85094e-416c-4f62-845f-46b6931b31f9"
+                    },
+                    {
+                      "id": "efe73aac-7630-4568-adec-72d789b4c470",
+                      "name": "Server not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/servers/:qualifiedName/domains",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "servers",
+                            ":qualifiedName",
+                            "domains"
+                          ],
+                          "variable": [
+                            {
+                              "key": "qualifiedName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:56:55.000Z",
+                      "updatedAt": "2026-07-28T02:56:55.000Z",
+                      "uid": "35240-efe73aac-7630-4568-adec-72d789b4c470"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:56:55.000Z",
+                  "updatedAt": "2026-07-28T02:56:55.000Z",
+                  "uid": "35240-f4d37cf8-9533-4583-b38b-a324cb4f1ee7"
+                }
+              ],
+              "id": "3aadceae-c794-41f0-a9bd-eb6d869b2217",
+              "createdAt": "2026-07-28T02:56:55.000Z",
+              "updatedAt": "2026-07-28T02:56:55.000Z",
+              "uid": "35240-3aadceae-c794-41f0-a9bd-eb6d869b2217"
+            }
+          ],
+          "id": "05281bab-ef39-4fa2-ba16-dad3e4e2dc55",
+          "createdAt": "2026-07-28T02:56:55.000Z",
+          "updatedAt": "2026-07-28T02:56:55.000Z",
+          "uid": "35240-05281bab-ef39-4fa2-ba16-dad3e4e2dc55"
+        }
+      ],
+      "id": "39e0d883-b0d4-4f40-83c1-f0f1c575e298",
+      "createdAt": "2026-07-28T02:56:55.000Z",
+      "updatedAt": "2026-07-28T02:56:55.000Z",
+      "uid": "35240-39e0d883-b0d4-4f40-83c1-f0f1c575e298"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.smithery.ai"
+    }
+  ]
+}

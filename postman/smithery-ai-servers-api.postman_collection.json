@@ -1,0 +1,3848 @@
+{
+  "info": {
+    "_postman_id": "69a26901-08dc-4d92-bf56-02cb86f73bd8",
+    "name": "Smithery connect servers API",
+    "description": "Connect to MCP servers hosted on Smithery without managing OAuth, credentials, or sessions. Create stateless connections to any MCP server, execute MCP JSON-RPC, list/call tools and triggers, and manage subscriptions for trigger events.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:57:04.000Z",
+    "updatedAt": "2026-07-28T02:57:05.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-69a26901-08dc-4d92-bf56-02cb86f73bd8"
+  },
+  "item": [
+    {
+      "name": "servers",
+      "item": [
+        {
+          "name": "{qualifiedName}",
+          "item": [
+            {
+              "name": "download",
+              "item": [
+                {
+                  "name": "Download server bundle",
+                  "id": "0182c4e7-c661-4abd-b1b6-ba667260c1f6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/zip"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/servers/:qualifiedName/download",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "servers",
+                        ":qualifiedName",
+                        "download"
+                      ],
+                      "variable": [
+                        {
+                          "id": "15e17d7e-7bea-45f2-baca-e9bbec9b0523",
+                          "key": "qualifiedName",
+                          "value": "<string>",
+                          "description": "(Required) The server's qualified name (e.g. 'namespace/server' or 'namespace' for namespace-only servers). Use %2F to encode the slash."
+                        }
+                      ]
+                    },
+                    "description": "Download the MCPB bundle for the latest successful stdio release."
+                  },
+                  "response": [
+                    {
+                      "id": "718da55a-5f0b-4113-9877-179935ef2091",
+                      "name": "Bundle file",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/zip"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/servers/:qualifiedName/download",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "servers",
+                            ":qualifiedName",
+                            "download"
+                          ],
+                          "variable": [
+                            {
+                              "key": "qualifiedName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/zip"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "<binary>",
+                      "createdAt": "2026-07-28T02:57:05.000Z",
+                      "updatedAt": "2026-07-28T02:57:05.000Z",
+                      "uid": "35240-718da55a-5f0b-4113-9877-179935ef2091"
+                    },
+                    {
+                      "id": "f22ec409-aeba-408f-aae4-a641210a1154",
+                      "name": "Bundle not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/servers/:qualifiedName/download",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "servers",
+                            ":qualifiedName",
+                            "download"
+                          ],
+                          "variable": [
+                            {
+                              "key": "qualifiedName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:57:05.000Z",
+                      "updatedAt": "2026-07-28T02:57:05.000Z",
+                      "uid": "35240-f22ec409-aeba-408f-aae4-a641210a1154"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:57:05.000Z",
+                  "updatedAt": "2026-07-28T02:57:05.000Z",
+                  "uid": "35240-0182c4e7-c661-4abd-b1b6-ba667260c1f6"
+                }
+              ],
+              "id": "3debcd4a-2127-4a1b-b446-9705c2f8ed47",
+              "createdAt": "2026-07-28T02:57:05.000Z",
+              "updatedAt": "2026-07-28T02:57:05.000Z",
+              "uid": "35240-3debcd4a-2127-4a1b-b446-9705c2f8ed47"
+            },
+            {
+              "name": "releases",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "stream",
+                      "item": [
+                        {
+                          "name": "Stream release logs",
+                          "id": "adcc4176-83fc-45aa-9a54-0719de2f6344",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "text/event-stream"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/servers/:qualifiedName/releases/:id/stream",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "servers",
+                                ":qualifiedName",
+                                "releases",
+                                ":id",
+                                "stream"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "f6a20e38-93ee-475f-aa3c-ae337744255f",
+                                  "key": "qualifiedName",
+                                  "value": "<string>",
+                                  "description": "(Required) The server's qualified name (e.g. 'namespace/server' or 'namespace' for namespace-only servers). Use %2F to encode the slash."
+                                },
+                                {
+                                  "id": "7270dbd1-061a-4a33-89c4-4dbbc57c7904",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Real-time SSE stream of release logs and status updates."
+                          },
+                          "response": [
+                            {
+                              "id": "d0a2763b-d716-455e-95e0-d0293f5c66a2",
+                              "name": "SSE stream of release events",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "text/event-stream"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/servers/:qualifiedName/releases/:id/stream",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "servers",
+                                    ":qualifiedName",
+                                    "releases",
+                                    ":id",
+                                    "stream"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "qualifiedName"
+                                    },
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "text/event-stream"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "<string>",
+                              "createdAt": "2026-07-28T02:57:05.000Z",
+                              "updatedAt": "2026-07-28T02:57:05.000Z",
+                              "uid": "35240-d0a2763b-d716-455e-95e0-d0293f5c66a2"
+                            },
+                            {
+                              "id": "c1dea879-e56d-4fb1-8bb3-a3c68065d64c",
+                              "name": "Release not found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/servers/:qualifiedName/releases/:id/stream",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "servers",
+                                    ":qualifiedName",
+                                    "releases",
+                                    ":id",
+                                    "stream"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "qualifiedName"
+                                    },
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T02:57:05.000Z",
+                              "updatedAt": "2026-07-28T02:57:05.000Z",
+                              "uid": "35240-c1dea879-e56d-4fb1-8bb3-a3c68065d64c"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:57:05.000Z",
+                          "updatedAt": "2026-07-28T02:57:05.000Z",
+                          "uid": "35240-adcc4176-83fc-45aa-9a54-0719de2f6344"
+                        }
+                      ],
+                      "id": "777c15e3-5005-4d99-bf7f-8c3e0ca968fe",
+                      "createdAt": "2026-07-28T02:57:05.000Z",
+                      "updatedAt": "2026-07-28T02:57:05.000Z",
+                      "uid": "35240-777c15e3-5005-4d99-bf7f-8c3e0ca968fe"
+                    },
+                    {
+                      "name": "resume",
+                      "item": [
+                        {
+                          "name": "Resume a release",
+                          "id": "3fe00276-8057-444a-81e8-98b3cb555aa6",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/servers/:qualifiedName/releases/:id/resume",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "servers",
+                                ":qualifiedName",
+                                "releases",
+                                ":id",
+                                "resume"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "4d5315e1-208a-4ec2-8f57-d555214f6175",
+                                  "key": "qualifiedName",
+                                  "value": "<string>",
+                                  "description": "(Required) The server's qualified name (e.g. 'namespace/server' or 'namespace' for namespace-only servers). Use %2F to encode the slash."
+                                },
+                                {
+                                  "id": "7e3ad2f4-fa13-4c78-b2eb-b76b207538f2",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Resume a paused release (e.g. after OAuth authorization). Use id='latest' to resume the most recent one."
+                          },
+                          "response": [
+                            {
+                              "id": "d0e6dee6-25da-4a58-bfb9-8942f68e3005",
+                              "name": "Resume accepted",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/servers/:qualifiedName/releases/:id/resume",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "servers",
+                                    ":qualifiedName",
+                                    "releases",
+                                    ":id",
+                                    "resume"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "qualifiedName"
+                                    },
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Accepted",
+                              "code": 202,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"status\": \"<string>\",\n  \"deploymentId\": \"Ec4C2c35-dCCf-2CAe-9A18-1aa1f6A8BA80\"\n}",
+                              "createdAt": "2026-07-28T02:57:05.000Z",
+                              "updatedAt": "2026-07-28T02:57:05.000Z",
+                              "uid": "35240-d0e6dee6-25da-4a58-bfb9-8942f68e3005"
+                            },
+                            {
+                              "id": "5b8851f9-fcc2-43d6-a6b7-ae1e07ef9aa0",
+                              "name": "Release not in resumable state",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/servers/:qualifiedName/releases/:id/resume",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "servers",
+                                    ":qualifiedName",
+                                    "releases",
+                                    ":id",
+                                    "resume"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "qualifiedName"
+                                    },
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T02:57:05.000Z",
+                              "updatedAt": "2026-07-28T02:57:05.000Z",
+                              "uid": "35240-5b8851f9-fcc2-43d6-a6b7-ae1e07ef9aa0"
+                            },
+                            {
+                              "id": "9f1911e4-fb86-4616-a6cc-c3d5574ae1ff",
+                              "name": "Server or release not found",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/servers/:qualifiedName/releases/:id/resume",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "servers",
+                                    ":qualifiedName",
+                                    "releases",
+                                    ":id",
+                                    "resume"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "qualifiedName"
+                                    },
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T02:57:05.000Z",
+                              "updatedAt": "2026-07-28T02:57:05.000Z",
+                              "uid": "35240-9f1911e4-fb86-4616-a6cc-c3d5574ae1ff"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:57:05.000Z",
+                          "updatedAt": "2026-07-28T02:57:05.000Z",
+                          "uid": "35240-3fe00276-8057-444a-81e8-98b3cb555aa6"
+                        }
+                      ],
+                      "id": "69ec0448-e5c2-4f12-ac5d-db2452283db3",
+                      "createdAt": "2026-07-28T02:57:05.000Z",
+                      "updatedAt": "2026-07-28T02:57:05.000Z",
+                      "uid": "35240-69ec0448-e5c2-4f12-ac5d-db2452283db3"
+                    },
+                    {
+                      "name": "Get a release",
+                      "id": "c6948982-63b2-4088-a296-96f3972af433",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/servers/:qualifiedName/releases/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "servers",
+                            ":qualifiedName",
+                            "releases",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "7a44e00f-6e8a-4fe1-90fc-269bf65c5f08",
+                              "key": "qualifiedName",
+                              "value": "<string>",
+                              "description": "(Required) The server's qualified name (e.g. 'namespace/server' or 'namespace' for namespace-only servers). Use %2F to encode the slash."
+                            },
+                            {
+                              "id": "e36b55bf-20ef-41a3-890a-d52ed44ea3a0",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Retrieve release details including status, git metadata, pipeline logs, and MCP endpoint URL."
+                      },
+                      "response": [
+                        {
+                          "id": "d06c3165-da7f-4e07-ac99-4a65930685a9",
+                          "name": "Release info",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/servers/:qualifiedName/releases/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "servers",
+                                ":qualifiedName",
+                                "releases",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "qualifiedName"
+                                },
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"00000000-0000-0000-0000-000000000000\",\n  \"status\": \"<string>\",\n  \"type\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"updatedAt\": \"<string>\",\n  \"commit\": \"<string>\",\n  \"commitMessage\": \"<string>\",\n  \"branch\": \"<string>\",\n  \"upstreamUrl\": \"<string>\",\n  \"logs\": [\n    {\n      \"stage\": \"metadata\",\n      \"level\": \"<string>\",\n      \"message\": \"<string>\",\n      \"timestamp\": \"<string>\",\n      \"error\": {\n        \"message\": \"<string>\"\n      }\n    },\n    {\n      \"stage\": \"publish\",\n      \"level\": \"<string>\",\n      \"message\": \"<string>\",\n      \"timestamp\": \"<string>\",\n      \"error\": {\n        \"message\": \"<string>\"\n      }\n    }\n  ],\n  \"mcpUrl\": \"<uri>\"\n}",
+                          "createdAt": "2026-07-28T02:57:05.000Z",
+                          "updatedAt": "2026-07-28T02:57:05.000Z",
+                          "uid": "35240-d06c3165-da7f-4e07-ac99-4a65930685a9"
+                        },
+                        {
+                          "id": "757cd87f-4c52-4dd0-ad63-48f05552149d",
+                          "name": "Server or release not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/servers/:qualifiedName/releases/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "servers",
+                                ":qualifiedName",
+                                "releases",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "qualifiedName"
+                                },
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:57:05.000Z",
+                          "updatedAt": "2026-07-28T02:57:05.000Z",
+                          "uid": "35240-757cd87f-4c52-4dd0-ad63-48f05552149d"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:57:05.000Z",
+                      "updatedAt": "2026-07-28T02:57:05.000Z",
+                      "uid": "35240-c6948982-63b2-4088-a296-96f3972af433"
+                    }
+                  ],
+                  "id": "11fe5006-b058-4337-88ce-893d2d1b3c2f",
+                  "createdAt": "2026-07-28T02:57:05.000Z",
+                  "updatedAt": "2026-07-28T02:57:05.000Z",
+                  "uid": "35240-11fe5006-b058-4337-88ce-893d2d1b3c2f"
+                },
+                {
+                  "name": "Publish a server",
+                  "id": "3d95a058-b27c-434a-887b-818df27b2cd0",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "formdata",
+                      "formdata": [
+                        {
+                          "description": "(Required) JSON-encoded release payload. See DeployPayload schema for structure.",
+                          "key": "payload",
+                          "value": "<string>",
+                          "type": "text"
+                        },
+                        {
+                          "description": "JavaScript module file (for hosted releases)",
+                          "key": "module",
+                          "type": "file",
+                          "value": null
+                        },
+                        {
+                          "description": "Source map file (for hosted releases)",
+                          "key": "sourcemap",
+                          "type": "file",
+                          "value": null
+                        },
+                        {
+                          "description": "MCPB bundle file (for stdio releases)",
+                          "key": "bundle",
+                          "type": "file",
+                          "value": null
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/servers/:qualifiedName/releases",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "servers",
+                        ":qualifiedName",
+                        "releases"
+                      ],
+                      "variable": [
+                        {
+                          "id": "13ada736-ec57-4c59-b0ab-5298b1f646b9",
+                          "key": "qualifiedName",
+                          "value": "<string>",
+                          "description": "(Required) The server's qualified name (e.g. 'namespace/server' or 'namespace' for namespace-only servers). Use %2F to encode the slash."
+                        }
+                      ]
+                    },
+                    "description": "Submit a release via multipart form. Supports hosted (JS module upload), external (URL), and stdio (MCPB bundle) release types."
+                  },
+                  "response": [
+                    {
+                      "id": "24c4e8b1-3c2d-4476-b5ac-67cdd0ddac94",
+                      "name": "Release accepted",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) JSON-encoded release payload. See DeployPayload schema for structure.",
+                              "key": "payload",
+                              "value": "<string>",
+                              "type": "text"
+                            },
+                            {
+                              "description": "JavaScript module file (for hosted releases)",
+                              "key": "module",
+                              "type": "file"
+                            },
+                            {
+                              "description": "Source map file (for hosted releases)",
+                              "key": "sourcemap",
+                              "type": "file"
+                            },
+                            {
+                              "description": "MCPB bundle file (for stdio releases)",
+                              "key": "bundle",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/servers/:qualifiedName/releases",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "servers",
+                            ":qualifiedName",
+                            "releases"
+                          ],
+                          "variable": [
+                            {
+                              "key": "qualifiedName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Accepted",
+                      "code": 202,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"deploymentId\": \"00000000-0000-0000-0000-000000000000\",\n  \"status\": \"<string>\",\n  \"mcpUrl\": \"<uri>\",\n  \"warnings\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T02:57:05.000Z",
+                      "updatedAt": "2026-07-28T02:57:05.000Z",
+                      "uid": "35240-24c4e8b1-3c2d-4476-b5ac-67cdd0ddac94"
+                    },
+                    {
+                      "id": "39d1fb40-f5b2-49c9-8969-33ce149ddadf",
+                      "name": "Invalid payload",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "multipart/form-data"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "formdata",
+                          "formdata": [
+                            {
+                              "description": "(Required) JSON-encoded release payload. See DeployPayload schema for structure.",
+                              "key": "payload",
+                              "value": "<string>",
+                              "type": "text"
+                            },
+                            {
+                              "description": "JavaScript module file (for hosted releases)",
+                              "key": "module",
+                              "type": "file"
+                            },
+                            {
+                              "description": "Source map file (for hosted releases)",
+                              "key": "sourcemap",
+                              "type": "file"
+                            },
+                            {
+                              "description": "MCPB bundle file (for stdio releases)",
+                              "key": "bundle",
+                              "type": "file"
+                            }
+                          ]
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/servers/:qualifiedName/releases",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "servers",
+                            ":qualifiedName",
+                            "releases"
+                          ],
+                          "variable": [
+                            {
+                              "key": "qualifiedName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:57:05.000Z",
+                      "updatedAt": "2026-07-28T02:57:05.000Z",
+                      "uid": "35240-39d1fb40-f5b2-49c9-8969-33ce149ddadf"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:57:05.000Z",
+                  "updatedAt": "2026-07-28T02:57:05.000Z",
+                  "uid": "35240-3d95a058-b27c-434a-887b-818df27b2cd0"
+                },
+                {
+                  "name": "List releases",
+                  "id": "462803db-f2af-4056-8a28-94f034e1521c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/servers/:qualifiedName/releases?page=1&pageSize=20",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "servers",
+                        ":qualifiedName",
+                        "releases"
+                      ],
+                      "query": [
+                        {
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "key": "pageSize",
+                          "value": "20"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "17b263de-9a13-4e92-9bdf-74bae3db84f7",
+                          "key": "qualifiedName",
+                          "value": "<string>",
+                          "description": "(Required) The server's qualified name (e.g. 'namespace/server' or 'namespace' for namespace-only servers). Use %2F to encode the slash."
+                        }
+                      ]
+                    },
+                    "description": "List releases ordered by most recent first. Logs are omitted \u2014 fetch a specific release to see logs."
+                  },
+                  "response": [
+                    {
+                      "id": "d41817d6-3360-4e65-a8b9-508f0e488f6b",
+                      "name": "Paginated list of releases",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/servers/:qualifiedName/releases?page=1&pageSize=20",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "servers",
+                            ":qualifiedName",
+                            "releases"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "key": "pageSize",
+                              "value": "20"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "qualifiedName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"releases\": [\n    {\n      \"id\": \"ffffffff-ffff-ffff-ffff-ffffffffffff\",\n      \"status\": \"<string>\",\n      \"type\": \"<string>\",\n      \"createdAt\": \"<string>\",\n      \"updatedAt\": \"<string>\",\n      \"commit\": \"<string>\",\n      \"commitMessage\": \"<string>\",\n      \"branch\": \"<string>\",\n      \"upstreamUrl\": \"<string>\",\n      \"mcpUrl\": \"<uri>\"\n    },\n    {\n      \"id\": \"D083bCDf-3Ef7-6b78-Bec3-abA04aB84F0B\",\n      \"status\": \"<string>\",\n      \"type\": \"<string>\",\n      \"createdAt\": \"<string>\",\n      \"updatedAt\": \"<string>\",\n      \"commit\": \"<string>\",\n      \"commitMessage\": \"<string>\",\n      \"branch\": \"<string>\",\n      \"upstreamUrl\": \"<string>\",\n      \"mcpUrl\": \"<uri>\"\n    }\n  ],\n  \"pagination\": {\n    \"currentPage\": \"<integer>\",\n    \"pageSize\": \"<integer>\",\n    \"totalPages\": \"<integer>\",\n    \"totalCount\": \"<integer>\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:57:05.000Z",
+                      "updatedAt": "2026-07-28T02:57:05.000Z",
+                      "uid": "35240-d41817d6-3360-4e65-a8b9-508f0e488f6b"
+                    },
+                    {
+                      "id": "bafc6d0f-bd96-4731-a87e-0df62d8bbf82",
+                      "name": "Server not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/servers/:qualifiedName/releases?page=1&pageSize=20",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "servers",
+                            ":qualifiedName",
+                            "releases"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "key": "pageSize",
+                              "value": "20"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "qualifiedName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:57:05.000Z",
+                      "updatedAt": "2026-07-28T02:57:05.000Z",
+                      "uid": "35240-bafc6d0f-bd96-4731-a87e-0df62d8bbf82"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:57:05.000Z",
+                  "updatedAt": "2026-07-28T02:57:05.000Z",
+                  "uid": "35240-462803db-f2af-4056-8a28-94f034e1521c"
+                }
+              ],
+              "id": "437802a5-ff13-44d3-ad6d-1d7d340b7ab6",
+              "createdAt": "2026-07-28T02:57:05.000Z",
+              "updatedAt": "2026-07-28T02:57:05.000Z",
+              "uid": "35240-437802a5-ff13-44d3-ad6d-1d7d340b7ab6"
+            },
+            {
+              "name": "logs",
+              "item": [
+                {
+                  "name": "List runtime logs",
+                  "id": "014769b4-2a98-473b-949d-d76f2bcf32a1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/servers/:qualifiedName/logs?from=<string>&to=<string>&limit=<integer>&search=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "servers",
+                        ":qualifiedName",
+                        "logs"
+                      ],
+                      "query": [
+                        {
+                          "description": "Start of time range (ISO 8601).",
+                          "key": "from",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "End of time range (ISO 8601).",
+                          "key": "to",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Max invocations to return. Defaults to 20.",
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Text search across log messages.",
+                          "key": "search",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "d8a1fa6c-99ed-4944-b2b1-761d4c48acb7",
+                          "key": "qualifiedName",
+                          "value": "<string>",
+                          "description": "(Required) The server's qualified name (e.g. 'namespace/server' or 'namespace' for namespace-only servers). Use %2F to encode the slash."
+                        }
+                      ]
+                    },
+                    "description": "Fetch recent runtime logs grouped by invocation."
+                  },
+                  "response": [
+                    {
+                      "id": "92e5800e-f6ec-4da3-8603-a2550e27993f",
+                      "name": "Logs fetched successfully",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/servers/:qualifiedName/logs?from=<string>&to=<string>&limit=<integer>&search=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "servers",
+                            ":qualifiedName",
+                            "logs"
+                          ],
+                          "query": [
+                            {
+                              "description": "Start of time range (ISO 8601).",
+                              "key": "from",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "End of time range (ISO 8601).",
+                              "key": "to",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Max invocations to return. Defaults to 20.",
+                              "key": "limit",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Text search across log messages.",
+                              "key": "search",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "qualifiedName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"invocations\": [\n    {\n      \"id\": \"<string>\",\n      \"timestamp\": \"<string>\",\n      \"request\": {\n        \"method\": \"<string>\",\n        \"url\": \"<string>\"\n      },\n      \"response\": {\n        \"status\": \"<number>\",\n        \"outcome\": \"<string>\"\n      },\n      \"duration\": {\n        \"cpuMs\": \"<number>\",\n        \"wallMs\": \"<number>\"\n      },\n      \"logs\": [\n        {\n          \"timestamp\": \"<string>\",\n          \"level\": \"<string>\",\n          \"message\": \"<string>\"\n        },\n        {\n          \"timestamp\": \"<string>\",\n          \"level\": \"<string>\",\n          \"message\": \"<string>\"\n        }\n      ],\n      \"exceptions\": [\n        {\n          \"timestamp\": \"<string>\",\n          \"name\": \"<string>\",\n          \"message\": \"<string>\"\n        },\n        {\n          \"timestamp\": \"<string>\",\n          \"name\": \"<string>\",\n          \"message\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"timestamp\": \"<string>\",\n      \"request\": {\n        \"method\": \"<string>\",\n        \"url\": \"<string>\"\n      },\n      \"response\": {\n        \"status\": \"<number>\",\n        \"outcome\": \"<string>\"\n      },\n      \"duration\": {\n        \"cpuMs\": \"<number>\",\n        \"wallMs\": \"<number>\"\n      },\n      \"logs\": [\n        {\n          \"timestamp\": \"<string>\",\n          \"level\": \"<string>\",\n          \"message\": \"<string>\"\n        },\n        {\n          \"timestamp\": \"<string>\",\n          \"level\": \"<string>\",\n          \"message\": \"<string>\"\n        }\n      ],\n      \"exceptions\": [\n        {\n          \"timestamp\": \"<string>\",\n          \"name\": \"<string>\",\n          \"message\": \"<string>\"\n        },\n        {\n          \"timestamp\": \"<string>\",\n          \"name\": \"<string>\",\n          \"message\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"total\": \"<number>\"\n}",
+                      "createdAt": "2026-07-28T02:57:05.000Z",
+                      "updatedAt": "2026-07-28T02:57:05.000Z",
+                      "uid": "35240-92e5800e-f6ec-4da3-8603-a2550e27993f"
+                    },
+                    {
+                      "id": "7d5bacdc-5e3b-425f-8a9c-86367b927c0a",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/servers/:qualifiedName/logs?from=<string>&to=<string>&limit=<integer>&search=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "servers",
+                            ":qualifiedName",
+                            "logs"
+                          ],
+                          "query": [
+                            {
+                              "description": "Start of time range (ISO 8601).",
+                              "key": "from",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "End of time range (ISO 8601).",
+                              "key": "to",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Max invocations to return. Defaults to 20.",
+                              "key": "limit",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Text search across log messages.",
+                              "key": "search",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "qualifiedName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:57:05.000Z",
+                      "updatedAt": "2026-07-28T02:57:05.000Z",
+                      "uid": "35240-7d5bacdc-5e3b-425f-8a9c-86367b927c0a"
+                    },
+                    {
+                      "id": "acafdc32-9206-460f-a693-f73a962b1001",
+                      "name": "Server not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/servers/:qualifiedName/logs?from=<string>&to=<string>&limit=<integer>&search=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "servers",
+                            ":qualifiedName",
+                            "logs"
+                          ],
+                          "query": [
+                            {
+                              "description": "Start of time range (ISO 8601).",
+                              "key": "from",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "End of time range (ISO 8601).",
+                              "key": "to",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Max invocations to return. Defaults to 20.",
+                              "key": "limit",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Text search across log messages.",
+                              "key": "search",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "qualifiedName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:57:05.000Z",
+                      "updatedAt": "2026-07-28T02:57:05.000Z",
+                      "uid": "35240-acafdc32-9206-460f-a693-f73a962b1001"
+                    },
+                    {
+                      "id": "0b588009-0055-4411-83ec-655e86596cbf",
+                      "name": "Internal server error",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/servers/:qualifiedName/logs?from=<string>&to=<string>&limit=<integer>&search=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "servers",
+                            ":qualifiedName",
+                            "logs"
+                          ],
+                          "query": [
+                            {
+                              "description": "Start of time range (ISO 8601).",
+                              "key": "from",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "End of time range (ISO 8601).",
+                              "key": "to",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Max invocations to return. Defaults to 20.",
+                              "key": "limit",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "Text search across log messages.",
+                              "key": "search",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "qualifiedName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Internal Server Error",
+                      "code": 500,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:57:05.000Z",
+                      "updatedAt": "2026-07-28T02:57:05.000Z",
+                      "uid": "35240-0b588009-0055-4411-83ec-655e86596cbf"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:57:05.000Z",
+                  "updatedAt": "2026-07-28T02:57:05.000Z",
+                  "uid": "35240-014769b4-2a98-473b-949d-d76f2bcf32a1"
+                }
+              ],
+              "id": "d6c65dbc-eb28-4ee7-b281-f5ddb619ce7c",
+              "createdAt": "2026-07-28T02:57:05.000Z",
+              "updatedAt": "2026-07-28T02:57:05.000Z",
+              "uid": "35240-d6c65dbc-eb28-4ee7-b281-f5ddb619ce7c"
+            },
+            {
+              "name": "secrets",
+              "item": [
+                {
+                  "name": "{secretName}",
+                  "item": [
+                    {
+                      "name": "Delete a secret",
+                      "id": "a7d5878d-2436-4252-b2d5-ce39819aa260",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/servers/:qualifiedName/secrets/:secretName",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "servers",
+                            ":qualifiedName",
+                            "secrets",
+                            ":secretName"
+                          ],
+                          "variable": [
+                            {
+                              "id": "692952c5-98ae-455b-abf9-b7d1a792aa22",
+                              "key": "qualifiedName",
+                              "value": "<string>",
+                              "description": "(Required) The server's qualified name (e.g. 'namespace/server' or 'namespace' for namespace-only servers). Use %2F to encode the slash."
+                            },
+                            {
+                              "id": "d92d1867-4ada-4ac1-82ca-0cbe034777f8",
+                              "key": "secretName",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Remove a secret by name."
+                      },
+                      "response": [
+                        {
+                          "id": "c1c3591a-0c71-4f19-bad5-af1a143eb9b2",
+                          "name": "Secret deleted",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/servers/:qualifiedName/secrets/:secretName",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "servers",
+                                ":qualifiedName",
+                                "secrets",
+                                ":secretName"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "qualifiedName"
+                                },
+                                {
+                                  "key": "secretName"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"success\": \"<boolean>\"\n}",
+                          "createdAt": "2026-07-28T02:57:05.000Z",
+                          "updatedAt": "2026-07-28T02:57:05.000Z",
+                          "uid": "35240-c1c3591a-0c71-4f19-bad5-af1a143eb9b2"
+                        },
+                        {
+                          "id": "15044639-dec7-4295-8e9a-4f717e056e66",
+                          "name": "Server not found",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/servers/:qualifiedName/secrets/:secretName",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "servers",
+                                ":qualifiedName",
+                                "secrets",
+                                ":secretName"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "qualifiedName"
+                                },
+                                {
+                                  "key": "secretName"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:57:05.000Z",
+                          "updatedAt": "2026-07-28T02:57:05.000Z",
+                          "uid": "35240-15044639-dec7-4295-8e9a-4f717e056e66"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:57:05.000Z",
+                      "updatedAt": "2026-07-28T02:57:05.000Z",
+                      "uid": "35240-a7d5878d-2436-4252-b2d5-ce39819aa260"
+                    }
+                  ],
+                  "id": "1b25ec23-a004-4fad-a994-8742f474d998",
+                  "createdAt": "2026-07-28T02:57:05.000Z",
+                  "updatedAt": "2026-07-28T02:57:05.000Z",
+                  "uid": "35240-1b25ec23-a004-4fad-a994-8742f474d998"
+                },
+                {
+                  "name": "List secrets",
+                  "id": "f46e2e8d-31a1-4db2-95a0-2e97916acd40",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/servers/:qualifiedName/secrets",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "servers",
+                        ":qualifiedName",
+                        "secrets"
+                      ],
+                      "variable": [
+                        {
+                          "id": "2680978a-1eb3-4c8a-9a92-d8927dd2aef4",
+                          "key": "qualifiedName",
+                          "value": "<string>",
+                          "description": "(Required) The server's qualified name (e.g. 'namespace/server' or 'namespace' for namespace-only servers). Use %2F to encode the slash."
+                        }
+                      ]
+                    },
+                    "description": "List secret names. Values are not returned."
+                  },
+                  "response": [
+                    {
+                      "id": "0febf443-0589-4b02-a4b7-ddde29ca6b40",
+                      "name": "Secrets listed",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/servers/:qualifiedName/secrets",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "servers",
+                            ":qualifiedName",
+                            "secrets"
+                          ],
+                          "variable": [
+                            {
+                              "key": "qualifiedName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"name\": \"<string>\",\n    \"type\": \"<string>\"\n  },\n  {\n    \"name\": \"<string>\",\n    \"type\": \"<string>\"\n  }\n]",
+                      "createdAt": "2026-07-28T02:57:05.000Z",
+                      "updatedAt": "2026-07-28T02:57:05.000Z",
+                      "uid": "35240-0febf443-0589-4b02-a4b7-ddde29ca6b40"
+                    },
+                    {
+                      "id": "a58b8488-37e0-4928-8677-e3ac7aad95b9",
+                      "name": "Server not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/servers/:qualifiedName/secrets",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "servers",
+                            ":qualifiedName",
+                            "secrets"
+                          ],
+                          "variable": [
+                            {
+                              "key": "qualifiedName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:57:05.000Z",
+                      "updatedAt": "2026-07-28T02:57:05.000Z",
+                      "uid": "35240-a58b8488-37e0-4928-8677-e3ac7aad95b9"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:57:05.000Z",
+                  "updatedAt": "2026-07-28T02:57:05.000Z",
+                  "uid": "35240-f46e2e8d-31a1-4db2-95a0-2e97916acd40"
+                },
+                {
+                  "name": "Set a secret",
+                  "id": "7cf37c35-deda-4d09-9c9b-2e6bab11576d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"value\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/servers/:qualifiedName/secrets",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "servers",
+                        ":qualifiedName",
+                        "secrets"
+                      ],
+                      "variable": [
+                        {
+                          "id": "4199c274-2ba0-4e13-ac44-545381bf273f",
+                          "key": "qualifiedName",
+                          "value": "<string>",
+                          "description": "(Required) The server's qualified name (e.g. 'namespace/server' or 'namespace' for namespace-only servers). Use %2F to encode the slash."
+                        }
+                      ]
+                    },
+                    "description": "Create or update a secret value."
+                  },
+                  "response": [
+                    {
+                      "id": "e8100dac-46c9-4cea-916d-b8e76000c3ef",
+                      "name": "Secret updated",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"value\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/servers/:qualifiedName/secrets",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "servers",
+                            ":qualifiedName",
+                            "secrets"
+                          ],
+                          "variable": [
+                            {
+                              "key": "qualifiedName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"success\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T02:57:05.000Z",
+                      "updatedAt": "2026-07-28T02:57:05.000Z",
+                      "uid": "35240-e8100dac-46c9-4cea-916d-b8e76000c3ef"
+                    },
+                    {
+                      "id": "5dec3176-9a7c-424c-96ec-244aadffaa6a",
+                      "name": "Server not found",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"value\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/servers/:qualifiedName/secrets",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "servers",
+                            ":qualifiedName",
+                            "secrets"
+                          ],
+                          "variable": [
+                            {
+                              "key": "qualifiedName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:57:05.000Z",
+                      "updatedAt": "2026-07-28T02:57:05.000Z",
+                      "uid": "35240-5dec3176-9a7c-424c-96ec-244aadffaa6a"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:57:05.000Z",
+                  "updatedAt": "2026-07-28T02:57:05.000Z",
+                  "uid": "35240-7cf37c35-deda-4d09-9c9b-2e6bab11576d"
+                }
+              ],
+              "id": "9b12538d-52ce-4fa4-b234-f57eadca18f4",
+              "createdAt": "2026-07-28T02:57:05.000Z",
+              "updatedAt": "2026-07-28T02:57:05.000Z",
+              "uid": "35240-9b12538d-52ce-4fa4-b234-f57eadca18f4"
+            },
+            {
+              "name": "icon",
+              "item": [
+                {
+                  "name": "Upload server icon",
+                  "id": "724cb41b-65f9-4158-aad5-7de9b9e33826",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/servers/:qualifiedName/icon",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "servers",
+                        ":qualifiedName",
+                        "icon"
+                      ],
+                      "variable": [
+                        {
+                          "id": "5bae5617-77d7-4332-940e-0e61fc46d1af",
+                          "key": "qualifiedName",
+                          "value": "<string>",
+                          "description": "(Required) The server's qualified name (e.g. 'namespace/server' or 'namespace' for namespace-only servers). Use %2F to encode the slash."
+                        }
+                      ]
+                    },
+                    "description": "Upload or replace the server icon. Accepts a single image file via multipart/form-data. Max 1MB. Supported formats: PNG, JPEG, GIF, SVG, WebP."
+                  },
+                  "response": [
+                    {
+                      "id": "982067d6-fc33-4927-ad88-3004473dfe24",
+                      "name": "Icon uploaded successfully",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/servers/:qualifiedName/icon",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "servers",
+                            ":qualifiedName",
+                            "icon"
+                          ],
+                          "variable": [
+                            {
+                              "key": "qualifiedName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"iconUrl\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:57:05.000Z",
+                      "updatedAt": "2026-07-28T02:57:05.000Z",
+                      "uid": "35240-982067d6-fc33-4927-ad88-3004473dfe24"
+                    },
+                    {
+                      "id": "93fbadf2-2acc-419b-8a77-1dc6d5f375f6",
+                      "name": "Bad request (invalid file type, too large, or no file)",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/servers/:qualifiedName/icon",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "servers",
+                            ":qualifiedName",
+                            "icon"
+                          ],
+                          "variable": [
+                            {
+                              "key": "qualifiedName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:57:05.000Z",
+                      "updatedAt": "2026-07-28T02:57:05.000Z",
+                      "uid": "35240-93fbadf2-2acc-419b-8a77-1dc6d5f375f6"
+                    },
+                    {
+                      "id": "438978f0-2184-48c7-96e0-4111a1003902",
+                      "name": "Forbidden (user doesn't own server)",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/servers/:qualifiedName/icon",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "servers",
+                            ":qualifiedName",
+                            "icon"
+                          ],
+                          "variable": [
+                            {
+                              "key": "qualifiedName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:57:05.000Z",
+                      "updatedAt": "2026-07-28T02:57:05.000Z",
+                      "uid": "35240-438978f0-2184-48c7-96e0-4111a1003902"
+                    },
+                    {
+                      "id": "2f3378a1-ad61-4b76-aaa5-b529697e70b2",
+                      "name": "Server not found",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/servers/:qualifiedName/icon",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "servers",
+                            ":qualifiedName",
+                            "icon"
+                          ],
+                          "variable": [
+                            {
+                              "key": "qualifiedName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:57:05.000Z",
+                      "updatedAt": "2026-07-28T02:57:05.000Z",
+                      "uid": "35240-2f3378a1-ad61-4b76-aaa5-b529697e70b2"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:57:05.000Z",
+                  "updatedAt": "2026-07-28T02:57:05.000Z",
+                  "uid": "35240-724cb41b-65f9-4158-aad5-7de9b9e33826"
+                },
+                {
+                  "name": "Delete server icon",
+                  "id": "111ffaf6-9b8d-452b-a01a-99eb0a52f12b",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/servers/:qualifiedName/icon",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "servers",
+                        ":qualifiedName",
+                        "icon"
+                      ],
+                      "variable": [
+                        {
+                          "id": "65008b61-56df-47eb-8186-e3342451c85e",
+                          "key": "qualifiedName",
+                          "value": "<string>",
+                          "description": "(Required) The server's qualified name (e.g. 'namespace/server' or 'namespace' for namespace-only servers). Use %2F to encode the slash."
+                        }
+                      ]
+                    },
+                    "description": "Remove the server's icon."
+                  },
+                  "response": [
+                    {
+                      "id": "874b93e9-1213-4a93-a3c3-3ba26dbb2148",
+                      "name": "Icon deleted successfully",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/servers/:qualifiedName/icon",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "servers",
+                            ":qualifiedName",
+                            "icon"
+                          ],
+                          "variable": [
+                            {
+                              "key": "qualifiedName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"success\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T02:57:05.000Z",
+                      "updatedAt": "2026-07-28T02:57:05.000Z",
+                      "uid": "35240-874b93e9-1213-4a93-a3c3-3ba26dbb2148"
+                    },
+                    {
+                      "id": "68db3535-a16d-4b02-9a1b-4149e5261734",
+                      "name": "Forbidden (user doesn't own server)",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/servers/:qualifiedName/icon",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "servers",
+                            ":qualifiedName",
+                            "icon"
+                          ],
+                          "variable": [
+                            {
+                              "key": "qualifiedName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:57:05.000Z",
+                      "updatedAt": "2026-07-28T02:57:05.000Z",
+                      "uid": "35240-68db3535-a16d-4b02-9a1b-4149e5261734"
+                    },
+                    {
+                      "id": "db6a7ca0-1043-4876-8042-d828a2ee9014",
+                      "name": "Server not found",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/servers/:qualifiedName/icon",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "servers",
+                            ":qualifiedName",
+                            "icon"
+                          ],
+                          "variable": [
+                            {
+                              "key": "qualifiedName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:57:05.000Z",
+                      "updatedAt": "2026-07-28T02:57:05.000Z",
+                      "uid": "35240-db6a7ca0-1043-4876-8042-d828a2ee9014"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:57:05.000Z",
+                  "updatedAt": "2026-07-28T02:57:05.000Z",
+                  "uid": "35240-111ffaf6-9b8d-452b-a01a-99eb0a52f12b"
+                },
+                {
+                  "name": "Get server icon",
+                  "id": "f0625fce-9c38-46fe-af3a-75209936a6f5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "image/*"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/servers/:qualifiedName/icon",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "servers",
+                        ":qualifiedName",
+                        "icon"
+                      ],
+                      "variable": [
+                        {
+                          "id": "92fe9b04-1efd-4fa5-8041-7db3bd684ca2",
+                          "key": "qualifiedName",
+                          "value": "<string>",
+                          "description": "(Required) The server's qualified name (e.g. 'namespace/server' or 'namespace' for namespace-only servers). Use %2F to encode the slash."
+                        }
+                      ]
+                    },
+                    "description": "Retrieve the server's icon image. Returns the image directly with appropriate content type."
+                  },
+                  "response": [
+                    {
+                      "id": "e8390e3b-a273-496e-a817-b27a2d826014",
+                      "name": "Icon image",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "image/*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/servers/:qualifiedName/icon",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "servers",
+                            ":qualifiedName",
+                            "icon"
+                          ],
+                          "variable": [
+                            {
+                              "key": "qualifiedName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "image/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "<binary>",
+                      "createdAt": "2026-07-28T02:57:05.000Z",
+                      "updatedAt": "2026-07-28T02:57:05.000Z",
+                      "uid": "35240-e8390e3b-a273-496e-a817-b27a2d826014"
+                    },
+                    {
+                      "id": "7021c5d7-1fa7-4dc3-9fd0-2d7329ce2888",
+                      "name": "No icon found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/servers/:qualifiedName/icon",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "servers",
+                            ":qualifiedName",
+                            "icon"
+                          ],
+                          "variable": [
+                            {
+                              "key": "qualifiedName"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:57:05.000Z",
+                      "updatedAt": "2026-07-28T02:57:05.000Z",
+                      "uid": "35240-7021c5d7-1fa7-4dc3-9fd0-2d7329ce2888"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:57:05.000Z",
+                  "updatedAt": "2026-07-28T02:57:05.000Z",
+                  "uid": "35240-f0625fce-9c38-46fe-af3a-75209936a6f5"
+                }
+              ],
+              "id": "f7ebb514-96c2-40f6-8e49-fcbfc5760749",
+              "createdAt": "2026-07-28T02:57:05.000Z",
+              "updatedAt": "2026-07-28T02:57:05.000Z",
+              "uid": "35240-f7ebb514-96c2-40f6-8e49-fcbfc5760749"
+            },
+            {
+              "name": "Get a server",
+              "id": "46adf60b-1d43-41a8-a8e1-71bbdcf3a120",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/servers/:qualifiedName",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "servers",
+                    ":qualifiedName"
+                  ],
+                  "variable": [
+                    {
+                      "id": "35632ed2-bc20-4153-a2fa-098c37629a9f",
+                      "key": "qualifiedName",
+                      "value": "<string>",
+                      "description": "(Required) The server's qualified name (e.g. 'namespace/server' or 'namespace' for namespace-only servers). Use %2F to encode the slash."
+                    }
+                  ]
+                },
+                "description": "Retrieve server details including connections, tools, and security status."
+              },
+              "response": [
+                {
+                  "id": "0377a839-2a38-49ad-81dd-956f2f8f4174",
+                  "name": "Server found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/servers/:qualifiedName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "servers",
+                        ":qualifiedName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "qualifiedName"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"qualifiedName\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"iconUrl\": \"<string>\",\n  \"remote\": \"<boolean>\",\n  \"deploymentUrl\": \"<string>\",\n  \"connections\": [\n    {\n      \"type\": \"<string>\",\n      \"bundleUrl\": \"<uri>\",\n      \"runtime\": \"python\",\n      \"configSchema\": {\n        \"laboref\": {\n          \"x-stainless-any\": true\n        },\n        \"nisi_b\": {\n          \"x-stainless-any\": true\n        }\n      }\n    },\n    {\n      \"type\": \"<string>\",\n      \"bundleUrl\": \"<uri>\",\n      \"runtime\": \"node\",\n      \"configSchema\": {\n        \"quis_1\": {\n          \"x-stainless-any\": true\n        }\n      }\n    }\n  ],\n  \"security\": {\n    \"scanPassed\": \"<boolean>\"\n  },\n  \"tools\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"inputSchema\": {\n        \"type\": \"<string>\",\n        \"properties\": {\n          \"sit4a\": {\n            \"x-stainless-any\": true\n          }\n        }\n      },\n      \"outputSchema\": {\n        \"type\": \"<string>\",\n        \"properties\": {\n          \"velit1\": {}\n        },\n        \"required\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"inputSchema\": {\n        \"type\": \"<string>\",\n        \"properties\": {\n          \"mollit73\": {\n            \"x-stainless-any\": true\n          },\n          \"sed_a\": {\n            \"x-stainless-any\": true\n          }\n        }\n      },\n      \"outputSchema\": {\n        \"type\": \"<string>\",\n        \"properties\": {\n          \"adae\": {},\n          \"sed_7\": {}\n        },\n        \"required\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    }\n  ],\n  \"resources\": [\n    {\n      \"name\": \"<string>\",\n      \"uri\": \"<string>\",\n      \"description\": \"<string>\",\n      \"mimeType\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"uri\": \"<string>\",\n      \"description\": \"<string>\",\n      \"mimeType\": \"<string>\"\n    }\n  ],\n  \"prompts\": [\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"arguments\": [\n        {\n          \"name\": \"<string>\",\n          \"description\": \"<string>\",\n          \"required\": \"<boolean>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"description\": \"<string>\",\n          \"required\": \"<boolean>\"\n        }\n      ]\n    },\n    {\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"arguments\": [\n        {\n          \"name\": \"<string>\",\n          \"description\": \"<string>\",\n          \"required\": \"<boolean>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"description\": \"<string>\",\n          \"required\": \"<boolean>\"\n        }\n      ]\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T02:57:05.000Z",
+                  "updatedAt": "2026-07-28T02:57:05.000Z",
+                  "uid": "35240-0377a839-2a38-49ad-81dd-956f2f8f4174"
+                },
+                {
+                  "id": "fa919bc4-dad7-4d67-ace4-cad62cbe95d0",
+                  "name": "Server or namespace not found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/servers/:qualifiedName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "servers",
+                        ":qualifiedName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "qualifiedName"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:57:05.000Z",
+                  "updatedAt": "2026-07-28T02:57:05.000Z",
+                  "uid": "35240-fa919bc4-dad7-4d67-ace4-cad62cbe95d0"
+                }
+              ],
+              "createdAt": "2026-07-28T02:57:05.000Z",
+              "updatedAt": "2026-07-28T02:57:05.000Z",
+              "uid": "35240-46adf60b-1d43-41a8-a8e1-71bbdcf3a120"
+            },
+            {
+              "name": "Create a server",
+              "id": "07f8f9b7-dfe0-4301-a2ed-1ade5b3d3d13",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/servers/:qualifiedName",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "servers",
+                    ":qualifiedName"
+                  ],
+                  "variable": [
+                    {
+                      "id": "d0c9b077-8b8b-4c3a-b3ba-cc19d514c054",
+                      "key": "qualifiedName",
+                      "value": "<string>",
+                      "description": "(Required) The server's qualified name (e.g. 'namespace/server' or 'namespace' for namespace-only servers). Use %2F to encode the slash."
+                    }
+                  ]
+                },
+                "description": "Create a new server. Idempotent \u2014 returns success if the server already exists and is owned by the caller."
+              },
+              "response": [
+                {
+                  "id": "3ccc0a50-2c54-4e2e-9c66-2b1890a83c4b",
+                  "name": "Server created successfully",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/servers/:qualifiedName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "servers",
+                        ":qualifiedName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "qualifiedName"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"namespace\": \"<string>\",\n  \"server\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"createdAt\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:57:05.000Z",
+                  "updatedAt": "2026-07-28T02:57:05.000Z",
+                  "uid": "35240-3ccc0a50-2c54-4e2e-9c66-2b1890a83c4b"
+                },
+                {
+                  "id": "05382575-7784-43c1-9ccc-771b801bb50f",
+                  "name": "Bad request (invalid name format)",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/servers/:qualifiedName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "servers",
+                        ":qualifiedName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "qualifiedName"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:57:05.000Z",
+                  "updatedAt": "2026-07-28T02:57:05.000Z",
+                  "uid": "35240-05382575-7784-43c1-9ccc-771b801bb50f"
+                },
+                {
+                  "id": "334a93f7-f772-4784-8175-f54789dc2810",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/servers/:qualifiedName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "servers",
+                        ":qualifiedName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "qualifiedName"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:57:05.000Z",
+                  "updatedAt": "2026-07-28T02:57:05.000Z",
+                  "uid": "35240-334a93f7-f772-4784-8175-f54789dc2810"
+                },
+                {
+                  "id": "601debdf-1561-478c-aa59-4ac91f864685",
+                  "name": "Forbidden (namespace not owned by user or missing servers:write permission)",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/servers/:qualifiedName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "servers",
+                        ":qualifiedName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "qualifiedName"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:57:05.000Z",
+                  "updatedAt": "2026-07-28T02:57:05.000Z",
+                  "uid": "35240-601debdf-1561-478c-aa59-4ac91f864685"
+                },
+                {
+                  "id": "9e6cd365-ae8c-4152-9a5f-3fbe407843c3",
+                  "name": "Namespace not found",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/servers/:qualifiedName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "servers",
+                        ":qualifiedName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "qualifiedName"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:57:05.000Z",
+                  "updatedAt": "2026-07-28T02:57:05.000Z",
+                  "uid": "35240-9e6cd365-ae8c-4152-9a5f-3fbe407843c3"
+                }
+              ],
+              "createdAt": "2026-07-28T02:57:05.000Z",
+              "updatedAt": "2026-07-28T02:57:05.000Z",
+              "uid": "35240-07f8f9b7-dfe0-4301-a2ed-1ade5b3d3d13"
+            },
+            {
+              "name": "Update a server",
+              "id": "443ae228-b0a1-4f6c-b547-7944c2a339d2",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PATCH",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"homepage\": \"<string>\",\n  \"repositoryUrl\": \"<string>\",\n  \"backlinkUrl\": \"<string>\",\n  \"license\": \"<string>\",\n  \"iconUrl\": \"<string>\",\n  \"unlisted\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/servers/:qualifiedName",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "servers",
+                    ":qualifiedName"
+                  ],
+                  "variable": [
+                    {
+                      "id": "cf243158-8d01-447d-b2dd-470b13a47968",
+                      "key": "qualifiedName",
+                      "value": "<string>",
+                      "description": "(Required) The server's qualified name (e.g. 'namespace/server' or 'namespace' for namespace-only servers). Use %2F to encode the slash."
+                    }
+                  ]
+                },
+                "description": "Update server metadata such as display name, description, repository, icon, or visibility."
+              },
+              "response": [
+                {
+                  "id": "b781feab-418c-4b8d-8d81-ca29cc936a38",
+                  "name": "Server updated",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"homepage\": \"<string>\",\n  \"repositoryUrl\": \"<string>\",\n  \"backlinkUrl\": \"<string>\",\n  \"license\": \"<string>\",\n  \"iconUrl\": \"<string>\",\n  \"unlisted\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/servers/:qualifiedName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "servers",
+                        ":qualifiedName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "qualifiedName"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"success\": \"<boolean>\",\n  \"namespace\": \"<string>\",\n  \"server\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:57:05.000Z",
+                  "updatedAt": "2026-07-28T02:57:05.000Z",
+                  "uid": "35240-b781feab-418c-4b8d-8d81-ca29cc936a38"
+                },
+                {
+                  "id": "917eec97-45ff-4c99-8838-e5188dc7d9a4",
+                  "name": "Bad request",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"homepage\": \"<string>\",\n  \"repositoryUrl\": \"<string>\",\n  \"backlinkUrl\": \"<string>\",\n  \"license\": \"<string>\",\n  \"iconUrl\": \"<string>\",\n  \"unlisted\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/servers/:qualifiedName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "servers",
+                        ":qualifiedName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "qualifiedName"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:57:05.000Z",
+                  "updatedAt": "2026-07-28T02:57:05.000Z",
+                  "uid": "35240-917eec97-45ff-4c99-8838-e5188dc7d9a4"
+                },
+                {
+                  "id": "9a2a13b2-4cec-43ce-9edc-d3f549fd3378",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"homepage\": \"<string>\",\n  \"repositoryUrl\": \"<string>\",\n  \"backlinkUrl\": \"<string>\",\n  \"license\": \"<string>\",\n  \"iconUrl\": \"<string>\",\n  \"unlisted\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/servers/:qualifiedName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "servers",
+                        ":qualifiedName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "qualifiedName"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:57:05.000Z",
+                  "updatedAt": "2026-07-28T02:57:05.000Z",
+                  "uid": "35240-9a2a13b2-4cec-43ce-9edc-d3f549fd3378"
+                },
+                {
+                  "id": "6b316b5d-489c-4901-9ea7-4c93aa02548b",
+                  "name": "Server not found",
+                  "originalRequest": {
+                    "method": "PATCH",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"homepage\": \"<string>\",\n  \"repositoryUrl\": \"<string>\",\n  \"backlinkUrl\": \"<string>\",\n  \"license\": \"<string>\",\n  \"iconUrl\": \"<string>\",\n  \"unlisted\": \"<boolean>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/servers/:qualifiedName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "servers",
+                        ":qualifiedName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "qualifiedName"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:57:05.000Z",
+                  "updatedAt": "2026-07-28T02:57:05.000Z",
+                  "uid": "35240-6b316b5d-489c-4901-9ea7-4c93aa02548b"
+                }
+              ],
+              "createdAt": "2026-07-28T02:57:05.000Z",
+              "updatedAt": "2026-07-28T02:57:05.000Z",
+              "uid": "35240-443ae228-b0a1-4f6c-b547-7944c2a339d2"
+            },
+            {
+              "name": "Delete a server",
+              "id": "3a91232d-2208-4c43-bda0-0add6cf5f8e9",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/servers/:qualifiedName",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "servers",
+                    ":qualifiedName"
+                  ],
+                  "variable": [
+                    {
+                      "id": "fddb6643-9a4b-435c-bd3e-0891028173b9",
+                      "key": "qualifiedName",
+                      "value": "<string>",
+                      "description": "(Required) The server's qualified name (e.g. 'namespace/server' or 'namespace' for namespace-only servers). Use %2F to encode the slash."
+                    }
+                  ]
+                },
+                "description": "Permanently delete a server, its releases, and associated resources."
+              },
+              "response": [
+                {
+                  "id": "ea35db92-e634-4d2e-a839-e5348aa3d125",
+                  "name": "Server deleted",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/servers/:qualifiedName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "servers",
+                        ":qualifiedName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "qualifiedName"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"success\": \"<boolean>\",\n  \"namespace\": \"<string>\",\n  \"server\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:57:05.000Z",
+                  "updatedAt": "2026-07-28T02:57:05.000Z",
+                  "uid": "35240-ea35db92-e634-4d2e-a839-e5348aa3d125"
+                },
+                {
+                  "id": "4eeec8c0-829b-4347-800e-f1429ade8bae",
+                  "name": "Server not found or not owned by user",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/servers/:qualifiedName",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "servers",
+                        ":qualifiedName"
+                      ],
+                      "variable": [
+                        {
+                          "key": "qualifiedName"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:57:05.000Z",
+                  "updatedAt": "2026-07-28T02:57:05.000Z",
+                  "uid": "35240-4eeec8c0-829b-4347-800e-f1429ade8bae"
+                }
+              ],
+              "createdAt": "2026-07-28T02:57:05.000Z",
+              "updatedAt": "2026-07-28T02:57:05.000Z",
+              "uid": "35240-3a91232d-2208-4c43-bda0-0add6cf5f8e9"
+            }
+          ],
+          "id": "e67acc06-5aee-4be2-a8d5-5d4f0cba17a5",
+          "createdAt": "2026-07-28T02:57:05.000Z",
+          "updatedAt": "2026-07-28T02:57:05.000Z",
+          "uid": "35240-e67acc06-5aee-4be2-a8d5-5d4f0cba17a5"
+        },
+        {
+          "name": "List all servers",
+          "id": "c2ddec6b-0cd1-4a3b-a605-f0d46e7e2c8e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/servers?q=<string>&page=<integer>&pageSize=<integer>&topK=<integer>&fields=<string>&ids=8ac8Ec3f-5Ebd-66D5-8fbD-2eEebb7C98b1&ids=00000000-0000-0000-0000-000000000000&qualifiedName=<string>&namespace=<string>&remote=false&isDeployed=false&verified=false&ownerId=<string>&repoOwner=<string>&repoName=<string>&seed=<integer>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "servers"
+              ],
+              "query": [
+                {
+                  "description": "Search query for full-text and semantic search across server names and descriptions.",
+                  "key": "q",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Page number (1-indexed).",
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Number of results per page (default 10, max 100).",
+                  "key": "pageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Maximum number of candidate results to consider from the search index before pagination.",
+                  "key": "topK",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Comma-separated list of fields to include in response",
+                  "key": "fields",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by specific server IDs.",
+                  "key": "ids",
+                  "value": "8ac8Ec3f-5Ebd-66D5-8fbD-2eEebb7C98b1"
+                },
+                {
+                  "description": "Filter by specific server IDs.",
+                  "key": "ids",
+                  "value": "00000000-0000-0000-0000-000000000000"
+                },
+                {
+                  "description": "Exact match on the server's qualified name (e.g. \"smithery/hello-world\"). Deprecated: use GET /servers/:namespace/:server instead.",
+                  "key": "qualifiedName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by the namespace that owns the server.",
+                  "key": "namespace",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by remote status. Remote servers are accessed via URL; non-remote servers run locally via stdio.",
+                  "key": "remote",
+                  "value": "false"
+                },
+                {
+                  "description": "Filter by deployment status. Deployed servers are hosted on Smithery infrastructure.",
+                  "key": "isDeployed",
+                  "value": "false"
+                },
+                {
+                  "description": "Filter to only verified servers.",
+                  "key": "verified",
+                  "value": "false"
+                },
+                {
+                  "description": "Filter by the server owner's user ID.",
+                  "key": "ownerId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by GitHub repository owner from repository_url.",
+                  "key": "repoOwner",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by GitHub repository name from repository_url.",
+                  "key": "repoName",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Random seed for deterministic pagination. When provided, results use a stable sort order that is consistent across pages for the same seed value.",
+                  "key": "seed",
+                  "value": "<integer>"
+                }
+              ]
+            },
+            "description": "Search and browse public MCP servers in the Smithery registry. Supports full-text and semantic search via the `q` parameter, and filtering by deployment status, verification, ownership, and more."
+          },
+          "response": [
+            {
+              "id": "fee0e539-75c5-4477-9bc9-64727019bb49",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/servers?q=<string>&page=<integer>&pageSize=<integer>&topK=<integer>&fields=<string>&ids=00000000-0000-0000-0000-000000000000&qualifiedName=<string>&namespace=<string>&remote=false&isDeployed=false&verified=false&ownerId=<string>&repoOwner=<string>&repoName=<string>&seed=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "servers"
+                  ],
+                  "query": [
+                    {
+                      "description": "Search query for full-text and semantic search across server names and descriptions.",
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Page number (1-indexed).",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Number of results per page (default 10, max 100).",
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Maximum number of candidate results to consider from the search index before pagination.",
+                      "key": "topK",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Comma-separated list of fields to include in response",
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by specific server IDs.",
+                      "key": "ids",
+                      "value": "00000000-0000-0000-0000-000000000000"
+                    },
+                    {
+                      "description": "Exact match on the server's qualified name (e.g. \"smithery/hello-world\"). Deprecated: use GET /servers/:namespace/:server instead.",
+                      "key": "qualifiedName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by the namespace that owns the server.",
+                      "key": "namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by remote status. Remote servers are accessed via URL; non-remote servers run locally via stdio.",
+                      "key": "remote",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Filter by deployment status. Deployed servers are hosted on Smithery infrastructure.",
+                      "key": "isDeployed",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Filter to only verified servers.",
+                      "key": "verified",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Filter by the server owner's user ID.",
+                      "key": "ownerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by GitHub repository owner from repository_url.",
+                      "key": "repoOwner",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by GitHub repository name from repository_url.",
+                      "key": "repoName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Random seed for deterministic pagination. When provided, results use a stable sort order that is consistent across pages for the same seed value.",
+                      "key": "seed",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"servers\": [\n    {\n      \"id\": \"<string>\",\n      \"qualifiedName\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"slug\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"description\": \"<string>\",\n      \"iconUrl\": \"<string>\",\n      \"verified\": \"<boolean>\",\n      \"useCount\": \"<number>\",\n      \"remote\": \"<boolean>\",\n      \"isDeployed\": \"<boolean>\",\n      \"createdAt\": \"<string>\",\n      \"homepage\": \"<string>\",\n      \"bySmithery\": \"<boolean>\",\n      \"owner\": \"<string>\",\n      \"score\": \"<number>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"qualifiedName\": \"<string>\",\n      \"namespace\": \"<string>\",\n      \"slug\": \"<string>\",\n      \"displayName\": \"<string>\",\n      \"description\": \"<string>\",\n      \"iconUrl\": \"<string>\",\n      \"verified\": \"<boolean>\",\n      \"useCount\": \"<number>\",\n      \"remote\": \"<boolean>\",\n      \"isDeployed\": \"<boolean>\",\n      \"createdAt\": \"<string>\",\n      \"homepage\": \"<string>\",\n      \"bySmithery\": \"<boolean>\",\n      \"owner\": \"<string>\",\n      \"score\": \"<number>\"\n    }\n  ],\n  \"pagination\": {\n    \"currentPage\": \"<integer>\",\n    \"pageSize\": \"<integer>\",\n    \"totalPages\": \"<integer>\",\n    \"totalCount\": \"<integer>\"\n  }\n}",
+              "createdAt": "2026-07-28T02:57:05.000Z",
+              "updatedAt": "2026-07-28T02:57:05.000Z",
+              "uid": "35240-fee0e539-75c5-4477-9bc9-64727019bb49"
+            },
+            {
+              "id": "8f87d2c2-0efb-4604-abde-b77e3f503475",
+              "name": "Bad request",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/servers?q=<string>&page=<integer>&pageSize=<integer>&topK=<integer>&fields=<string>&ids=00000000-0000-0000-0000-000000000000&qualifiedName=<string>&namespace=<string>&remote=false&isDeployed=false&verified=false&ownerId=<string>&repoOwner=<string>&repoName=<string>&seed=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "servers"
+                  ],
+                  "query": [
+                    {
+                      "description": "Search query for full-text and semantic search across server names and descriptions.",
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Page number (1-indexed).",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Number of results per page (default 10, max 100).",
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Maximum number of candidate results to consider from the search index before pagination.",
+                      "key": "topK",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Comma-separated list of fields to include in response",
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by specific server IDs.",
+                      "key": "ids",
+                      "value": "00000000-0000-0000-0000-000000000000"
+                    },
+                    {
+                      "description": "Exact match on the server's qualified name (e.g. \"smithery/hello-world\"). Deprecated: use GET /servers/:namespace/:server instead.",
+                      "key": "qualifiedName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by the namespace that owns the server.",
+                      "key": "namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by remote status. Remote servers are accessed via URL; non-remote servers run locally via stdio.",
+                      "key": "remote",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Filter by deployment status. Deployed servers are hosted on Smithery infrastructure.",
+                      "key": "isDeployed",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Filter to only verified servers.",
+                      "key": "verified",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Filter by the server owner's user ID.",
+                      "key": "ownerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by GitHub repository owner from repository_url.",
+                      "key": "repoOwner",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by GitHub repository name from repository_url.",
+                      "key": "repoName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Random seed for deterministic pagination. When provided, results use a stable sort order that is consistent across pages for the same seed value.",
+                      "key": "seed",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:57:05.000Z",
+              "updatedAt": "2026-07-28T02:57:05.000Z",
+              "uid": "35240-8f87d2c2-0efb-4604-abde-b77e3f503475"
+            },
+            {
+              "id": "97aee2a4-e9cf-4b72-9222-19002dbed89f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/servers?q=<string>&page=<integer>&pageSize=<integer>&topK=<integer>&fields=<string>&ids=00000000-0000-0000-0000-000000000000&qualifiedName=<string>&namespace=<string>&remote=false&isDeployed=false&verified=false&ownerId=<string>&repoOwner=<string>&repoName=<string>&seed=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "servers"
+                  ],
+                  "query": [
+                    {
+                      "description": "Search query for full-text and semantic search across server names and descriptions.",
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Page number (1-indexed).",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Number of results per page (default 10, max 100).",
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Maximum number of candidate results to consider from the search index before pagination.",
+                      "key": "topK",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Comma-separated list of fields to include in response",
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by specific server IDs.",
+                      "key": "ids",
+                      "value": "00000000-0000-0000-0000-000000000000"
+                    },
+                    {
+                      "description": "Exact match on the server's qualified name (e.g. \"smithery/hello-world\"). Deprecated: use GET /servers/:namespace/:server instead.",
+                      "key": "qualifiedName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by the namespace that owns the server.",
+                      "key": "namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by remote status. Remote servers are accessed via URL; non-remote servers run locally via stdio.",
+                      "key": "remote",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Filter by deployment status. Deployed servers are hosted on Smithery infrastructure.",
+                      "key": "isDeployed",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Filter to only verified servers.",
+                      "key": "verified",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Filter by the server owner's user ID.",
+                      "key": "ownerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by GitHub repository owner from repository_url.",
+                      "key": "repoOwner",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by GitHub repository name from repository_url.",
+                      "key": "repoName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Random seed for deterministic pagination. When provided, results use a stable sort order that is consistent across pages for the same seed value.",
+                      "key": "seed",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:57:05.000Z",
+              "updatedAt": "2026-07-28T02:57:05.000Z",
+              "uid": "35240-97aee2a4-e9cf-4b72-9222-19002dbed89f"
+            },
+            {
+              "id": "20a846d8-6186-44a5-8a26-c71b0b92004a",
+              "name": "Unprocessable entity",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/servers?q=<string>&page=<integer>&pageSize=<integer>&topK=<integer>&fields=<string>&ids=00000000-0000-0000-0000-000000000000&qualifiedName=<string>&namespace=<string>&remote=false&isDeployed=false&verified=false&ownerId=<string>&repoOwner=<string>&repoName=<string>&seed=<integer>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "servers"
+                  ],
+                  "query": [
+                    {
+                      "description": "Search query for full-text and semantic search across server names and descriptions.",
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Page number (1-indexed).",
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Number of results per page (default 10, max 100).",
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Maximum number of candidate results to consider from the search index before pagination.",
+                      "key": "topK",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Comma-separated list of fields to include in response",
+                      "key": "fields",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by specific server IDs.",
+                      "key": "ids",
+                      "value": "00000000-0000-0000-0000-000000000000"
+                    },
+                    {
+                      "description": "Exact match on the server's qualified name (e.g. \"smithery/hello-world\"). Deprecated: use GET /servers/:namespace/:server instead.",
+                      "key": "qualifiedName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by the namespace that owns the server.",
+                      "key": "namespace",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by remote status. Remote servers are accessed via URL; non-remote servers run locally via stdio.",
+                      "key": "remote",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Filter by deployment status. Deployed servers are hosted on Smithery infrastructure.",
+                      "key": "isDeployed",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Filter to only verified servers.",
+                      "key": "verified",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Filter by the server owner's user ID.",
+                      "key": "ownerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by GitHub repository owner from repository_url.",
+                      "key": "repoOwner",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by GitHub repository name from repository_url.",
+                      "key": "repoName",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Random seed for deterministic pagination. When provided, results use a stable sort order that is consistent across pages for the same seed value.",
+                      "key": "seed",
+                      "value": "<integer>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unprocessable Entity (WebDAV) (RFC 4918)",
+              "code": 422,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:57:05.000Z",
+              "updatedAt": "2026-07-28T02:57:05.000Z",
+              "uid": "35240-20a846d8-6186-44a5-8a26-c71b0b92004a"
+            }
+          ],
+          "createdAt": "2026-07-28T02:57:05.000Z",
+          "updatedAt": "2026-07-28T02:57:05.000Z",
+          "uid": "35240-c2ddec6b-0cd1-4a3b-a605-f0d46e7e2c8e"
+        }
+      ],
+      "id": "5a16c8a1-4e0e-45ae-9533-f91a178b9619",
+      "createdAt": "2026-07-28T02:57:05.000Z",
+      "updatedAt": "2026-07-28T02:57:05.000Z",
+      "uid": "35240-5a16c8a1-4e0e-45ae-9533-f91a178b9619"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.smithery.ai"
+    }
+  ]
+}

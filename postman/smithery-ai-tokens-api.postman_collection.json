@@ -1,0 +1,278 @@
+{
+  "info": {
+    "_postman_id": "80a3bb2d-4930-4501-b255-cbfb21c7d3c1",
+    "name": "Smithery connect tokens API",
+    "description": "Connect to MCP servers hosted on Smithery without managing OAuth, credentials, or sessions. Create stateless connections to any MCP server, execute MCP JSON-RPC, list/call tools and triggers, and manage subscriptions for trigger events.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:57:07.000Z",
+    "updatedAt": "2026-07-28T02:57:08.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-80a3bb2d-4930-4501-b255-cbfb21c7d3c1"
+  },
+  "item": [
+    {
+      "name": "tokens",
+      "item": [
+        {
+          "name": "Create a service token",
+          "id": "b15d67a1-03c8-489c-aab5-8f896dc60f78",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"policy\": [\n    {\n      \"namespaces\": \"<string>\",\n      \"resources\": \"skills\",\n      \"operations\": \"execute\",\n      \"metadata\": {\n        \"ullamco_1\": \"<string>\"\n      },\n      \"ttl\": \"<string>\",\n      \"rpcReqMatch\": {\n        \"tempor_47\": \"<string>\",\n        \"in_7\": \"<string>\"\n      }\n    }\n  ],\n  \"organizationId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/tokens",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "tokens"
+              ]
+            },
+            "description": "Create a service token for machine-to-machine authentication. Accepts API key or bearer token. Optionally apply restrictions."
+          },
+          "response": [
+            {
+              "id": "8b07de70-a32c-4323-9487-119632e98c52",
+              "name": "Token created successfully",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"policy\": [\n    {\n      \"namespaces\": \"<string>\",\n      \"resources\": \"skills\",\n      \"operations\": \"execute\",\n      \"metadata\": {\n        \"ullamco_1\": \"<string>\"\n      },\n      \"ttl\": \"<string>\",\n      \"rpcReqMatch\": {\n        \"tempor_47\": \"<string>\",\n        \"in_7\": \"<string>\"\n      }\n    }\n  ],\n  \"organizationId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/tokens",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tokens"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"token\": \"<string>\",\n  \"expiresAt\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:57:08.000Z",
+              "updatedAt": "2026-07-28T02:57:08.000Z",
+              "uid": "35240-8b07de70-a32c-4323-9487-119632e98c52"
+            },
+            {
+              "id": "dcac00bf-441a-4930-97db-adeabaf843b6",
+              "name": "Bad request (invalid parameters)",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"policy\": [\n    {\n      \"namespaces\": \"<string>\",\n      \"resources\": \"skills\",\n      \"operations\": \"execute\",\n      \"metadata\": {\n        \"ullamco_1\": \"<string>\"\n      },\n      \"ttl\": \"<string>\",\n      \"rpcReqMatch\": {\n        \"tempor_47\": \"<string>\",\n        \"in_7\": \"<string>\"\n      }\n    }\n  ],\n  \"organizationId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/tokens",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tokens"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:57:08.000Z",
+              "updatedAt": "2026-07-28T02:57:08.000Z",
+              "uid": "35240-dcac00bf-441a-4930-97db-adeabaf843b6"
+            },
+            {
+              "id": "d0a363e2-975d-48d3-b072-4d12580bba63",
+              "name": "Unauthorized (missing or invalid credentials)",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"policy\": [\n    {\n      \"namespaces\": \"<string>\",\n      \"resources\": \"skills\",\n      \"operations\": \"execute\",\n      \"metadata\": {\n        \"ullamco_1\": \"<string>\"\n      },\n      \"ttl\": \"<string>\",\n      \"rpcReqMatch\": {\n        \"tempor_47\": \"<string>\",\n        \"in_7\": \"<string>\"\n      }\n    }\n  ],\n  \"organizationId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/tokens",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tokens"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:57:08.000Z",
+              "updatedAt": "2026-07-28T02:57:08.000Z",
+              "uid": "35240-d0a363e2-975d-48d3-b072-4d12580bba63"
+            },
+            {
+              "id": "69686e95-a846-4c0c-a773-b0783d8e91e2",
+              "name": "Forbidden",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"policy\": [\n    {\n      \"namespaces\": \"<string>\",\n      \"resources\": \"skills\",\n      \"operations\": \"execute\",\n      \"metadata\": {\n        \"ullamco_1\": \"<string>\"\n      },\n      \"ttl\": \"<string>\",\n      \"rpcReqMatch\": {\n        \"tempor_47\": \"<string>\",\n        \"in_7\": \"<string>\"\n      }\n    }\n  ],\n  \"organizationId\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/tokens",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "tokens"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:57:08.000Z",
+              "updatedAt": "2026-07-28T02:57:08.000Z",
+              "uid": "35240-69686e95-a846-4c0c-a773-b0783d8e91e2"
+            }
+          ],
+          "createdAt": "2026-07-28T02:57:08.000Z",
+          "updatedAt": "2026-07-28T02:57:08.000Z",
+          "uid": "35240-b15d67a1-03c8-489c-aab5-8f896dc60f78"
+        }
+      ],
+      "id": "54d3aeaa-848d-45bd-b4b4-f95e62e10859",
+      "createdAt": "2026-07-28T02:57:08.000Z",
+      "updatedAt": "2026-07-28T02:57:08.000Z",
+      "uid": "35240-54d3aeaa-848d-45bd-b4b4-f95e62e10859"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.smithery.ai"
+    }
+  ]
+}

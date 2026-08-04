@@ -1,0 +1,32 @@
+{
+  "provider": "smithery-ai",
+  "sources": [
+    "smithery-ai-connect-api-openapi.yml",
+    "smithery-ai-connect-mcp-api-openapi.yml",
+    "smithery-ai-domains-api-openapi.yml",
+    "smithery-ai-health-api-openapi.yml",
+    "smithery-ai-namespaces-api-openapi.yml",
+    "smithery-ai-organizations-api-openapi.yml",
+    "smithery-ai-servers-api-openapi.yml",
+    "smithery-ai-skills-api-openapi.yml",
+    "smithery-ai-tokens-api-openapi.yml"
+  ],
+  "outputs": [
+    "smithery-ai-connect-api-openapi.yml",
+    "smithery-ai-connect-mcp-api-openapi.yml",
+    "smithery-ai-domains-api-openapi.yml",
+    "smithery-ai-health-api-openapi.yml",
+    "smithery-ai-namespaces-api-openapi.yml",
+    "smithery-ai-organizations-api-openapi.yml",
+    "smithery-ai-servers-api-openapi.yml",
+    "smithery-ai-skills-api-openapi.yml",
+    "smithery-ai-tokens-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [
+    "smithery-ai-organizations-api-openapi.yml: dangling $ref: #/components/schemas/TeamApiKey"
+  ],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

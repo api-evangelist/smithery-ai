@@ -1,0 +1,1408 @@
+{
+  "info": {
+    "_postman_id": "fea70018-f711-45b4-a715-4076dda0c42f",
+    "name": "Smithery connect namespaces API",
+    "description": "Connect to MCP servers hosted on Smithery without managing OAuth, credentials, or sessions. Create stateless connections to any MCP server, execute MCP JSON-RPC, list/call tools and triggers, and manage subscriptions for trigger events.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:57:01.000Z",
+    "updatedAt": "2026-07-28T02:57:01.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-fea70018-f711-45b4-a715-4076dda0c42f"
+  },
+  "item": [
+    {
+      "name": "namespaces",
+      "item": [
+        {
+          "name": "{name}",
+          "item": [
+            {
+              "name": "Create a new namespace",
+              "id": "226211ca-753f-4c36-89fe-7b7cde50b5cb",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/namespaces/:name",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "namespaces",
+                    ":name"
+                  ],
+                  "variable": [
+                    {
+                      "id": "abe004d8-6403-47ae-882e-044813cd686c",
+                      "key": "name",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Create a new namespace owned by the authenticated user or an organization. This endpoint is idempotent - if the namespace already exists and is owned by the user/org, returns success. Pass organizationId in the request body to create an org-owned namespace."
+              },
+              "response": [
+                {
+                  "id": "90545e97-eaad-49ab-8de8-f8b2f85dbb81",
+                  "name": "Namespace created successfully",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/namespaces/:name",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "namespaces",
+                        ":name"
+                      ],
+                      "variable": [
+                        {
+                          "key": "name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"name\": \"<string>\",\n  \"createdAt\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:57:02.000Z",
+                  "updatedAt": "2026-07-28T02:57:02.000Z",
+                  "uid": "35240-90545e97-eaad-49ab-8de8-f8b2f85dbb81"
+                },
+                {
+                  "id": "5f5113b5-c375-435e-a6e9-39e63e7ece4e",
+                  "name": "Bad request (invalid name format or user already has a namespace)",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/namespaces/:name",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "namespaces",
+                        ":name"
+                      ],
+                      "variable": [
+                        {
+                          "key": "name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:57:02.000Z",
+                  "updatedAt": "2026-07-28T02:57:02.000Z",
+                  "uid": "35240-5f5113b5-c375-435e-a6e9-39e63e7ece4e"
+                },
+                {
+                  "id": "6981900e-ca27-42e8-a0f5-6f5dbd744c70",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/namespaces/:name",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "namespaces",
+                        ":name"
+                      ],
+                      "variable": [
+                        {
+                          "key": "name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:57:02.000Z",
+                  "updatedAt": "2026-07-28T02:57:02.000Z",
+                  "uid": "35240-6981900e-ca27-42e8-a0f5-6f5dbd744c70"
+                },
+                {
+                  "id": "5af290f0-f612-4226-a1d2-fd105efd01f7",
+                  "name": "Forbidden - missing namespaces:write permission",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/namespaces/:name",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "namespaces",
+                        ":name"
+                      ],
+                      "variable": [
+                        {
+                          "key": "name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:57:02.000Z",
+                  "updatedAt": "2026-07-28T02:57:02.000Z",
+                  "uid": "35240-5af290f0-f612-4226-a1d2-fd105efd01f7"
+                },
+                {
+                  "id": "8c49fcc4-e543-4c2c-99dd-932fd8eb6625",
+                  "name": "Conflict (namespace already exists)",
+                  "originalRequest": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/namespaces/:name",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "namespaces",
+                        ":name"
+                      ],
+                      "variable": [
+                        {
+                          "key": "name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:57:02.000Z",
+                  "updatedAt": "2026-07-28T02:57:02.000Z",
+                  "uid": "35240-8c49fcc4-e543-4c2c-99dd-932fd8eb6625"
+                }
+              ],
+              "createdAt": "2026-07-28T02:57:02.000Z",
+              "updatedAt": "2026-07-28T02:57:02.000Z",
+              "uid": "35240-226211ca-753f-4c36-89fe-7b7cde50b5cb"
+            },
+            {
+              "name": "Delete a namespace",
+              "id": "708491e4-2086-414d-ad0b-e7b252c9e7cf",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/namespaces/:name",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "namespaces",
+                    ":name"
+                  ],
+                  "variable": [
+                    {
+                      "id": "7bf486ab-2fb5-424d-b9a3-e45feb7dc61e",
+                      "key": "name",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Delete a namespace owned by the authenticated user. The namespace must not contain any servers. Skills and connections in the namespace will be deleted automatically."
+              },
+              "response": [
+                {
+                  "id": "c9417af9-d48f-4697-bbc4-7ca71db6c3a4",
+                  "name": "Namespace deleted successfully",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/namespaces/:name",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "namespaces",
+                        ":name"
+                      ],
+                      "variable": [
+                        {
+                          "key": "name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"success\": \"<boolean>\",\n  \"name\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:57:02.000Z",
+                  "updatedAt": "2026-07-28T02:57:02.000Z",
+                  "uid": "35240-c9417af9-d48f-4697-bbc4-7ca71db6c3a4"
+                },
+                {
+                  "id": "c5ab120b-d4e5-405b-9dc8-1353b24a1cdb",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/namespaces/:name",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "namespaces",
+                        ":name"
+                      ],
+                      "variable": [
+                        {
+                          "key": "name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:57:02.000Z",
+                  "updatedAt": "2026-07-28T02:57:02.000Z",
+                  "uid": "35240-c5ab120b-d4e5-405b-9dc8-1353b24a1cdb"
+                },
+                {
+                  "id": "58d8ef6f-5fcf-40f9-80f3-e0e2248ffd1a",
+                  "name": "Forbidden - user does not own this namespace",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/namespaces/:name",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "namespaces",
+                        ":name"
+                      ],
+                      "variable": [
+                        {
+                          "key": "name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:57:02.000Z",
+                  "updatedAt": "2026-07-28T02:57:02.000Z",
+                  "uid": "35240-58d8ef6f-5fcf-40f9-80f3-e0e2248ffd1a"
+                },
+                {
+                  "id": "10e84733-73d8-486c-888f-720ebac63b8d",
+                  "name": "Namespace not found",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/namespaces/:name",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "namespaces",
+                        ":name"
+                      ],
+                      "variable": [
+                        {
+                          "key": "name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:57:02.000Z",
+                  "updatedAt": "2026-07-28T02:57:02.000Z",
+                  "uid": "35240-10e84733-73d8-486c-888f-720ebac63b8d"
+                },
+                {
+                  "id": "940884eb-542c-4df0-b49f-b30429352bbb",
+                  "name": "Conflict - namespace contains servers that must be deleted first",
+                  "originalRequest": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/namespaces/:name",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "namespaces",
+                        ":name"
+                      ],
+                      "variable": [
+                        {
+                          "key": "name"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Conflict",
+                  "code": 409,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:57:02.000Z",
+                  "updatedAt": "2026-07-28T02:57:02.000Z",
+                  "uid": "35240-940884eb-542c-4df0-b49f-b30429352bbb"
+                }
+              ],
+              "createdAt": "2026-07-28T02:57:02.000Z",
+              "updatedAt": "2026-07-28T02:57:02.000Z",
+              "uid": "35240-708491e4-2086-414d-ad0b-e7b252c9e7cf"
+            }
+          ],
+          "id": "1e4f7a69-d718-4b9a-ad40-b407b414d083",
+          "createdAt": "2026-07-28T02:57:02.000Z",
+          "updatedAt": "2026-07-28T02:57:02.000Z",
+          "uid": "35240-1e4f7a69-d718-4b9a-ad40-b407b414d083"
+        },
+        {
+          "name": "{namespace}",
+          "item": [
+            {
+              "name": "servers",
+              "item": [
+                {
+                  "name": "{server}",
+                  "item": [
+                    {
+                      "name": "Create a server under a namespace (deprecated)",
+                      "id": "44f2e87a-9dab-4006-8fb5-baa4bf2c0e21",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/namespaces/:namespace/servers/:server",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "namespaces",
+                            ":namespace",
+                            "servers",
+                            ":server"
+                          ],
+                          "variable": [
+                            {
+                              "id": "9134efdc-dd14-4115-883a-fe108275fad6",
+                              "key": "namespace",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "f98bfe64-b6d0-40af-8c0d-a2f1d1b28bf7",
+                              "key": "server",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "**Deprecated:** Use PUT /servers/{namespace}/{server} instead. Create a new server under the specified namespace. This endpoint is idempotent."
+                      },
+                      "response": [
+                        {
+                          "id": "669df5a2-1df6-4e21-98eb-b1d07739c3d5",
+                          "name": "Server created successfully",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/namespaces/:namespace/servers/:server",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "namespaces",
+                                ":namespace",
+                                "servers",
+                                ":server"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "namespace"
+                                },
+                                {
+                                  "key": "server"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Created",
+                          "code": 201,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"namespace\": \"<string>\",\n  \"server\": \"<string>\",\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\",\n  \"createdAt\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:57:02.000Z",
+                          "updatedAt": "2026-07-28T02:57:02.000Z",
+                          "uid": "35240-669df5a2-1df6-4e21-98eb-b1d07739c3d5"
+                        },
+                        {
+                          "id": "b0159489-a820-4055-995c-be188e74f08b",
+                          "name": "Bad request (invalid name format)",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/namespaces/:namespace/servers/:server",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "namespaces",
+                                ":namespace",
+                                "servers",
+                                ":server"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "namespace"
+                                },
+                                {
+                                  "key": "server"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:57:02.000Z",
+                          "updatedAt": "2026-07-28T02:57:02.000Z",
+                          "uid": "35240-b0159489-a820-4055-995c-be188e74f08b"
+                        },
+                        {
+                          "id": "b7b4040b-4322-42f4-a25a-ade8984a6526",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/namespaces/:namespace/servers/:server",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "namespaces",
+                                ":namespace",
+                                "servers",
+                                ":server"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "namespace"
+                                },
+                                {
+                                  "key": "server"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:57:02.000Z",
+                          "updatedAt": "2026-07-28T02:57:02.000Z",
+                          "uid": "35240-b7b4040b-4322-42f4-a25a-ade8984a6526"
+                        },
+                        {
+                          "id": "f38cbe04-63d7-4aee-b0be-c98c24e6c592",
+                          "name": "Forbidden (namespace not owned by user or missing servers:write permission)",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/namespaces/:namespace/servers/:server",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "namespaces",
+                                ":namespace",
+                                "servers",
+                                ":server"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "namespace"
+                                },
+                                {
+                                  "key": "server"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:57:02.000Z",
+                          "updatedAt": "2026-07-28T02:57:02.000Z",
+                          "uid": "35240-f38cbe04-63d7-4aee-b0be-c98c24e6c592"
+                        },
+                        {
+                          "id": "14635c98-6090-4719-a801-6b233bc56e73",
+                          "name": "Namespace not found",
+                          "originalRequest": {
+                            "method": "PUT",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"displayName\": \"<string>\",\n  \"description\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/namespaces/:namespace/servers/:server",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "namespaces",
+                                ":namespace",
+                                "servers",
+                                ":server"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "namespace"
+                                },
+                                {
+                                  "key": "server"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:57:02.000Z",
+                          "updatedAt": "2026-07-28T02:57:02.000Z",
+                          "uid": "35240-14635c98-6090-4719-a801-6b233bc56e73"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:57:02.000Z",
+                      "updatedAt": "2026-07-28T02:57:02.000Z",
+                      "uid": "35240-44f2e87a-9dab-4006-8fb5-baa4bf2c0e21"
+                    }
+                  ],
+                  "id": "20350dd1-4eef-4b8a-831a-b7cc2b57f86e",
+                  "createdAt": "2026-07-28T02:57:02.000Z",
+                  "updatedAt": "2026-07-28T02:57:02.000Z",
+                  "uid": "35240-20350dd1-4eef-4b8a-831a-b7cc2b57f86e"
+                }
+              ],
+              "id": "920a9d4c-3852-4121-b0fa-13cfb978541e",
+              "createdAt": "2026-07-28T02:57:02.000Z",
+              "updatedAt": "2026-07-28T02:57:02.000Z",
+              "uid": "35240-920a9d4c-3852-4121-b0fa-13cfb978541e"
+            }
+          ],
+          "id": "0257944b-0acc-4d49-8994-d7b387019e37",
+          "createdAt": "2026-07-28T02:57:02.000Z",
+          "updatedAt": "2026-07-28T02:57:02.000Z",
+          "uid": "35240-0257944b-0acc-4d49-8994-d7b387019e37"
+        },
+        {
+          "name": "Get user's namespaces or search namespaces",
+          "id": "36dfb473-dedd-4aed-9aab-aae253ff12b2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/namespaces?q=<string>&ownerId=<string>&hasServers=false&hasSkills=false&page=<integer>&pageSize=<integer>&fields=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "namespaces"
+              ],
+              "query": [
+                {
+                  "description": "Text search query (prefix match on name)",
+                  "key": "q",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter by owner ID",
+                  "key": "ownerId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filter namespaces with servers",
+                  "key": "hasServers",
+                  "value": "false"
+                },
+                {
+                  "description": "Filter namespaces with skills",
+                  "key": "hasSkills",
+                  "value": "false"
+                },
+                {
+                  "key": "page",
+                  "value": "<integer>"
+                },
+                {
+                  "key": "pageSize",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Comma-separated list of fields to include in response",
+                  "key": "fields",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "When called without query params, returns the authenticated user's namespaces (backwards compatible). When query params are provided, searches public namespaces with pagination. Use ownerId to filter by owner, hasServers/hasSkills to filter by content, q for text search."
+          },
+          "response": [
+            {
+              "id": "28b09053-9173-4e5f-8201-20a0fbe7490a",
+              "name": "Successful response",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/namespaces?q=<string>&ownerId=<string>&hasServers=false&hasSkills=false&page=<integer>&pageSize=<integer>&fields=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "namespaces"
+                  ],
+                  "query": [
+                    {
+                      "description": "Text search query (prefix match on name)",
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by owner ID",
+                      "key": "ownerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter namespaces with servers",
+                      "key": "hasServers",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Filter namespaces with skills",
+                      "key": "hasSkills",
+                      "value": "false"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Comma-separated list of fields to include in response",
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"namespaces\": [\n    {\n      \"name\": \"<string>\"\n    },\n    {\n      \"name\": \"<string>\"\n    }\n  ],\n  \"pagination\": {\n    \"currentPage\": \"<integer>\",\n    \"pageSize\": \"<integer>\",\n    \"totalPages\": \"<integer>\",\n    \"totalCount\": \"<integer>\"\n  }\n}",
+              "createdAt": "2026-07-28T02:57:02.000Z",
+              "updatedAt": "2026-07-28T02:57:02.000Z",
+              "uid": "35240-28b09053-9173-4e5f-8201-20a0fbe7490a"
+            },
+            {
+              "id": "8cdfdcb1-7d00-4858-9793-66087861bd87",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/namespaces?q=<string>&ownerId=<string>&hasServers=false&hasSkills=false&page=<integer>&pageSize=<integer>&fields=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "namespaces"
+                  ],
+                  "query": [
+                    {
+                      "description": "Text search query (prefix match on name)",
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by owner ID",
+                      "key": "ownerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter namespaces with servers",
+                      "key": "hasServers",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Filter namespaces with skills",
+                      "key": "hasSkills",
+                      "value": "false"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Comma-separated list of fields to include in response",
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:57:02.000Z",
+              "updatedAt": "2026-07-28T02:57:02.000Z",
+              "uid": "35240-8cdfdcb1-7d00-4858-9793-66087861bd87"
+            },
+            {
+              "id": "66af050c-c2b5-4ee6-9467-902716697846",
+              "name": "Server error",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/namespaces?q=<string>&ownerId=<string>&hasServers=false&hasSkills=false&page=<integer>&pageSize=<integer>&fields=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "namespaces"
+                  ],
+                  "query": [
+                    {
+                      "description": "Text search query (prefix match on name)",
+                      "key": "q",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by owner ID",
+                      "key": "ownerId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter namespaces with servers",
+                      "key": "hasServers",
+                      "value": "false"
+                    },
+                    {
+                      "description": "Filter namespaces with skills",
+                      "key": "hasSkills",
+                      "value": "false"
+                    },
+                    {
+                      "key": "page",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "pageSize",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Comma-separated list of fields to include in response",
+                      "key": "fields",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:57:02.000Z",
+              "updatedAt": "2026-07-28T02:57:02.000Z",
+              "uid": "35240-66af050c-c2b5-4ee6-9467-902716697846"
+            }
+          ],
+          "createdAt": "2026-07-28T02:57:02.000Z",
+          "updatedAt": "2026-07-28T02:57:02.000Z",
+          "uid": "35240-36dfb473-dedd-4aed-9aab-aae253ff12b2"
+        },
+        {
+          "name": "Create a new namespace with generated name",
+          "id": "8a3c6275-dc21-4e41-90da-940829140676",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/namespaces",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "namespaces"
+              ]
+            },
+            "description": "Create a new namespace with a server-generated human-readable name, owned by the authenticated user"
+          },
+          "response": [
+            {
+              "id": "d4b06867-4dc3-4632-a741-e8db9a232a49",
+              "name": "Namespace created successfully",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/namespaces",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "namespaces"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"name\": \"<string>\",\n  \"createdAt\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:57:02.000Z",
+              "updatedAt": "2026-07-28T02:57:02.000Z",
+              "uid": "35240-d4b06867-4dc3-4632-a741-e8db9a232a49"
+            },
+            {
+              "id": "c8cf967e-7667-4829-8f5d-0b149689822a",
+              "name": "Bad request (user already has a namespace)",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/namespaces",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "namespaces"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:57:02.000Z",
+              "updatedAt": "2026-07-28T02:57:02.000Z",
+              "uid": "35240-c8cf967e-7667-4829-8f5d-0b149689822a"
+            },
+            {
+              "id": "0e4e3d70-e8c6-433c-80d2-00f94e617b25",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/namespaces",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "namespaces"
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:57:02.000Z",
+              "updatedAt": "2026-07-28T02:57:02.000Z",
+              "uid": "35240-0e4e3d70-e8c6-433c-80d2-00f94e617b25"
+            },
+            {
+              "id": "362ec535-ab5a-47e8-bf0e-f7eb39629aac",
+              "name": "Forbidden - missing namespaces:write permission",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/namespaces",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "namespaces"
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:57:02.000Z",
+              "updatedAt": "2026-07-28T02:57:02.000Z",
+              "uid": "35240-362ec535-ab5a-47e8-bf0e-f7eb39629aac"
+            }
+          ],
+          "createdAt": "2026-07-28T02:57:02.000Z",
+          "updatedAt": "2026-07-28T02:57:02.000Z",
+          "uid": "35240-8a3c6275-dc21-4e41-90da-940829140676"
+        }
+      ],
+      "id": "53fa01e2-02b5-4b8b-aad1-76f25394db96",
+      "createdAt": "2026-07-28T02:57:02.000Z",
+      "updatedAt": "2026-07-28T02:57:02.000Z",
+      "uid": "35240-53fa01e2-02b5-4b8b-aad1-76f25394db96"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.smithery.ai"
+    }
+  ]
+}

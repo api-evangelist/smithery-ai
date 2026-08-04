@@ -1,0 +1,134 @@
+{
+  "info": {
+    "_postman_id": "a2cbcb69-a0a9-4aff-997b-b1eb905661ce",
+    "name": "Smithery connect Health API",
+    "description": "Connect to MCP servers hosted on Smithery without managing OAuth, credentials, or sessions. Create stateless connections to any MCP server, execute MCP JSON-RPC, list/call tools and triggers, and manage subscriptions for trigger events.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:57:00.000Z",
+    "updatedAt": "2026-07-28T02:57:00.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-a2cbcb69-a0a9-4aff-997b-b1eb905661ce"
+  },
+  "item": [
+    {
+      "name": "health",
+      "item": [
+        {
+          "name": "Health check",
+          "id": "91592c42-275d-465f-be1d-e48875e98aa8",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/health",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "health"
+              ]
+            },
+            "description": "Check if the service is running"
+          },
+          "response": [
+            {
+              "id": "39b378ce-5af7-45b1-bf5c-7b1c8a65370e",
+              "name": "Service is healthy",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/health",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "health"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"status\": \"<string>\",\n  \"timestamp\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:57:01.000Z",
+              "updatedAt": "2026-07-28T02:57:01.000Z",
+              "uid": "35240-39b378ce-5af7-45b1-bf5c-7b1c8a65370e"
+            },
+            {
+              "id": "2f893ba9-54df-4618-8d01-265f1161cfcd",
+              "name": "Service unhealthy",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/health",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "health"
+                  ]
+                }
+              },
+              "status": "Internal Server Error",
+              "code": 500,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"error\": \"<string>\"\n}",
+              "createdAt": "2026-07-28T02:57:01.000Z",
+              "updatedAt": "2026-07-28T02:57:01.000Z",
+              "uid": "35240-2f893ba9-54df-4618-8d01-265f1161cfcd"
+            }
+          ],
+          "createdAt": "2026-07-28T02:57:01.000Z",
+          "updatedAt": "2026-07-28T02:57:01.000Z",
+          "uid": "35240-91592c42-275d-465f-be1d-e48875e98aa8"
+        }
+      ],
+      "id": "542bb2a8-f2cb-4565-a9cc-188c5b602a73",
+      "createdAt": "2026-07-28T02:57:01.000Z",
+      "updatedAt": "2026-07-28T02:57:01.000Z",
+      "uid": "35240-542bb2a8-f2cb-4565-a9cc-188c5b602a73"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.smithery.ai"
+    }
+  ]
+}

@@ -1,0 +1,2984 @@
+{
+  "info": {
+    "_postman_id": "1bd46035-ee32-4376-b9b7-f5b579603292",
+    "name": "Smithery connect API",
+    "description": "Connect to MCP servers hosted on Smithery without managing OAuth, credentials, or sessions. Create stateless connections to any MCP server, execute MCP JSON-RPC, list/call tools and triggers, and manage subscriptions for trigger events.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:56:53.000Z",
+    "updatedAt": "2026-07-28T02:56:53.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1bd46035-ee32-4376-b9b7-f5b579603292"
+  },
+  "item": [
+    {
+      "name": "connect",
+      "item": [
+        {
+          "name": "{namespace}",
+          "item": [
+            {
+              "name": ".subscriptions",
+              "item": [
+                {
+                  "name": "{subscriptionId}",
+                  "item": [
+                    {
+                      "name": "Delete namespace subscription",
+                      "id": "f4e9e8d1-86e3-4a42-888b-d26e36c19355",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/connect/:namespace/.subscriptions/:subscriptionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "connect",
+                            ":namespace",
+                            ".subscriptions",
+                            ":subscriptionId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "91d8411d-5838-4283-aab8-3142e2235ac9",
+                              "key": "namespace",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "f63b4d98-d64d-4319-a70b-344395ef3749",
+                              "key": "subscriptionId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Delete a namespace-scoped trigger subscription."
+                      },
+                      "response": [
+                        {
+                          "id": "2e59c3f2-02ab-4c18-a06e-a43955901b17",
+                          "name": "Subscription deleted",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/connect/:namespace/.subscriptions/:subscriptionId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "connect",
+                                ":namespace",
+                                ".subscriptions",
+                                ":subscriptionId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "namespace"
+                                },
+                                {
+                                  "key": "subscriptionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"success\": \"<boolean>\"\n}",
+                          "createdAt": "2026-07-28T02:56:53.000Z",
+                          "updatedAt": "2026-07-28T02:56:53.000Z",
+                          "uid": "35240-2e59c3f2-02ab-4c18-a06e-a43955901b17"
+                        },
+                        {
+                          "id": "e8348e84-12ca-4a9b-94f7-e2930cc9a7f9",
+                          "name": "Subscription not found",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/connect/:namespace/.subscriptions/:subscriptionId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "connect",
+                                ":namespace",
+                                ".subscriptions",
+                                ":subscriptionId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "namespace"
+                                },
+                                {
+                                  "key": "subscriptionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:56:53.000Z",
+                          "updatedAt": "2026-07-28T02:56:53.000Z",
+                          "uid": "35240-e8348e84-12ca-4a9b-94f7-e2930cc9a7f9"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:56:53.000Z",
+                      "updatedAt": "2026-07-28T02:56:53.000Z",
+                      "uid": "35240-f4e9e8d1-86e3-4a42-888b-d26e36c19355"
+                    }
+                  ],
+                  "id": "80a77009-1efc-4eb5-b330-89ebe94c3178",
+                  "createdAt": "2026-07-28T02:56:53.000Z",
+                  "updatedAt": "2026-07-28T02:56:53.000Z",
+                  "uid": "35240-80a77009-1efc-4eb5-b330-89ebe94c3178"
+                },
+                {
+                  "name": "List namespace subscriptions",
+                  "id": "e501e8e4-ed61-4253-9a54-3b55379b1280",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/connect/:namespace/.subscriptions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "connect",
+                        ":namespace",
+                        ".subscriptions"
+                      ],
+                      "variable": [
+                        {
+                          "id": "e97022f3-9226-4e73-8963-1cab22f9f022",
+                          "key": "namespace",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "List namespace-scoped trigger subscriptions for all connections in the namespace."
+                  },
+                  "response": [
+                    {
+                      "id": "4d84fd2b-98b4-423f-ab30-6aea5cce4b5b",
+                      "name": "Namespace subscriptions",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/connect/:namespace/.subscriptions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "connect",
+                            ":namespace",
+                            ".subscriptions"
+                          ],
+                          "variable": [
+                            {
+                              "key": "namespace"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"id\": \"<string>\",\n    \"url\": \"<uri>\",\n    \"connection_id\": \"<string>\",\n    \"created_at\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"url\": \"<uri>\",\n    \"connection_id\": \"<string>\",\n    \"created_at\": \"<string>\"\n  }\n]",
+                      "createdAt": "2026-07-28T02:56:53.000Z",
+                      "updatedAt": "2026-07-28T02:56:53.000Z",
+                      "uid": "35240-4d84fd2b-98b4-423f-ab30-6aea5cce4b5b"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:56:53.000Z",
+                  "updatedAt": "2026-07-28T02:56:53.000Z",
+                  "uid": "35240-e501e8e4-ed61-4253-9a54-3b55379b1280"
+                },
+                {
+                  "name": "Create namespace subscription",
+                  "id": "de73afff-38b2-4522-98eb-724429d2316f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/connect/:namespace/.subscriptions",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "connect",
+                        ":namespace",
+                        ".subscriptions"
+                      ],
+                      "variable": [
+                        {
+                          "id": "d0d3cf60-cf60-43be-bd26-8840fc483ba4",
+                          "key": "namespace",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Create a namespace-scoped subscription that receives events from every connection in the namespace."
+                  },
+                  "response": [
+                    {
+                      "id": "691f399a-bee1-4284-9186-e5cecd95e09b",
+                      "name": "Subscription created",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/connect/:namespace/.subscriptions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "connect",
+                            ":namespace",
+                            ".subscriptions"
+                          ],
+                          "variable": [
+                            {
+                              "key": "namespace"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"url\": \"<uri>\",\n  \"connection_id\": \"<string>\",\n  \"created_at\": \"<string>\",\n  \"secret\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:56:53.000Z",
+                      "updatedAt": "2026-07-28T02:56:53.000Z",
+                      "uid": "35240-691f399a-bee1-4284-9186-e5cecd95e09b"
+                    },
+                    {
+                      "id": "adedefec-bb8b-424b-a74e-88deca359a97",
+                      "name": "Validation error",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/connect/:namespace/.subscriptions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "connect",
+                            ":namespace",
+                            ".subscriptions"
+                          ],
+                          "variable": [
+                            {
+                              "key": "namespace"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:56:53.000Z",
+                      "updatedAt": "2026-07-28T02:56:53.000Z",
+                      "uid": "35240-adedefec-bb8b-424b-a74e-88deca359a97"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:56:53.000Z",
+                  "updatedAt": "2026-07-28T02:56:53.000Z",
+                  "uid": "35240-de73afff-38b2-4522-98eb-724429d2316f"
+                }
+              ],
+              "id": "43dbebc8-b4ef-4475-b680-be50b57a09ea",
+              "createdAt": "2026-07-28T02:56:53.000Z",
+              "updatedAt": "2026-07-28T02:56:53.000Z",
+              "uid": "35240-43dbebc8-b4ef-4475-b680-be50b57a09ea"
+            },
+            {
+              "name": "{connectionId}",
+              "item": [
+                {
+                  "name": ".triggers",
+                  "item": [
+                    {
+                      "name": "{triggerName}",
+                      "item": [
+                        {
+                          "name": "{triggerId}",
+                          "item": [
+                            {
+                              "name": "Get trigger instance",
+                              "id": "537bc8f5-e1b7-4f2e-9e14-921e8f66abdf",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/connect/:namespace/:connectionId/.triggers/:triggerName/:triggerId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "connect",
+                                    ":namespace",
+                                    ":connectionId",
+                                    ".triggers",
+                                    ":triggerName",
+                                    ":triggerId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "5d57781b-f7c8-4200-acb0-bab6f0aa9245",
+                                      "key": "namespace",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "e5c1d7b5-4eb5-4a2e-9893-3bbcc08b4525",
+                                      "key": "connectionId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "73fa9e6f-2dda-4a21-8190-1156616af9ff",
+                                      "key": "triggerName",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "4bcae989-382c-47b9-bec7-92fc70ec5238",
+                                      "key": "triggerId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Get a specific trigger instance for a connection."
+                              },
+                              "response": [
+                                {
+                                  "id": "6e46d4e1-1515-4078-af17-e09b0b69024d",
+                                  "name": "Trigger instance",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/connect/:namespace/:connectionId/.triggers/:triggerName/:triggerId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "connect",
+                                        ":namespace",
+                                        ":connectionId",
+                                        ".triggers",
+                                        ":triggerName",
+                                        ":triggerId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "namespace"
+                                        },
+                                        {
+                                          "key": "connectionId"
+                                        },
+                                        {
+                                          "key": "triggerName"
+                                        },
+                                        {
+                                          "key": "triggerId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"connection_id\": \"<string>\",\n  \"params\": {\n    \"quis_d7\": {\n      \"x-stainless-any\": true\n    }\n  },\n  \"created_at\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T02:56:53.000Z",
+                                  "updatedAt": "2026-07-28T02:56:53.000Z",
+                                  "uid": "35240-6e46d4e1-1515-4078-af17-e09b0b69024d"
+                                },
+                                {
+                                  "id": "54e0323b-0212-47fd-bf6a-32d62d8901f5",
+                                  "name": "Trigger instance not found",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/connect/:namespace/:connectionId/.triggers/:triggerName/:triggerId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "connect",
+                                        ":namespace",
+                                        ":connectionId",
+                                        ".triggers",
+                                        ":triggerName",
+                                        ":triggerId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "namespace"
+                                        },
+                                        {
+                                          "key": "connectionId"
+                                        },
+                                        {
+                                          "key": "triggerName"
+                                        },
+                                        {
+                                          "key": "triggerId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T02:56:53.000Z",
+                                  "updatedAt": "2026-07-28T02:56:53.000Z",
+                                  "uid": "35240-54e0323b-0212-47fd-bf6a-32d62d8901f5"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T02:56:53.000Z",
+                              "updatedAt": "2026-07-28T02:56:53.000Z",
+                              "uid": "35240-537bc8f5-e1b7-4f2e-9e14-921e8f66abdf"
+                            },
+                            {
+                              "name": "Delete trigger instance",
+                              "id": "9c80f1ae-a95e-45c8-b45d-32f8f89e73d3",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/connect/:namespace/:connectionId/.triggers/:triggerName/:triggerId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "connect",
+                                    ":namespace",
+                                    ":connectionId",
+                                    ".triggers",
+                                    ":triggerName",
+                                    ":triggerId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "d90dc3c5-c88d-4c61-8d0d-7cefb53a8b59",
+                                      "key": "namespace",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "862f2ee4-2953-449c-81b8-acf727870bc8",
+                                      "key": "connectionId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "667c7cb0-814a-471d-bbca-9a2dc1396c05",
+                                      "key": "triggerName",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    },
+                                    {
+                                      "id": "a3f7ebc8-5b60-447b-b25c-744b351c1b26",
+                                      "key": "triggerId",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                },
+                                "description": "Delete a trigger instance and deregister its upstream webhook."
+                              },
+                              "response": [
+                                {
+                                  "id": "cc30f774-e1f6-48b7-8861-740b6ba4e712",
+                                  "name": "Trigger instance deleted",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/connect/:namespace/:connectionId/.triggers/:triggerName/:triggerId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "connect",
+                                        ":namespace",
+                                        ":connectionId",
+                                        ".triggers",
+                                        ":triggerName",
+                                        ":triggerId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "namespace"
+                                        },
+                                        {
+                                          "key": "connectionId"
+                                        },
+                                        {
+                                          "key": "triggerName"
+                                        },
+                                        {
+                                          "key": "triggerId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"success\": \"<boolean>\"\n}",
+                                  "createdAt": "2026-07-28T02:56:53.000Z",
+                                  "updatedAt": "2026-07-28T02:56:53.000Z",
+                                  "uid": "35240-cc30f774-e1f6-48b7-8861-740b6ba4e712"
+                                },
+                                {
+                                  "id": "799dcbf4-78b9-4920-9614-2f9b46826e8a",
+                                  "name": "Trigger instance not found",
+                                  "originalRequest": {
+                                    "method": "DELETE",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/connect/:namespace/:connectionId/.triggers/:triggerName/:triggerId",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "connect",
+                                        ":namespace",
+                                        ":connectionId",
+                                        ".triggers",
+                                        ":triggerName",
+                                        ":triggerId"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "namespace"
+                                        },
+                                        {
+                                          "key": "connectionId"
+                                        },
+                                        {
+                                          "key": "triggerName"
+                                        },
+                                        {
+                                          "key": "triggerId"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "Not Found",
+                                  "code": 404,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "{\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                                  "createdAt": "2026-07-28T02:56:53.000Z",
+                                  "updatedAt": "2026-07-28T02:56:53.000Z",
+                                  "uid": "35240-799dcbf4-78b9-4920-9614-2f9b46826e8a"
+                                }
+                              ],
+                              "createdAt": "2026-07-28T02:56:53.000Z",
+                              "updatedAt": "2026-07-28T02:56:53.000Z",
+                              "uid": "35240-9c80f1ae-a95e-45c8-b45d-32f8f89e73d3"
+                            }
+                          ],
+                          "id": "f2225db7-9758-4b0b-a6cf-8ae06d34c25c",
+                          "createdAt": "2026-07-28T02:56:53.000Z",
+                          "updatedAt": "2026-07-28T02:56:53.000Z",
+                          "uid": "35240-f2225db7-9758-4b0b-a6cf-8ae06d34c25c"
+                        },
+                        {
+                          "name": "Get trigger",
+                          "id": "ab0e4863-4dc0-433a-b26a-26d3f7184c16",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/connect/:namespace/:connectionId/.triggers/:triggerName",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "connect",
+                                ":namespace",
+                                ":connectionId",
+                                ".triggers",
+                                ":triggerName"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "4f1e83f4-78fe-4319-bc13-660e022d08b9",
+                                  "key": "namespace",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "84f7e6fa-6464-41a8-b875-6a76afcc78aa",
+                                  "key": "connectionId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "11815a50-8fba-4422-aba1-28977598e07d",
+                                  "key": "triggerName",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Get the schema for a single trigger type."
+                          },
+                          "response": [
+                            {
+                              "id": "d2d81a97-cbaa-4a9c-adfb-ecbabdffb81e",
+                              "name": "Trigger definition",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/connect/:namespace/:connectionId/.triggers/:triggerName",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "connect",
+                                    ":namespace",
+                                    ":connectionId",
+                                    ".triggers",
+                                    ":triggerName"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "namespace"
+                                    },
+                                    {
+                                      "key": "connectionId"
+                                    },
+                                    {
+                                      "key": "triggerName"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"name\": \"<string>\",\n  \"delivery\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"description\": \"<string>\",\n  \"inputSchema\": {\n    \"ullamco_d0e\": {\n      \"x-stainless-any\": true\n    }\n  },\n  \"payloadSchema\": {\n    \"Lorem_d8d\": {\n      \"x-stainless-any\": true\n    }\n  }\n}",
+                              "createdAt": "2026-07-28T02:56:53.000Z",
+                              "updatedAt": "2026-07-28T02:56:53.000Z",
+                              "uid": "35240-d2d81a97-cbaa-4a9c-adfb-ecbabdffb81e"
+                            },
+                            {
+                              "id": "09857c3a-10ad-4427-a5ed-58d113be7795",
+                              "name": "Trigger not found",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/connect/:namespace/:connectionId/.triggers/:triggerName",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "connect",
+                                    ":namespace",
+                                    ":connectionId",
+                                    ".triggers",
+                                    ":triggerName"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "namespace"
+                                    },
+                                    {
+                                      "key": "connectionId"
+                                    },
+                                    {
+                                      "key": "triggerName"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T02:56:53.000Z",
+                              "updatedAt": "2026-07-28T02:56:53.000Z",
+                              "uid": "35240-09857c3a-10ad-4427-a5ed-58d113be7795"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:56:53.000Z",
+                          "updatedAt": "2026-07-28T02:56:53.000Z",
+                          "uid": "35240-ab0e4863-4dc0-433a-b26a-26d3f7184c16"
+                        },
+                        {
+                          "name": "Create trigger instance",
+                          "id": "fc1cf73e-31af-4c07-aa22-1c9fad47f7ec",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/connect/:namespace/:connectionId/.triggers/:triggerName",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "connect",
+                                ":namespace",
+                                ":connectionId",
+                                ".triggers",
+                                ":triggerName"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "2b103236-ad7e-4c45-9b63-a6d52c7eab53",
+                                  "key": "namespace",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "09d57789-2208-4cec-9129-2c48ed36bb41",
+                                  "key": "connectionId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "41c6172d-db95-4211-9dda-a650f2a5a6d6",
+                                  "key": "triggerName",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Create a trigger instance for a connection using the trigger's declared params."
+                          },
+                          "response": [
+                            {
+                              "id": "0551ee8e-77b1-4942-a57c-9d6b35890ee5",
+                              "name": "Trigger instance created",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/connect/:namespace/:connectionId/.triggers/:triggerName",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "connect",
+                                    ":namespace",
+                                    ":connectionId",
+                                    ".triggers",
+                                    ":triggerName"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "namespace"
+                                    },
+                                    {
+                                      "key": "connectionId"
+                                    },
+                                    {
+                                      "key": "triggerName"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"connection_id\": \"<string>\",\n  \"params\": {\n    \"quis_d7\": {\n      \"x-stainless-any\": true\n    }\n  },\n  \"created_at\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T02:56:53.000Z",
+                              "updatedAt": "2026-07-28T02:56:53.000Z",
+                              "uid": "35240-0551ee8e-77b1-4942-a57c-9d6b35890ee5"
+                            },
+                            {
+                              "id": "aed74b0b-d89e-4076-9d3b-b5a5c2d51947",
+                              "name": "Validation error",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/connect/:namespace/:connectionId/.triggers/:triggerName",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "connect",
+                                    ":namespace",
+                                    ":connectionId",
+                                    ".triggers",
+                                    ":triggerName"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "namespace"
+                                    },
+                                    {
+                                      "key": "connectionId"
+                                    },
+                                    {
+                                      "key": "triggerName"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Bad Request",
+                              "code": 400,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T02:56:53.000Z",
+                              "updatedAt": "2026-07-28T02:56:53.000Z",
+                              "uid": "35240-aed74b0b-d89e-4076-9d3b-b5a5c2d51947"
+                            },
+                            {
+                              "id": "1f962e95-6d04-4dd7-be73-b990d5c240c3",
+                              "name": "Connection or trigger not found",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/connect/:namespace/:connectionId/.triggers/:triggerName",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "connect",
+                                    ":namespace",
+                                    ":connectionId",
+                                    ".triggers",
+                                    ":triggerName"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "namespace"
+                                    },
+                                    {
+                                      "key": "connectionId"
+                                    },
+                                    {
+                                      "key": "triggerName"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T02:56:53.000Z",
+                              "updatedAt": "2026-07-28T02:56:53.000Z",
+                              "uid": "35240-1f962e95-6d04-4dd7-be73-b990d5c240c3"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:56:53.000Z",
+                          "updatedAt": "2026-07-28T02:56:53.000Z",
+                          "uid": "35240-fc1cf73e-31af-4c07-aa22-1c9fad47f7ec"
+                        }
+                      ],
+                      "id": "60ed7fd9-4986-46d5-950b-49cd46f168f1",
+                      "createdAt": "2026-07-28T02:56:53.000Z",
+                      "updatedAt": "2026-07-28T02:56:53.000Z",
+                      "uid": "35240-60ed7fd9-4986-46d5-950b-49cd46f168f1"
+                    },
+                    {
+                      "name": "List triggers",
+                      "id": "7c0bdd33-7b99-4ef1-80fe-f9875ca594d8",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/connect/:namespace/:connectionId/.triggers",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "connect",
+                            ":namespace",
+                            ":connectionId",
+                            ".triggers"
+                          ],
+                          "variable": [
+                            {
+                              "id": "ca7388ff-2de5-47de-909a-754a3cdc217a",
+                              "key": "namespace",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "cc1fa320-4cd5-41af-8290-77675888e0ec",
+                              "key": "connectionId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "List trigger types exposed by a connection."
+                      },
+                      "response": [
+                        {
+                          "id": "41859ded-24dc-4e46-82b3-2cb2d96e837f",
+                          "name": "Trigger definitions",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/connect/:namespace/:connectionId/.triggers",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "connect",
+                                ":namespace",
+                                ":connectionId",
+                                ".triggers"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "namespace"
+                                },
+                                {
+                                  "key": "connectionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"name\": \"<string>\",\n    \"delivery\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"description\": \"<string>\",\n    \"inputSchema\": {\n      \"mollit_4\": {\n        \"x-stainless-any\": true\n      }\n    },\n    \"payloadSchema\": {\n      \"voluptate_2\": {\n        \"x-stainless-any\": true\n      },\n      \"sunt_d\": {\n        \"x-stainless-any\": true\n      }\n    }\n  },\n  {\n    \"name\": \"<string>\",\n    \"delivery\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"description\": \"<string>\",\n    \"inputSchema\": {\n      \"laborumdf\": {\n        \"x-stainless-any\": true\n      },\n      \"mollit_5a3\": {\n        \"x-stainless-any\": true\n      }\n    },\n    \"payloadSchema\": {\n      \"veniam6\": {\n        \"x-stainless-any\": true\n      },\n      \"ullamcofd9\": {\n        \"x-stainless-any\": true\n      }\n    }\n  }\n]",
+                          "createdAt": "2026-07-28T02:56:53.000Z",
+                          "updatedAt": "2026-07-28T02:56:53.000Z",
+                          "uid": "35240-41859ded-24dc-4e46-82b3-2cb2d96e837f"
+                        },
+                        {
+                          "id": "723f0ba8-146d-4fdc-bc75-e3d074950ad7",
+                          "name": "Connection not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/connect/:namespace/:connectionId/.triggers",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "connect",
+                                ":namespace",
+                                ":connectionId",
+                                ".triggers"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "namespace"
+                                },
+                                {
+                                  "key": "connectionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:56:53.000Z",
+                          "updatedAt": "2026-07-28T02:56:53.000Z",
+                          "uid": "35240-723f0ba8-146d-4fdc-bc75-e3d074950ad7"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:56:53.000Z",
+                      "updatedAt": "2026-07-28T02:56:53.000Z",
+                      "uid": "35240-7c0bdd33-7b99-4ef1-80fe-f9875ca594d8"
+                    }
+                  ],
+                  "id": "91c3b840-a6fe-4ce4-91f1-1e330cd93987",
+                  "createdAt": "2026-07-28T02:56:53.000Z",
+                  "updatedAt": "2026-07-28T02:56:53.000Z",
+                  "uid": "35240-91c3b840-a6fe-4ce4-91f1-1e330cd93987"
+                },
+                {
+                  "name": ".subscriptions",
+                  "item": [
+                    {
+                      "name": "{subscriptionId}",
+                      "item": [
+                        {
+                          "name": "Delete connection subscription",
+                          "id": "d9d3df7b-145a-47ec-a2d9-f414a9bbc53c",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/connect/:namespace/:connectionId/.subscriptions/:subscriptionId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "connect",
+                                ":namespace",
+                                ":connectionId",
+                                ".subscriptions",
+                                ":subscriptionId"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "4d825d18-c80a-42c7-b51e-340504936fc9",
+                                  "key": "namespace",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "6ff32305-611e-4fbf-9df9-5d74c2f1d720",
+                                  "key": "connectionId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                },
+                                {
+                                  "id": "7e525c2e-68f4-4d33-ba18-38ada0ef02f4",
+                                  "key": "subscriptionId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            },
+                            "description": "Delete a connection-scoped trigger subscription."
+                          },
+                          "response": [
+                            {
+                              "id": "716aefa1-3750-46df-90ad-53f03783b659",
+                              "name": "Subscription deleted",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/connect/:namespace/:connectionId/.subscriptions/:subscriptionId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "connect",
+                                    ":namespace",
+                                    ":connectionId",
+                                    ".subscriptions",
+                                    ":subscriptionId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "namespace"
+                                    },
+                                    {
+                                      "key": "connectionId"
+                                    },
+                                    {
+                                      "key": "subscriptionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"success\": \"<boolean>\"\n}",
+                              "createdAt": "2026-07-28T02:56:53.000Z",
+                              "updatedAt": "2026-07-28T02:56:53.000Z",
+                              "uid": "35240-716aefa1-3750-46df-90ad-53f03783b659"
+                            },
+                            {
+                              "id": "a47bbd0e-4bbd-4d30-b6bf-79b4d3f72152",
+                              "name": "Subscription not found",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/connect/:namespace/:connectionId/.subscriptions/:subscriptionId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "connect",
+                                    ":namespace",
+                                    ":connectionId",
+                                    ".subscriptions",
+                                    ":subscriptionId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "namespace"
+                                    },
+                                    {
+                                      "key": "connectionId"
+                                    },
+                                    {
+                                      "key": "subscriptionId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "Not Found",
+                              "code": 404,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                              "createdAt": "2026-07-28T02:56:53.000Z",
+                              "updatedAt": "2026-07-28T02:56:53.000Z",
+                              "uid": "35240-a47bbd0e-4bbd-4d30-b6bf-79b4d3f72152"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T02:56:53.000Z",
+                          "updatedAt": "2026-07-28T02:56:53.000Z",
+                          "uid": "35240-d9d3df7b-145a-47ec-a2d9-f414a9bbc53c"
+                        }
+                      ],
+                      "id": "5dec90d0-cb1c-41c6-8b99-7e4344d0bfca",
+                      "createdAt": "2026-07-28T02:56:53.000Z",
+                      "updatedAt": "2026-07-28T02:56:53.000Z",
+                      "uid": "35240-5dec90d0-cb1c-41c6-8b99-7e4344d0bfca"
+                    },
+                    {
+                      "name": "List connection subscriptions",
+                      "id": "1a53de3f-8e92-4244-adcc-d142795566e9",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/connect/:namespace/:connectionId/.subscriptions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "connect",
+                            ":namespace",
+                            ":connectionId",
+                            ".subscriptions"
+                          ],
+                          "variable": [
+                            {
+                              "id": "739df8dd-81c6-4c84-865f-8e0eb9043e9f",
+                              "key": "namespace",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "62d221ef-57eb-4e5c-b57b-cf40717ad34a",
+                              "key": "connectionId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "List trigger subscriptions scoped to a single connection."
+                      },
+                      "response": [
+                        {
+                          "id": "539dd69c-715b-4df3-b142-836bdb114d25",
+                          "name": "Connection subscriptions",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/connect/:namespace/:connectionId/.subscriptions",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "connect",
+                                ":namespace",
+                                ":connectionId",
+                                ".subscriptions"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "namespace"
+                                },
+                                {
+                                  "key": "connectionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"id\": \"<string>\",\n    \"url\": \"<uri>\",\n    \"connection_id\": \"<string>\",\n    \"created_at\": \"<string>\"\n  },\n  {\n    \"id\": \"<string>\",\n    \"url\": \"<uri>\",\n    \"connection_id\": \"<string>\",\n    \"created_at\": \"<string>\"\n  }\n]",
+                          "createdAt": "2026-07-28T02:56:53.000Z",
+                          "updatedAt": "2026-07-28T02:56:53.000Z",
+                          "uid": "35240-539dd69c-715b-4df3-b142-836bdb114d25"
+                        },
+                        {
+                          "id": "4d87d259-b8e9-4b25-9408-354049358591",
+                          "name": "Connection not found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/connect/:namespace/:connectionId/.subscriptions",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "connect",
+                                ":namespace",
+                                ":connectionId",
+                                ".subscriptions"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "namespace"
+                                },
+                                {
+                                  "key": "connectionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:56:53.000Z",
+                          "updatedAt": "2026-07-28T02:56:53.000Z",
+                          "uid": "35240-4d87d259-b8e9-4b25-9408-354049358591"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:56:53.000Z",
+                      "updatedAt": "2026-07-28T02:56:53.000Z",
+                      "uid": "35240-1a53de3f-8e92-4244-adcc-d142795566e9"
+                    },
+                    {
+                      "name": "Create connection subscription",
+                      "id": "818c6c34-4c01-40b1-8631-c42bd319dff5",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/connect/:namespace/:connectionId/.subscriptions",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "connect",
+                            ":namespace",
+                            ":connectionId",
+                            ".subscriptions"
+                          ],
+                          "variable": [
+                            {
+                              "id": "53af2d87-4952-485f-b0e6-d4a20b4e41f0",
+                              "key": "namespace",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "a0007d62-cd6f-4228-9921-eab46fab0f55",
+                              "key": "connectionId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Create a connection-scoped subscription that receives events from one connection."
+                      },
+                      "response": [
+                        {
+                          "id": "8aab8fda-d5a9-4b22-aad1-b579eb66e9a9",
+                          "name": "Subscription created",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/connect/:namespace/:connectionId/.subscriptions",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "connect",
+                                ":namespace",
+                                ":connectionId",
+                                ".subscriptions"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "namespace"
+                                },
+                                {
+                                  "key": "connectionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<string>\",\n  \"url\": \"<uri>\",\n  \"connection_id\": \"<string>\",\n  \"created_at\": \"<string>\",\n  \"secret\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:56:53.000Z",
+                          "updatedAt": "2026-07-28T02:56:53.000Z",
+                          "uid": "35240-8aab8fda-d5a9-4b22-aad1-b579eb66e9a9"
+                        },
+                        {
+                          "id": "0117cb19-af09-44b2-9df3-421485c2dfe4",
+                          "name": "Validation error",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/connect/:namespace/:connectionId/.subscriptions",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "connect",
+                                ":namespace",
+                                ":connectionId",
+                                ".subscriptions"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "namespace"
+                                },
+                                {
+                                  "key": "connectionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:56:53.000Z",
+                          "updatedAt": "2026-07-28T02:56:53.000Z",
+                          "uid": "35240-0117cb19-af09-44b2-9df3-421485c2dfe4"
+                        },
+                        {
+                          "id": "8c5f186f-8c44-4336-a14c-a550392d2b19",
+                          "name": "Connection not found",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/connect/:namespace/:connectionId/.subscriptions",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "connect",
+                                ":namespace",
+                                ":connectionId",
+                                ".subscriptions"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "namespace"
+                                },
+                                {
+                                  "key": "connectionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:56:53.000Z",
+                          "updatedAt": "2026-07-28T02:56:53.000Z",
+                          "uid": "35240-8c5f186f-8c44-4336-a14c-a550392d2b19"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:56:53.000Z",
+                      "updatedAt": "2026-07-28T02:56:53.000Z",
+                      "uid": "35240-818c6c34-4c01-40b1-8631-c42bd319dff5"
+                    }
+                  ],
+                  "id": "6d30ff36-7eed-42ca-a1c7-25555569b82e",
+                  "createdAt": "2026-07-28T02:56:53.000Z",
+                  "updatedAt": "2026-07-28T02:56:53.000Z",
+                  "uid": "35240-6d30ff36-7eed-42ca-a1c7-25555569b82e"
+                },
+                {
+                  "name": "Create or update connection",
+                  "id": "0b62cba2-839b-4791-8d95-f3e3db97fe2d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "PUT",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"transport\": \"uplink\",\n  \"mcpUrl\": \"<uri>\",\n  \"name\": \"<string>\",\n  \"metadata\": {\n    \"culpa43b\": {}\n  },\n  \"headers\": {\n    \"tempor_46\": \"<string>\",\n    \"quic\": \"<string>\"\n  },\n  \"mock\": {\n    \"enabled\": \"<boolean>\",\n    \"scenario\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/connect/:namespace/:connectionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "connect",
+                        ":namespace",
+                        ":connectionId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "93f62f90-0a8d-4609-9167-430f483fb436",
+                          "key": "namespace",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        },
+                        {
+                          "id": "edaf13b1-93a5-4ace-8a64-1eaf9e2576f4",
+                          "key": "connectionId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Create or update an MCP connection with the given ID. mcpUrl is required when creating a new connection, but optional when updating. Returns 409 if a different mcpUrl is provided, except while the connection is input_required and the new URL keeps the same host and path."
+                  },
+                  "response": [
+                    {
+                      "id": "cbd4b7fa-9ff7-4dae-8d54-298ba651cd3c",
+                      "name": "Connection updated",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"transport\": \"uplink\",\n  \"mcpUrl\": \"<uri>\",\n  \"name\": \"<string>\",\n  \"metadata\": {\n    \"culpa43b\": {}\n  },\n  \"headers\": {\n    \"tempor_46\": \"<string>\",\n    \"quic\": \"<string>\"\n  },\n  \"mock\": {\n    \"enabled\": \"<boolean>\",\n    \"scenario\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/connect/:namespace/:connectionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "connect",
+                            ":namespace",
+                            ":connectionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "namespace"
+                            },
+                            {
+                              "key": "connectionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"connectionId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"mcpUrl\": \"<string>\",\n  \"metadata\": {\n    \"quis_51\": {},\n    \"laborum_e\": {}\n  },\n  \"transport\": \"uplink\",\n  \"mock\": {\n    \"enabled\": \"<boolean>\",\n    \"scenario\": \"<string>\"\n  },\n  \"iconUrl\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"status\": {\n    \"state\": \"<string>\"\n  },\n  \"serverInfo\": {\n    \"name\": \"<string>\",\n    \"version\": \"<string>\",\n    \"title\": \"<string>\",\n    \"icons\": [\n      {\n        \"src\": \"<string>\",\n        \"mimeType\": \"<string>\",\n        \"sizes\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"theme\": \"dark\"\n      },\n      {\n        \"src\": \"<string>\",\n        \"mimeType\": \"<string>\",\n        \"sizes\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"theme\": \"dark\"\n      }\n    ],\n    \"websiteUrl\": \"<string>\",\n    \"description\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:56:53.000Z",
+                      "updatedAt": "2026-07-28T02:56:53.000Z",
+                      "uid": "35240-cbd4b7fa-9ff7-4dae-8d54-298ba651cd3c"
+                    },
+                    {
+                      "id": "e918c840-f81e-4dc6-b03e-bf5ce3557cf5",
+                      "name": "Connection created",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"transport\": \"uplink\",\n  \"mcpUrl\": \"<uri>\",\n  \"name\": \"<string>\",\n  \"metadata\": {\n    \"culpa43b\": {}\n  },\n  \"headers\": {\n    \"tempor_46\": \"<string>\",\n    \"quic\": \"<string>\"\n  },\n  \"mock\": {\n    \"enabled\": \"<boolean>\",\n    \"scenario\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/connect/:namespace/:connectionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "connect",
+                            ":namespace",
+                            ":connectionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "namespace"
+                            },
+                            {
+                              "key": "connectionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"connectionId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"mcpUrl\": \"<string>\",\n  \"metadata\": {\n    \"quis_51\": {},\n    \"laborum_e\": {}\n  },\n  \"transport\": \"uplink\",\n  \"mock\": {\n    \"enabled\": \"<boolean>\",\n    \"scenario\": \"<string>\"\n  },\n  \"iconUrl\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"status\": {\n    \"state\": \"<string>\"\n  },\n  \"serverInfo\": {\n    \"name\": \"<string>\",\n    \"version\": \"<string>\",\n    \"title\": \"<string>\",\n    \"icons\": [\n      {\n        \"src\": \"<string>\",\n        \"mimeType\": \"<string>\",\n        \"sizes\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"theme\": \"dark\"\n      },\n      {\n        \"src\": \"<string>\",\n        \"mimeType\": \"<string>\",\n        \"sizes\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"theme\": \"dark\"\n      }\n    ],\n    \"websiteUrl\": \"<string>\",\n    \"description\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:56:53.000Z",
+                      "updatedAt": "2026-07-28T02:56:53.000Z",
+                      "uid": "35240-e918c840-f81e-4dc6-b03e-bf5ce3557cf5"
+                    },
+                    {
+                      "id": "164c4f9c-2991-4a93-a9c0-404e6c8bd2e7",
+                      "name": "Validation error",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"transport\": \"uplink\",\n  \"mcpUrl\": \"<uri>\",\n  \"name\": \"<string>\",\n  \"metadata\": {\n    \"culpa43b\": {}\n  },\n  \"headers\": {\n    \"tempor_46\": \"<string>\",\n    \"quic\": \"<string>\"\n  },\n  \"mock\": {\n    \"enabled\": \"<boolean>\",\n    \"scenario\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/connect/:namespace/:connectionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "connect",
+                            ":namespace",
+                            ":connectionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "namespace"
+                            },
+                            {
+                              "key": "connectionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:56:53.000Z",
+                      "updatedAt": "2026-07-28T02:56:53.000Z",
+                      "uid": "35240-164c4f9c-2991-4a93-a9c0-404e6c8bd2e7"
+                    },
+                    {
+                      "id": "d7acfb04-a7a8-4eac-88ae-03a275d7b861",
+                      "name": "Namespace not found or access denied",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"transport\": \"uplink\",\n  \"mcpUrl\": \"<uri>\",\n  \"name\": \"<string>\",\n  \"metadata\": {\n    \"culpa43b\": {}\n  },\n  \"headers\": {\n    \"tempor_46\": \"<string>\",\n    \"quic\": \"<string>\"\n  },\n  \"mock\": {\n    \"enabled\": \"<boolean>\",\n    \"scenario\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/connect/:namespace/:connectionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "connect",
+                            ":namespace",
+                            ":connectionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "namespace"
+                            },
+                            {
+                              "key": "connectionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:56:53.000Z",
+                      "updatedAt": "2026-07-28T02:56:53.000Z",
+                      "uid": "35240-d7acfb04-a7a8-4eac-88ae-03a275d7b861"
+                    },
+                    {
+                      "id": "498fc0f0-756e-4cf1-ac92-f416c8759f88",
+                      "name": "URL mismatch",
+                      "originalRequest": {
+                        "method": "PUT",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"transport\": \"uplink\",\n  \"mcpUrl\": \"<uri>\",\n  \"name\": \"<string>\",\n  \"metadata\": {\n    \"culpa43b\": {}\n  },\n  \"headers\": {\n    \"tempor_46\": \"<string>\",\n    \"quic\": \"<string>\"\n  },\n  \"mock\": {\n    \"enabled\": \"<boolean>\",\n    \"scenario\": \"<string>\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/connect/:namespace/:connectionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "connect",
+                            ":namespace",
+                            ":connectionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "namespace"
+                            },
+                            {
+                              "key": "connectionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Conflict",
+                      "code": 409,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:56:53.000Z",
+                      "updatedAt": "2026-07-28T02:56:53.000Z",
+                      "uid": "35240-498fc0f0-756e-4cf1-ac92-f416c8759f88"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:56:53.000Z",
+                  "updatedAt": "2026-07-28T02:56:53.000Z",
+                  "uid": "35240-0b62cba2-839b-4791-8d95-f3e3db97fe2d"
+                },
+                {
+                  "name": "Get connection",
+                  "id": "2d13aa8f-0fdc-4501-b2be-6e3eb46d57d6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/connect/:namespace/:connectionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "connect",
+                        ":namespace",
+                        ":connectionId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "1439dc0b-ccb9-47e5-ae43-e573ef85e3b5",
+                          "key": "namespace",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        },
+                        {
+                          "id": "70e7893e-ae5d-4503-b926-c49730b2bfba",
+                          "key": "connectionId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Get details for a specific connection. Requires service token with connections:read scope."
+                  },
+                  "response": [
+                    {
+                      "id": "cbe91846-679b-4aba-8b6f-cc4019305bd8",
+                      "name": "Connection details",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/connect/:namespace/:connectionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "connect",
+                            ":namespace",
+                            ":connectionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "namespace"
+                            },
+                            {
+                              "key": "connectionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"connectionId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"mcpUrl\": \"<string>\",\n  \"metadata\": {\n    \"quis_51\": {},\n    \"laborum_e\": {}\n  },\n  \"transport\": \"uplink\",\n  \"mock\": {\n    \"enabled\": \"<boolean>\",\n    \"scenario\": \"<string>\"\n  },\n  \"iconUrl\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"status\": {\n    \"state\": \"<string>\"\n  },\n  \"serverInfo\": {\n    \"name\": \"<string>\",\n    \"version\": \"<string>\",\n    \"title\": \"<string>\",\n    \"icons\": [\n      {\n        \"src\": \"<string>\",\n        \"mimeType\": \"<string>\",\n        \"sizes\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"theme\": \"dark\"\n      },\n      {\n        \"src\": \"<string>\",\n        \"mimeType\": \"<string>\",\n        \"sizes\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"theme\": \"dark\"\n      }\n    ],\n    \"websiteUrl\": \"<string>\",\n    \"description\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:56:53.000Z",
+                      "updatedAt": "2026-07-28T02:56:53.000Z",
+                      "uid": "35240-cbe91846-679b-4aba-8b6f-cc4019305bd8"
+                    },
+                    {
+                      "id": "c613289c-3141-48e0-8e72-66328873ec39",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/connect/:namespace/:connectionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "connect",
+                            ":namespace",
+                            ":connectionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "namespace"
+                            },
+                            {
+                              "key": "connectionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:56:53.000Z",
+                      "updatedAt": "2026-07-28T02:56:53.000Z",
+                      "uid": "35240-c613289c-3141-48e0-8e72-66328873ec39"
+                    },
+                    {
+                      "id": "333c8608-1fe2-401a-8366-0c3cff6adc75",
+                      "name": "Connection not found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/connect/:namespace/:connectionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "connect",
+                            ":namespace",
+                            ":connectionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "namespace"
+                            },
+                            {
+                              "key": "connectionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:56:53.000Z",
+                      "updatedAt": "2026-07-28T02:56:53.000Z",
+                      "uid": "35240-333c8608-1fe2-401a-8366-0c3cff6adc75"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:56:53.000Z",
+                  "updatedAt": "2026-07-28T02:56:53.000Z",
+                  "uid": "35240-2d13aa8f-0fdc-4501-b2be-6e3eb46d57d6"
+                },
+                {
+                  "name": "Delete connection",
+                  "id": "79dd1d91-0077-4ecf-b7e9-5c7d77680b94",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "DELETE",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/connect/:namespace/:connectionId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "connect",
+                        ":namespace",
+                        ":connectionId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "70e72ffa-60d4-4278-81d5-ce21a573ebfc",
+                          "key": "namespace",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        },
+                        {
+                          "id": "83ae7830-c632-4401-9a79-c7b1507f017c",
+                          "key": "connectionId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Delete a connection and terminate its MCP session. Requires API key and namespace ownership."
+                  },
+                  "response": [
+                    {
+                      "id": "4596aa5e-f2e8-4302-b6fe-ae373751a479",
+                      "name": "Connection deleted",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/connect/:namespace/:connectionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "connect",
+                            ":namespace",
+                            ":connectionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "namespace"
+                            },
+                            {
+                              "key": "connectionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"success\": \"<boolean>\"\n}",
+                      "createdAt": "2026-07-28T02:56:53.000Z",
+                      "updatedAt": "2026-07-28T02:56:53.000Z",
+                      "uid": "35240-4596aa5e-f2e8-4302-b6fe-ae373751a479"
+                    },
+                    {
+                      "id": "7fb145aa-1719-4ff1-bcb7-a177737de629",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/connect/:namespace/:connectionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "connect",
+                            ":namespace",
+                            ":connectionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "namespace"
+                            },
+                            {
+                              "key": "connectionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:56:53.000Z",
+                      "updatedAt": "2026-07-28T02:56:53.000Z",
+                      "uid": "35240-7fb145aa-1719-4ff1-bcb7-a177737de629"
+                    },
+                    {
+                      "id": "c8c34fbe-4b55-416f-9953-859f4757fe85",
+                      "name": "Namespace or connection not found",
+                      "originalRequest": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/connect/:namespace/:connectionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "connect",
+                            ":namespace",
+                            ":connectionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "namespace"
+                            },
+                            {
+                              "key": "connectionId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:56:53.000Z",
+                      "updatedAt": "2026-07-28T02:56:53.000Z",
+                      "uid": "35240-c8c34fbe-4b55-416f-9953-859f4757fe85"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:56:53.000Z",
+                  "updatedAt": "2026-07-28T02:56:53.000Z",
+                  "uid": "35240-79dd1d91-0077-4ecf-b7e9-5c7d77680b94"
+                }
+              ],
+              "id": "9f584aba-85f1-40c9-b0f3-b771638cbc24",
+              "createdAt": "2026-07-28T02:56:53.000Z",
+              "updatedAt": "2026-07-28T02:56:53.000Z",
+              "uid": "35240-9f584aba-85f1-40c9-b0f3-b771638cbc24"
+            },
+            {
+              "name": "Create connection",
+              "id": "db27b69c-94db-40e3-9b21-363676f827df",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"transport\": \"uplink\",\n  \"mcpUrl\": \"<uri>\",\n  \"name\": \"<string>\",\n  \"metadata\": {\n    \"fugiat_55c\": {}\n  },\n  \"headers\": {\n    \"enim_d\": \"<string>\",\n    \"aliqua_0_\": \"<string>\",\n    \"ullamco_8\": \"<string>\"\n  },\n  \"mock\": {\n    \"enabled\": \"<boolean>\",\n    \"scenario\": \"<string>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/connect/:namespace",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "connect",
+                    ":namespace"
+                  ],
+                  "variable": [
+                    {
+                      "id": "6815a1b2-d046-42aa-920e-5779c0dbfbcb",
+                      "key": "namespace",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "Create a new MCP connection with an auto-generated ID. Requires API key and namespace ownership."
+              },
+              "response": [
+                {
+                  "id": "843924e3-db45-48f9-af10-fd93a56659a2",
+                  "name": "Connection created",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"transport\": \"uplink\",\n  \"mcpUrl\": \"<uri>\",\n  \"name\": \"<string>\",\n  \"metadata\": {\n    \"fugiat_55c\": {}\n  },\n  \"headers\": {\n    \"enim_d\": \"<string>\",\n    \"aliqua_0_\": \"<string>\",\n    \"ullamco_8\": \"<string>\"\n  },\n  \"mock\": {\n    \"enabled\": \"<boolean>\",\n    \"scenario\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/connect/:namespace",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "connect",
+                        ":namespace"
+                      ],
+                      "variable": [
+                        {
+                          "key": "namespace"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"connectionId\": \"<string>\",\n  \"name\": \"<string>\",\n  \"mcpUrl\": \"<string>\",\n  \"metadata\": {\n    \"quis_51\": {},\n    \"laborum_e\": {}\n  },\n  \"transport\": \"uplink\",\n  \"mock\": {\n    \"enabled\": \"<boolean>\",\n    \"scenario\": \"<string>\"\n  },\n  \"iconUrl\": \"<string>\",\n  \"createdAt\": \"<string>\",\n  \"status\": {\n    \"state\": \"<string>\"\n  },\n  \"serverInfo\": {\n    \"name\": \"<string>\",\n    \"version\": \"<string>\",\n    \"title\": \"<string>\",\n    \"icons\": [\n      {\n        \"src\": \"<string>\",\n        \"mimeType\": \"<string>\",\n        \"sizes\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"theme\": \"dark\"\n      },\n      {\n        \"src\": \"<string>\",\n        \"mimeType\": \"<string>\",\n        \"sizes\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"theme\": \"dark\"\n      }\n    ],\n    \"websiteUrl\": \"<string>\",\n    \"description\": \"<string>\"\n  }\n}",
+                  "createdAt": "2026-07-28T02:56:53.000Z",
+                  "updatedAt": "2026-07-28T02:56:53.000Z",
+                  "uid": "35240-843924e3-db45-48f9-af10-fd93a56659a2"
+                },
+                {
+                  "id": "611bddbf-dd66-4591-adfe-cff72cf221d7",
+                  "name": "Validation error",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"transport\": \"uplink\",\n  \"mcpUrl\": \"<uri>\",\n  \"name\": \"<string>\",\n  \"metadata\": {\n    \"fugiat_55c\": {}\n  },\n  \"headers\": {\n    \"enim_d\": \"<string>\",\n    \"aliqua_0_\": \"<string>\",\n    \"ullamco_8\": \"<string>\"\n  },\n  \"mock\": {\n    \"enabled\": \"<boolean>\",\n    \"scenario\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/connect/:namespace",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "connect",
+                        ":namespace"
+                      ],
+                      "variable": [
+                        {
+                          "key": "namespace"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:56:53.000Z",
+                  "updatedAt": "2026-07-28T02:56:53.000Z",
+                  "uid": "35240-611bddbf-dd66-4591-adfe-cff72cf221d7"
+                },
+                {
+                  "id": "5d887fa0-a8a6-48bd-a49e-b6e96aef2bf9",
+                  "name": "Namespace not found or access denied",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"transport\": \"uplink\",\n  \"mcpUrl\": \"<uri>\",\n  \"name\": \"<string>\",\n  \"metadata\": {\n    \"fugiat_55c\": {}\n  },\n  \"headers\": {\n    \"enim_d\": \"<string>\",\n    \"aliqua_0_\": \"<string>\",\n    \"ullamco_8\": \"<string>\"\n  },\n  \"mock\": {\n    \"enabled\": \"<boolean>\",\n    \"scenario\": \"<string>\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/connect/:namespace",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "connect",
+                        ":namespace"
+                      ],
+                      "variable": [
+                        {
+                          "key": "namespace"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:56:53.000Z",
+                  "updatedAt": "2026-07-28T02:56:53.000Z",
+                  "uid": "35240-5d887fa0-a8a6-48bd-a49e-b6e96aef2bf9"
+                }
+              ],
+              "createdAt": "2026-07-28T02:56:53.000Z",
+              "updatedAt": "2026-07-28T02:56:53.000Z",
+              "uid": "35240-db27b69c-94db-40e3-9b21-363676f827df"
+            },
+            {
+              "name": "List connections",
+              "id": "a5092fbd-670c-41b6-98bc-f53b840a217b",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/connect/:namespace?limit=<integer>&cursor=<string>&name=<string>&mcpUrl=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "connect",
+                    ":namespace"
+                  ],
+                  "query": [
+                    {
+                      "description": "Maximum number of items to return (default 100, max 100)",
+                      "key": "limit",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Pagination cursor from previous response's nextCursor",
+                      "key": "cursor",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by exact connection name",
+                      "key": "name",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filter by exact MCP server URL",
+                      "key": "mcpUrl",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "id": "eb9725d1-3396-4bf7-a139-04cf2f62d70d",
+                      "key": "namespace",
+                      "value": "<string>",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "description": "List all connections in a namespace. Supports filtering by metadata using `metadata.{key}={value}` query params."
+              },
+              "response": [
+                {
+                  "id": "21e98f20-0e0d-4360-800f-44b1e2d4b92a",
+                  "name": "List of connections",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/connect/:namespace?limit=<integer>&cursor=<string>&name=<string>&mcpUrl=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "connect",
+                        ":namespace"
+                      ],
+                      "query": [
+                        {
+                          "description": "Maximum number of items to return (default 100, max 100)",
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Pagination cursor from previous response's nextCursor",
+                          "key": "cursor",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by exact connection name",
+                          "key": "name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by exact MCP server URL",
+                          "key": "mcpUrl",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "namespace"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"connections\": [\n    {\n      \"connectionId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"mcpUrl\": \"<string>\",\n      \"metadata\": {\n        \"laborum_f\": {}\n      },\n      \"transport\": \"uplink\",\n      \"mock\": {\n        \"enabled\": \"<boolean>\",\n        \"scenario\": \"<string>\"\n      },\n      \"iconUrl\": \"<string>\",\n      \"createdAt\": \"<string>\",\n      \"status\": {\n        \"state\": \"<string>\"\n      },\n      \"serverInfo\": {\n        \"name\": \"<string>\",\n        \"version\": \"<string>\",\n        \"title\": \"<string>\",\n        \"icons\": [\n          {\n            \"src\": \"<string>\",\n            \"mimeType\": \"<string>\",\n            \"sizes\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"theme\": \"light\"\n          },\n          {\n            \"src\": \"<string>\",\n            \"mimeType\": \"<string>\",\n            \"sizes\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"theme\": \"dark\"\n          }\n        ],\n        \"websiteUrl\": \"<string>\",\n        \"description\": \"<string>\"\n      }\n    },\n    {\n      \"connectionId\": \"<string>\",\n      \"name\": \"<string>\",\n      \"mcpUrl\": \"<string>\",\n      \"metadata\": {\n        \"exercitation_d6f\": {},\n        \"ipsum_f5b\": {}\n      },\n      \"transport\": \"http\",\n      \"mock\": {\n        \"enabled\": \"<boolean>\",\n        \"scenario\": \"<string>\"\n      },\n      \"iconUrl\": \"<string>\",\n      \"createdAt\": \"<string>\",\n      \"status\": {\n        \"state\": \"<string>\"\n      },\n      \"serverInfo\": {\n        \"name\": \"<string>\",\n        \"version\": \"<string>\",\n        \"title\": \"<string>\",\n        \"icons\": [\n          {\n            \"src\": \"<string>\",\n            \"mimeType\": \"<string>\",\n            \"sizes\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"theme\": \"dark\"\n          },\n          {\n            \"src\": \"<string>\",\n            \"mimeType\": \"<string>\",\n            \"sizes\": [\n              \"<string>\",\n              \"<string>\"\n            ],\n            \"theme\": \"dark\"\n          }\n        ],\n        \"websiteUrl\": \"<string>\",\n        \"description\": \"<string>\"\n      }\n    }\n  ],\n  \"nextCursor\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:56:53.000Z",
+                  "updatedAt": "2026-07-28T02:56:53.000Z",
+                  "uid": "35240-21e98f20-0e0d-4360-800f-44b1e2d4b92a"
+                },
+                {
+                  "id": "13077be9-ad00-4fb5-bb01-8336af5838a8",
+                  "name": "Bad request",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/connect/:namespace?limit=<integer>&cursor=<string>&name=<string>&mcpUrl=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "connect",
+                        ":namespace"
+                      ],
+                      "query": [
+                        {
+                          "description": "Maximum number of items to return (default 100, max 100)",
+                          "key": "limit",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "Pagination cursor from previous response's nextCursor",
+                          "key": "cursor",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by exact connection name",
+                          "key": "name",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Filter by exact MCP server URL",
+                          "key": "mcpUrl",
+                          "value": "<string>"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "key": "namespace"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Bad Request",
+                  "code": 400,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": \"<string>\",\n  \"message\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T02:56:53.000Z",
+                  "updatedAt": "2026-07-28T02:56:53.000Z",
+                  "uid": "35240-13077be9-ad00-4fb5-bb01-8336af5838a8"
+                }
+              ],
+              "createdAt": "2026-07-28T02:56:53.000Z",
+              "updatedAt": "2026-07-28T02:56:53.000Z",
+              "uid": "35240-a5092fbd-670c-41b6-98bc-f53b840a217b"
+            }
+          ],
+          "id": "9f9caf1c-186c-442c-a97a-456dada38b9c",
+          "createdAt": "2026-07-28T02:56:53.000Z",
+          "updatedAt": "2026-07-28T02:56:53.000Z",
+          "uid": "35240-9f9caf1c-186c-442c-a97a-456dada38b9c"
+        }
+      ],
+      "id": "5cbf3591-7472-46fb-8620-c8431d1c637a",
+      "createdAt": "2026-07-28T02:56:53.000Z",
+      "updatedAt": "2026-07-28T02:56:53.000Z",
+      "uid": "35240-5cbf3591-7472-46fb-8620-c8431d1c637a"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.smithery.ai"
+    }
+  ]
+}

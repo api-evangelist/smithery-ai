@@ -1,0 +1,516 @@
+{
+  "info": {
+    "_postman_id": "ea207da1-7f9f-48a3-9a21-853e169d3e3e",
+    "name": "Smithery connect connect.mcp API",
+    "description": "Connect to MCP servers hosted on Smithery without managing OAuth, credentials, or sessions. Create stateless connections to any MCP server, execute MCP JSON-RPC, list/call tools and triggers, and manage subscriptions for trigger events.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:56:54.000Z",
+    "updatedAt": "2026-07-28T02:56:54.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ea207da1-7f9f-48a3-9a21-853e169d3e3e"
+  },
+  "item": [
+    {
+      "name": "connect",
+      "item": [
+        {
+          "name": "{namespace}",
+          "item": [
+            {
+              "name": "{connectionId}",
+              "item": [
+                {
+                  "name": "mcp",
+                  "item": [
+                    {
+                      "name": "MCP endpoint",
+                      "id": "02c8eb18-815d-4394-b8b0-787b3678b9f3",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/connect/:namespace/:connectionId/mcp",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "connect",
+                            ":namespace",
+                            ":connectionId",
+                            "mcp"
+                          ],
+                          "variable": [
+                            {
+                              "id": "55a38b74-0d14-46c5-b1ec-4a02463b1a14",
+                              "key": "namespace",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "16754e8c-bf3a-4045-b3bf-c773d1984d94",
+                              "key": "connectionId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Stateless MCP endpoint using Streamable HTTP transport. Accepts JSON-RPC requests and notifications. Session management is handled internally by Connect\u2014clients should not send mcp-session-id headers. Requires service token with mcp scope."
+                      },
+                      "response": [
+                        {
+                          "id": "2a399629-b28a-4b6e-b2f4-3da8023e9c2f",
+                          "name": "JSON-RPC response",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/connect/:namespace/:connectionId/mcp",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "connect",
+                                ":namespace",
+                                ":connectionId",
+                                "mcp"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "namespace"
+                                },
+                                {
+                                  "key": "connectionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"jsonrpc\": \"<string>\",\n  \"id\": \"<string>\",\n  \"result\": {}\n}",
+                          "createdAt": "2026-07-28T02:56:55.000Z",
+                          "updatedAt": "2026-07-28T02:56:55.000Z",
+                          "uid": "35240-2a399629-b28a-4b6e-b2f4-3da8023e9c2f"
+                        },
+                        {
+                          "id": "62f20f60-2a15-475c-956e-dcf075947bb9",
+                          "name": "Notification accepted",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/connect/:namespace/:connectionId/mcp",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "connect",
+                                ":namespace",
+                                ":connectionId",
+                                "mcp"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "namespace"
+                                },
+                                {
+                                  "key": "connectionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Accepted",
+                          "code": 202,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:56:55.000Z",
+                          "updatedAt": "2026-07-28T02:56:55.000Z",
+                          "uid": "35240-62f20f60-2a15-475c-956e-dcf075947bb9"
+                        },
+                        {
+                          "id": "5258cfe8-b048-49dc-8018-fee6659d7a1f",
+                          "name": "Invalid request",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/connect/:namespace/:connectionId/mcp",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "connect",
+                                ":namespace",
+                                ":connectionId",
+                                "mcp"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "namespace"
+                                },
+                                {
+                                  "key": "connectionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Request",
+                          "code": 400,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"jsonrpc\": \"<string>\",\n  \"id\": \"<string>\",\n  \"error\": {\n    \"code\": \"<number>\",\n    \"message\": \"<string>\",\n    \"data\": {}\n  }\n}",
+                          "createdAt": "2026-07-28T02:56:55.000Z",
+                          "updatedAt": "2026-07-28T02:56:55.000Z",
+                          "uid": "35240-5258cfe8-b048-49dc-8018-fee6659d7a1f"
+                        },
+                        {
+                          "id": "ca06c6d8-1f2b-4118-8477-277a6999561e",
+                          "name": "Authorization required",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/connect/:namespace/:connectionId/mcp",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "connect",
+                                ":namespace",
+                                ":connectionId",
+                                "mcp"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "namespace"
+                                },
+                                {
+                                  "key": "connectionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"jsonrpc\": \"<string>\",\n  \"id\": \"<string>\",\n  \"error\": {\n    \"code\": \"<number>\",\n    \"message\": \"<string>\",\n    \"data\": {\n      \"authorizationUrl\": \"<uri>\"\n    }\n  }\n}",
+                          "createdAt": "2026-07-28T02:56:55.000Z",
+                          "updatedAt": "2026-07-28T02:56:55.000Z",
+                          "uid": "35240-ca06c6d8-1f2b-4118-8477-277a6999561e"
+                        },
+                        {
+                          "id": "dc4e3289-c0e8-4937-ae80-7dec7fec094a",
+                          "name": "Connection not found",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/connect/:namespace/:connectionId/mcp",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "connect",
+                                ":namespace",
+                                ":connectionId",
+                                "mcp"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "namespace"
+                                },
+                                {
+                                  "key": "connectionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"jsonrpc\": \"<string>\",\n  \"id\": \"<string>\",\n  \"error\": {\n    \"code\": \"<number>\",\n    \"message\": \"<string>\",\n    \"data\": {}\n  }\n}",
+                          "createdAt": "2026-07-28T02:56:55.000Z",
+                          "updatedAt": "2026-07-28T02:56:55.000Z",
+                          "uid": "35240-dc4e3289-c0e8-4937-ae80-7dec7fec094a"
+                        },
+                        {
+                          "id": "db38cdc0-657b-4473-b285-ac3afb6cda3f",
+                          "name": "Method not allowed (stateless mode)",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/connect/:namespace/:connectionId/mcp",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "connect",
+                                ":namespace",
+                                ":connectionId",
+                                "mcp"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "namespace"
+                                },
+                                {
+                                  "key": "connectionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Method Not Allowed",
+                          "code": 405,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:56:55.000Z",
+                          "updatedAt": "2026-07-28T02:56:55.000Z",
+                          "uid": "35240-db38cdc0-657b-4473-b285-ac3afb6cda3f"
+                        },
+                        {
+                          "id": "c1ebc15c-d995-4f33-a8d9-81442d49a131",
+                          "name": "Input required",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/connect/:namespace/:connectionId/mcp",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "connect",
+                                ":namespace",
+                                ":connectionId",
+                                "mcp"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "namespace"
+                                },
+                                {
+                                  "key": "connectionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Conflict",
+                          "code": 409,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"jsonrpc\": \"<string>\",\n  \"id\": \"<string>\",\n  \"error\": {\n    \"code\": \"<number>\",\n    \"message\": \"<string>\",\n    \"data\": {\n      \"http\": {\n        \"headers\": {\n          \"cupidatat93a\": {\n            \"label\": \"<string>\",\n            \"description\": \"<string>\",\n            \"required\": \"<boolean>\"\n          }\n        },\n        \"query\": {\n          \"magna_e\": {\n            \"label\": \"<string>\",\n            \"description\": \"<string>\",\n            \"required\": \"<boolean>\"\n          },\n          \"do9\": {\n            \"label\": \"<string>\",\n            \"description\": \"<string>\",\n            \"required\": \"<boolean>\"\n          },\n          \"in92\": {\n            \"label\": \"<string>\",\n            \"description\": \"<string>\",\n            \"required\": \"<boolean>\"\n          }\n        }\n      },\n      \"missing\": {\n        \"headers\": [\n          \"<string>\",\n          \"<string>\"\n        ],\n        \"query\": [\n          \"<string>\",\n          \"<string>\"\n        ]\n      }\n    }\n  }\n}",
+                          "createdAt": "2026-07-28T02:56:55.000Z",
+                          "updatedAt": "2026-07-28T02:56:55.000Z",
+                          "uid": "35240-c1ebc15c-d995-4f33-a8d9-81442d49a131"
+                        },
+                        {
+                          "id": "7d82209d-1007-46c2-a37e-9893156d87e9",
+                          "name": "Internal error",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/connect/:namespace/:connectionId/mcp",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "connect",
+                                ":namespace",
+                                ":connectionId",
+                                "mcp"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "namespace"
+                                },
+                                {
+                                  "key": "connectionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Internal Server Error",
+                          "code": 500,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"jsonrpc\": \"<string>\",\n  \"id\": \"<string>\",\n  \"error\": {\n    \"code\": \"<number>\",\n    \"message\": \"<string>\",\n    \"data\": {}\n  }\n}",
+                          "createdAt": "2026-07-28T02:56:55.000Z",
+                          "updatedAt": "2026-07-28T02:56:55.000Z",
+                          "uid": "35240-7d82209d-1007-46c2-a37e-9893156d87e9"
+                        },
+                        {
+                          "id": "2f0606e2-752d-4c1f-92df-4316603ef9af",
+                          "name": "Upstream error",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/connect/:namespace/:connectionId/mcp",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "connect",
+                                ":namespace",
+                                ":connectionId",
+                                "mcp"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "namespace"
+                                },
+                                {
+                                  "key": "connectionId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Bad Gateway",
+                          "code": 502,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"jsonrpc\": \"<string>\",\n  \"id\": \"<string>\",\n  \"error\": {\n    \"code\": \"<number>\",\n    \"message\": \"<string>\",\n    \"data\": {}\n  }\n}",
+                          "createdAt": "2026-07-28T02:56:55.000Z",
+                          "updatedAt": "2026-07-28T02:56:55.000Z",
+                          "uid": "35240-2f0606e2-752d-4c1f-92df-4316603ef9af"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:56:55.000Z",
+                      "updatedAt": "2026-07-28T02:56:55.000Z",
+                      "uid": "35240-02c8eb18-815d-4394-b8b0-787b3678b9f3"
+                    }
+                  ],
+                  "id": "d166f8b2-a955-4d6c-b6ef-34135fab8bb0",
+                  "createdAt": "2026-07-28T02:56:54.000Z",
+                  "updatedAt": "2026-07-28T02:56:54.000Z",
+                  "uid": "35240-d166f8b2-a955-4d6c-b6ef-34135fab8bb0"
+                }
+              ],
+              "id": "68242f2d-66bc-4911-9d36-ed652e1113f5",
+              "createdAt": "2026-07-28T02:56:54.000Z",
+              "updatedAt": "2026-07-28T02:56:54.000Z",
+              "uid": "35240-68242f2d-66bc-4911-9d36-ed652e1113f5"
+            }
+          ],
+          "id": "8a2c6189-41c4-40a0-9fe5-01d522734462",
+          "createdAt": "2026-07-28T02:56:54.000Z",
+          "updatedAt": "2026-07-28T02:56:54.000Z",
+          "uid": "35240-8a2c6189-41c4-40a0-9fe5-01d522734462"
+        }
+      ],
+      "id": "86ed9539-7fe9-4100-9734-204a9da785f8",
+      "createdAt": "2026-07-28T02:56:54.000Z",
+      "updatedAt": "2026-07-28T02:56:54.000Z",
+      "uid": "35240-86ed9539-7fe9-4100-9734-204a9da785f8"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.smithery.ai"
+    }
+  ]
+}

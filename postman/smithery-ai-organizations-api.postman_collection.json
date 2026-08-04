@@ -1,0 +1,756 @@
+{
+  "info": {
+    "_postman_id": "392520c4-af88-47e2-988f-4c36ea2e0476",
+    "name": "Smithery connect organizations API",
+    "description": "Connect to MCP servers hosted on Smithery without managing OAuth, credentials, or sessions. Create stateless connections to any MCP server, execute MCP JSON-RPC, list/call tools and triggers, and manage subscriptions for trigger events.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:57:03.000Z",
+    "updatedAt": "2026-07-28T02:57:03.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-392520c4-af88-47e2-988f-4c36ea2e0476"
+  },
+  "item": [
+    {
+      "name": "organizations",
+      "item": [
+        {
+          "name": "{orgId}",
+          "item": [
+            {
+              "name": "api-keys",
+              "item": [
+                {
+                  "name": "{keyId}",
+                  "item": [
+                    {
+                      "name": "Revoke a team API key",
+                      "id": "448f46c4-f02c-4020-8554-c4cb0dd7043a",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/organizations/:orgId/api-keys/:keyId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "organizations",
+                            ":orgId",
+                            "api-keys",
+                            ":keyId"
+                          ],
+                          "variable": [
+                            {
+                              "id": "07a5bdc7-612c-426c-aa96-091e896bb1d6",
+                              "key": "orgId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            },
+                            {
+                              "id": "f543190c-172c-46bb-b173-0a13b9b6b024",
+                              "key": "keyId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Deletes an API key belonging to the organization. Requires admin role."
+                      },
+                      "response": [
+                        {
+                          "id": "9ebad4a5-c185-44ab-8225-b05b504cd62c",
+                          "name": "API key revoked",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/organizations/:orgId/api-keys/:keyId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "organizations",
+                                ":orgId",
+                                "api-keys",
+                                ":keyId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "orgId"
+                                },
+                                {
+                                  "key": "keyId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"success\": \"<boolean>\"\n}",
+                          "createdAt": "2026-07-28T02:57:03.000Z",
+                          "updatedAt": "2026-07-28T02:57:03.000Z",
+                          "uid": "35240-9ebad4a5-c185-44ab-8225-b05b504cd62c"
+                        },
+                        {
+                          "id": "504d2b50-ebca-4d95-9cae-654aeed96ad8",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/organizations/:orgId/api-keys/:keyId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "organizations",
+                                ":orgId",
+                                "api-keys",
+                                ":keyId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "orgId"
+                                },
+                                {
+                                  "key": "keyId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:57:03.000Z",
+                          "updatedAt": "2026-07-28T02:57:03.000Z",
+                          "uid": "35240-504d2b50-ebca-4d95-9cae-654aeed96ad8"
+                        },
+                        {
+                          "id": "30bcfd2c-dbfc-4bef-ab7a-35b60e6dcd9f",
+                          "name": "Forbidden \u2014 user is not an admin",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/organizations/:orgId/api-keys/:keyId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "organizations",
+                                ":orgId",
+                                "api-keys",
+                                ":keyId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "orgId"
+                                },
+                                {
+                                  "key": "keyId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:57:03.000Z",
+                          "updatedAt": "2026-07-28T02:57:03.000Z",
+                          "uid": "35240-30bcfd2c-dbfc-4bef-ab7a-35b60e6dcd9f"
+                        },
+                        {
+                          "id": "38231e44-8f22-4a2e-8656-7a3f0dfefe8f",
+                          "name": "API key not found in this organization",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/organizations/:orgId/api-keys/:keyId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "organizations",
+                                ":orgId",
+                                "api-keys",
+                                ":keyId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "orgId"
+                                },
+                                {
+                                  "key": "keyId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"error\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:57:03.000Z",
+                          "updatedAt": "2026-07-28T02:57:03.000Z",
+                          "uid": "35240-38231e44-8f22-4a2e-8656-7a3f0dfefe8f"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:57:03.000Z",
+                      "updatedAt": "2026-07-28T02:57:03.000Z",
+                      "uid": "35240-448f46c4-f02c-4020-8554-c4cb0dd7043a"
+                    }
+                  ],
+                  "id": "5817f1d7-e718-4ab4-9737-d970645e4fe7",
+                  "createdAt": "2026-07-28T02:57:03.000Z",
+                  "updatedAt": "2026-07-28T02:57:03.000Z",
+                  "uid": "35240-5817f1d7-e718-4ab4-9737-d970645e4fe7"
+                },
+                {
+                  "name": "Create a team API key",
+                  "id": "bde9b89c-5696-4abe-ab8a-fbaf9bbd9f4c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/organizations/:orgId/api-keys",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "organizations",
+                        ":orgId",
+                        "api-keys"
+                      ],
+                      "variable": [
+                        {
+                          "id": "888bd9a7-42ed-4ab9-b8fc-b9b4205231e4",
+                          "key": "orgId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Creates an API key owned by the organization. Requires admin role."
+                  },
+                  "response": [
+                    {
+                      "id": "4e925c9f-3d7a-4665-9ab8-aa31945e8b52",
+                      "name": "API key created (key value only shown on creation)",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/organizations/:orgId/api-keys",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "organizations",
+                            ":orgId",
+                            "api-keys"
+                          ],
+                          "variable": [
+                            {
+                              "key": "orgId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Created",
+                      "code": 201,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"key\": \"<string>\",\n  \"createdAt\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:57:03.000Z",
+                      "updatedAt": "2026-07-28T02:57:03.000Z",
+                      "uid": "35240-4e925c9f-3d7a-4665-9ab8-aa31945e8b52"
+                    },
+                    {
+                      "id": "186f0a85-deb0-40e4-8020-dc232b528d9d",
+                      "name": "Bad request",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/organizations/:orgId/api-keys",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "organizations",
+                            ":orgId",
+                            "api-keys"
+                          ],
+                          "variable": [
+                            {
+                              "key": "orgId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Bad Request",
+                      "code": 400,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:57:03.000Z",
+                      "updatedAt": "2026-07-28T02:57:03.000Z",
+                      "uid": "35240-186f0a85-deb0-40e4-8020-dc232b528d9d"
+                    },
+                    {
+                      "id": "83028aac-87cb-4361-9c41-76f36ea79661",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/organizations/:orgId/api-keys",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "organizations",
+                            ":orgId",
+                            "api-keys"
+                          ],
+                          "variable": [
+                            {
+                              "key": "orgId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:57:03.000Z",
+                      "updatedAt": "2026-07-28T02:57:03.000Z",
+                      "uid": "35240-83028aac-87cb-4361-9c41-76f36ea79661"
+                    },
+                    {
+                      "id": "c3c0df03-02f9-4052-8533-ac06ce7a46dc",
+                      "name": "Forbidden \u2014 user is not an admin",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/organizations/:orgId/api-keys",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "organizations",
+                            ":orgId",
+                            "api-keys"
+                          ],
+                          "variable": [
+                            {
+                              "key": "orgId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:57:03.000Z",
+                      "updatedAt": "2026-07-28T02:57:03.000Z",
+                      "uid": "35240-c3c0df03-02f9-4052-8533-ac06ce7a46dc"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:57:03.000Z",
+                  "updatedAt": "2026-07-28T02:57:03.000Z",
+                  "uid": "35240-bde9b89c-5696-4abe-ab8a-fbaf9bbd9f4c"
+                },
+                {
+                  "name": "List team API keys",
+                  "id": "095fcb5f-2c68-409f-878a-5b6b489f058e",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/organizations/:orgId/api-keys",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "organizations",
+                        ":orgId",
+                        "api-keys"
+                      ],
+                      "variable": [
+                        {
+                          "id": "a9949f8c-d9e9-4ae3-9be0-ea979dca1bd7",
+                          "key": "orgId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    },
+                    "description": "Returns all API keys belonging to the organization. Requires admin role. Key values are not included in the response."
+                  },
+                  "response": [
+                    {
+                      "id": "d4aa8201-7cb2-436d-b198-db06945609c5",
+                      "name": "List of team API keys",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/organizations/:orgId/api-keys",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "organizations",
+                            ":orgId",
+                            "api-keys"
+                          ],
+                          "variable": [
+                            {
+                              "key": "orgId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"apiKeys\": [\n    {\n      \"value\": \"reference #/components/schemas/TeamApiKey not found in the OpenAPI spec\"\n    },\n    {\n      \"value\": \"reference #/components/schemas/TeamApiKey not found in the OpenAPI spec\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:57:03.000Z",
+                      "updatedAt": "2026-07-28T02:57:03.000Z",
+                      "uid": "35240-d4aa8201-7cb2-436d-b198-db06945609c5"
+                    },
+                    {
+                      "id": "29a93c15-45ca-4b65-93dc-c67024af0f9b",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/organizations/:orgId/api-keys",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "organizations",
+                            ":orgId",
+                            "api-keys"
+                          ],
+                          "variable": [
+                            {
+                              "key": "orgId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:57:03.000Z",
+                      "updatedAt": "2026-07-28T02:57:03.000Z",
+                      "uid": "35240-29a93c15-45ca-4b65-93dc-c67024af0f9b"
+                    },
+                    {
+                      "id": "a6dfea9c-4740-408a-9124-c9f3f914cfa5",
+                      "name": "Forbidden \u2014 user is not an admin",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/organizations/:orgId/api-keys",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "organizations",
+                            ":orgId",
+                            "api-keys"
+                          ],
+                          "variable": [
+                            {
+                              "key": "orgId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"error\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:57:03.000Z",
+                      "updatedAt": "2026-07-28T02:57:03.000Z",
+                      "uid": "35240-a6dfea9c-4740-408a-9124-c9f3f914cfa5"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:57:03.000Z",
+                  "updatedAt": "2026-07-28T02:57:03.000Z",
+                  "uid": "35240-095fcb5f-2c68-409f-878a-5b6b489f058e"
+                }
+              ],
+              "id": "6414a9c7-9ab8-48d4-92f7-00c31bb36ef8",
+              "createdAt": "2026-07-28T02:57:03.000Z",
+              "updatedAt": "2026-07-28T02:57:03.000Z",
+              "uid": "35240-6414a9c7-9ab8-48d4-92f7-00c31bb36ef8"
+            }
+          ],
+          "id": "665d1d68-4cc1-4c46-93f3-4f75d628b2a9",
+          "createdAt": "2026-07-28T02:57:03.000Z",
+          "updatedAt": "2026-07-28T02:57:03.000Z",
+          "uid": "35240-665d1d68-4cc1-4c46-93f3-4f75d628b2a9"
+        }
+      ],
+      "id": "2d6f206e-8cdd-4bf3-9fce-e664e4a2ff3e",
+      "createdAt": "2026-07-28T02:57:03.000Z",
+      "updatedAt": "2026-07-28T02:57:03.000Z",
+      "uid": "35240-2d6f206e-8cdd-4bf3-9fce-e664e4a2ff3e"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.smithery.ai"
+    }
+  ]
+}
