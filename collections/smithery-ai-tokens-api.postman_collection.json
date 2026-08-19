@@ -1,0 +1,252 @@
+{
+  "item": [
+    {
+      "id": "cad1527c-a096-42af-99c0-844b21a1df92",
+      "name": "tokens",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "058344c1-06de-4607-a7ba-f3ff994f5870",
+          "name": "Create a service token",
+          "request": {
+            "name": "Create a service token",
+            "description": {
+              "content": "Create a service token for machine-to-machine authentication. Accepts API key or bearer token. Optionally apply restrictions.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "tokens"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"policy\": [\n    {\n      \"namespaces\": \"<string>\",\n      \"resources\": \"<string>\",\n      \"operations\": \"<string>\",\n      \"metadata\": {\n        \"key_0\": \"<string>\"\n      },\n      \"ttl\": \"<string>\",\n      \"rpcReqMatch\": {\n        \"key_0\": \"<string>\",\n        \"key_1\": \"<string>\"\n      }\n    }\n  ],\n  \"organizationId\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "deb23b29-4e4c-4708-a9d1-aa046b7d9071",
+              "name": "Token created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tokens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"policy\": [\n    {\n      \"namespaces\": \"string\",\n      \"resources\": \"connections\",\n      \"operations\": \"read\",\n      \"metadata\": {\n        \"key_0\": \"string\"\n      },\n      \"ttl\": \"string\",\n      \"rpcReqMatch\": {\n        \"params.name\": \"^(create_issue|search_issues)$\"\n      }\n    }\n  ],\n  \"organizationId\": \"org_01H1234567890\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"token\": \"string\",\n  \"expiresAt\": \"2024-01-01T01:00:00.000Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7523ca71-efde-43bf-9913-d6bb53ad59ba",
+              "name": "Bad request (invalid parameters)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tokens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"policy\": [\n    {\n      \"namespaces\": \"string\",\n      \"resources\": \"connections\",\n      \"operations\": \"read\",\n      \"metadata\": {\n        \"key_0\": \"string\"\n      },\n      \"ttl\": \"string\",\n      \"rpcReqMatch\": {\n        \"params.name\": \"^(create_issue|search_issues)$\"\n      }\n    }\n  ],\n  \"organizationId\": \"org_01H1234567890\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"unauthorized\",\n  \"message\": \"Invalid API key\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "da7f5ee3-f806-42d8-a6aa-81caabb0ff47",
+              "name": "Unauthorized (missing or invalid credentials)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tokens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"policy\": [\n    {\n      \"namespaces\": \"string\",\n      \"resources\": \"connections\",\n      \"operations\": \"read\",\n      \"metadata\": {\n        \"key_0\": \"string\"\n      },\n      \"ttl\": \"string\",\n      \"rpcReqMatch\": {\n        \"params.name\": \"^(create_issue|search_issues)$\"\n      }\n    }\n  ],\n  \"organizationId\": \"org_01H1234567890\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"unauthorized\",\n  \"message\": \"Invalid API key\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f706999e-4937-4214-b4bf-cd5fe3c2098e",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "tokens"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"policy\": [\n    {\n      \"namespaces\": \"string\",\n      \"resources\": \"connections\",\n      \"operations\": \"read\",\n      \"metadata\": {\n        \"key_0\": \"string\"\n      },\n      \"ttl\": \"string\",\n      \"rpcReqMatch\": {\n        \"params.name\": \"^(create_issue|search_issues)$\"\n      }\n    }\n  ],\n  \"organizationId\": \"org_01H1234567890\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": \"unauthorized\",\n  \"message\": \"Invalid API key\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.smithery.ai",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "c96ae647-e632-4714-88fa-14d29f663c3b",
+    "name": "Smithery connect tokens API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Connect to MCP servers hosted on Smithery without managing OAuth, credentials, or sessions. Create stateless connections to any MCP server, execute MCP JSON-RPC, list/call tools and triggers, and manage subscriptions for trigger events.",
+      "type": "text/plain"
+    }
+  }
+}
