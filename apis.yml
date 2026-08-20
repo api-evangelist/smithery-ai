@@ -7,6 +7,8 @@ apis:
   humanURL: https://smithery.ai/docs
   baseURL: https://api.smithery.ai
   tags:
+  - Connect
+  tags_raw:
   - connect
   properties:
   - type: OpenAPI
@@ -34,7 +36,8 @@ apis:
   description: The connect.mcp API from Smithery — 1 operation(s) for connect.mcp.
   humanURL: https://smithery.ai/docs
   baseURL: https://api.smithery.ai
-  tags:
+  tags: []
+  tags_raw:
   - connect.mcp
   properties:
   - type: OpenAPI
@@ -63,6 +66,8 @@ apis:
   humanURL: https://smithery.ai/docs
   baseURL: https://api.smithery.ai
   tags:
+  - Domains
+  tags_raw:
   - domains
   properties:
   - type: OpenAPI
@@ -119,6 +124,8 @@ apis:
   humanURL: https://smithery.ai/docs
   baseURL: https://api.smithery.ai
   tags:
+  - Namespaces
+  tags_raw:
   - namespaces
   properties:
   - type: OpenAPI
@@ -147,6 +154,8 @@ apis:
   humanURL: https://smithery.ai/docs
   baseURL: https://api.smithery.ai
   tags:
+  - Organization
+  tags_raw:
   - organizations
   properties:
   - type: OpenAPI
@@ -175,6 +184,8 @@ apis:
   humanURL: https://smithery.ai/docs
   baseURL: https://api.smithery.ai
   tags:
+  - Servers
+  tags_raw:
   - servers
   properties:
   - type: OpenAPI
@@ -203,6 +214,8 @@ apis:
   humanURL: https://smithery.ai/docs
   baseURL: https://api.smithery.ai
   tags:
+  - Skills
+  tags_raw:
   - skills
   properties:
   - type: OpenAPI
@@ -231,6 +244,8 @@ apis:
   humanURL: https://smithery.ai/docs
   baseURL: https://api.smithery.ai
   tags:
+  - Tokens
+  tags_raw:
   - tokens
   properties:
   - type: OpenAPI
@@ -255,6 +270,16 @@ apis:
     url: json-structure/smithery-connection-structure.json
 name: Smithery
 tags:
+  - Artificial Intelligence
+  - Agents
+  - MCP
+  - Registry
+  - Hosting
+  - Tools
+  - Skills
+  - Marketplace
+  - Developer Platform
+tags_raw:
   - AI
   - Agents
   - MCP
