@@ -320,6 +320,8 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/smithery-ai.png
 access: 3rd-Party
 common:
+  - type: Website
+    url: https://www.smithery.ai/
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/smithery/overview
   - type: AgenticAccess
