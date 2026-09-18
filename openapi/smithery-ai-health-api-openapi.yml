@@ -1,8 +1,8 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Smithery connect Health API
+  title: Smithery Registry Health API
   version: 1.0.0
-  description: Connect to MCP servers hosted on Smithery without managing OAuth, credentials, or sessions. Create stateless connections to any MCP server, execute MCP JSON-RPC, list/call tools and triggers, and manage subscriptions for trigger events.
+  description: Discover and manage MCP servers, skills, and tools on Smithery. Browse the public registry, publish releases, manage server icons/secrets/logs, create namespaces, manage organization API keys, and mint scoped service tokens.
 servers:
 - url: https://api.smithery.ai
 tags:

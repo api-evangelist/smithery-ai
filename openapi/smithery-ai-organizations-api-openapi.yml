@@ -1,18 +1,18 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Smithery connect organizations API
+  title: Smithery Registry Organizations API
   version: 1.0.0
-  description: Connect to MCP servers hosted on Smithery without managing OAuth, credentials, or sessions. Create stateless connections to any MCP server, execute MCP JSON-RPC, list/call tools and triggers, and manage subscriptions for trigger events.
+  description: Discover and manage MCP servers, skills, and tools on Smithery. Browse the public registry, publish releases, manage server icons/secrets/logs, create namespaces, manage organization API keys, and mint scoped service tokens.
 servers:
 - url: https://api.smithery.ai
 tags:
-- name: organizations
+- name: Organizations
 paths:
   /organizations/{orgId}/api-keys:
     post:
       operationId: postOrganizations:orgIdApi-keys
       tags:
-      - organizations
+      - Organizations
       summary: Create a team API key
       description: Creates an API key owned by the organization. Requires admin role.
       responses:
@@ -96,7 +96,7 @@ paths:
     get:
       operationId: getOrganizations:orgIdApi-keys
       tags:
-      - organizations
+      - Organizations
       summary: List team API keys
       description: Returns all API keys belonging to the organization. Requires admin role. Key values are not included in the response.
       responses:
@@ -162,7 +162,7 @@ paths:
     delete:
       operationId: deleteOrganizations:orgIdApi-keys:keyId
       tags:
-      - organizations
+      - Organizations
       summary: Revoke a team API key
       description: Deletes an API key belonging to the organization. Requires admin role.
       responses:

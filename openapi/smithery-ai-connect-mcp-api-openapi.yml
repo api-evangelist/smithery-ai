@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Smithery connect connect.mcp API
+  title: Smithery Connect Connect.mcp API
   version: 1.0.0
   description: Connect to MCP servers hosted on Smithery without managing OAuth, credentials, or sessions. Create stateless connections to any MCP server, execute MCP JSON-RPC, list/call tools and triggers, and manage subscriptions for trigger events.
 servers:
@@ -129,65 +129,6 @@ components:
       - id
       - error
       additionalProperties: false
-    HttpInputField:
-      type: object
-      properties:
-        label:
-          type: string
-        description:
-          type: string
-        required:
-          type: boolean
-      required:
-      - label
-      additionalProperties: false
-      id: HttpInputField
-    JsonRpcError:
-      type: object
-      properties:
-        jsonrpc:
-          type: string
-          const: '2.0'
-        id:
-          anyOf:
-          - type: string
-          - type: number
-          - type: 'null'
-        error:
-          type: object
-          properties:
-            code:
-              type: number
-              example: -32600
-            message:
-              type: string
-              example: Invalid Request
-            data: {}
-          required:
-          - code
-          - message
-          additionalProperties: false
-      required:
-      - jsonrpc
-      - id
-      - error
-      additionalProperties: false
-    JsonRpcResponse:
-      type: object
-      properties:
-        jsonrpc:
-          type: string
-          const: '2.0'
-        id:
-          anyOf:
-          - type: string
-          - type: number
-          - type: 'null'
-        result: {}
-      required:
-      - jsonrpc
-      - id
-      additionalProperties: false
     AuthRequiredError:
       type: object
       properties:
@@ -226,6 +167,65 @@ components:
       - jsonrpc
       - id
       - error
+      additionalProperties: false
+    JsonRpcError:
+      type: object
+      properties:
+        jsonrpc:
+          type: string
+          const: '2.0'
+        id:
+          anyOf:
+          - type: string
+          - type: number
+          - type: 'null'
+        error:
+          type: object
+          properties:
+            code:
+              type: number
+              example: -32600
+            message:
+              type: string
+              example: Invalid Request
+            data: {}
+          required:
+          - code
+          - message
+          additionalProperties: false
+      required:
+      - jsonrpc
+      - id
+      - error
+      additionalProperties: false
+    HttpInputField:
+      type: object
+      properties:
+        label:
+          type: string
+        description:
+          type: string
+        required:
+          type: boolean
+      required:
+      - label
+      additionalProperties: false
+      id: HttpInputField
+    JsonRpcResponse:
+      type: object
+      properties:
+        jsonrpc:
+          type: string
+          const: '2.0'
+        id:
+          anyOf:
+          - type: string
+          - type: number
+          - type: 'null'
+        result: {}
+      required:
+      - jsonrpc
+      - id
       additionalProperties: false
     CredentialProfileHttp:
       type: object

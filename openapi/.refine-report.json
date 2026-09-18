@@ -1,21 +1,14 @@
 {
   "provider": "smithery-ai",
   "sources": [
-    "smithery-ai-connect-api-openapi.yml",
-    "smithery-ai-connect-mcp-api-openapi.yml",
-    "smithery-ai-domains-api-openapi.yml",
-    "smithery-ai-health-api-openapi.yml",
-    "smithery-ai-namespaces-api-openapi.yml",
-    "smithery-ai-organizations-api-openapi.yml",
-    "smithery-ai-servers-api-openapi.yml",
-    "smithery-ai-skills-api-openapi.yml",
-    "smithery-ai-tokens-api-openapi.yml"
+    "_original/smithery-connect-api-openapi.yml",
+    "_original/smithery-registry-api-openapi.yml"
   ],
   "outputs": [
     "smithery-ai-connect-api-openapi.yml",
     "smithery-ai-connect-mcp-api-openapi.yml",
-    "smithery-ai-domains-api-openapi.yml",
     "smithery-ai-health-api-openapi.yml",
+    "smithery-ai-domains-api-openapi.yml",
     "smithery-ai-namespaces-api-openapi.yml",
     "smithery-ai-organizations-api-openapi.yml",
     "smithery-ai-servers-api-openapi.yml",
@@ -24,9 +17,34 @@
   ],
   "archived": [],
   "errors": [
-    "smithery-ai-organizations-api-openapi.yml: dangling $ref: #/components/schemas/TeamApiKey"
+    "smithery-registry-api-openapi.yml: dangling $ref: #/components/schemas/TeamApiKey"
   ],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "smithery-connect-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "smithery-connect-api-openapi.yml: declared missing tag: connect",
+    "smithery-connect-api-openapi.yml: declared missing tag: connect.mcp",
+    "smithery-registry-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "smithery-registry-api-openapi.yml: tagged paths GET /health -> Health",
+    "smithery-registry-api-openapi.yml: declared missing tag: Health",
+    "smithery-registry-api-openapi.yml: declared missing tag: domains",
+    "smithery-registry-api-openapi.yml: declared missing tag: namespaces",
+    "smithery-registry-api-openapi.yml: declared missing tag: organizations",
+    "smithery-registry-api-openapi.yml: declared missing tag: servers",
+    "smithery-registry-api-openapi.yml: declared missing tag: skills",
+    "smithery-registry-api-openapi.yml: declared missing tag: tokens",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "smithery-ai-connect-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "smithery-ai-connect-mcp-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "smithery-ai-domains-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "smithery-ai-health-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "smithery-ai-namespaces-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "smithery-ai-organizations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "smithery-ai-servers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "smithery-ai-skills-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "smithery-ai-tokens-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
